@@ -1,0 +1,13 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  outline: 1px solid tomato;
+  width: 100%;
+  height: 56px;
+}
+
+.Logo {
+  margin-left: 19px;
+}
