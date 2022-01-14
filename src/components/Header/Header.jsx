@@ -2,8 +2,8 @@ import style from './Header.module.css';
 
 const Header = () => {
   return (
-    <haeder className={style.Header}>
-      <span className={style.Logo}>Kapusta</span>
+    <haeder className={style.header}>
+      <span className={style.logo}>Kapusta</span>
     </haeder>
   );
 };
