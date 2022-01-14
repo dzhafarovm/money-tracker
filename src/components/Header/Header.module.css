@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white-color);
+  outline: 1px solid tomato; /*это временно*/
+  width: 100%;
+  height: 56px;
+}
+
+.logo {
+  margin-left: 19px;
+}
