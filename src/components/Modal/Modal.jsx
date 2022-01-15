@@ -1,11 +1,24 @@
 import { createPortal } from "react-dom";
 import style from './Modal.module.css'
 import sprite from '../images/sprite.svg';
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 
 const modalRoot = document.querySelector('#modal-root');
 
-const Modal = ({ message, onClose }) => {
+// Добавить в необходимый компонент
+// - рендер модалки
+// { modal && <Modal onClose={onClose} /> }
+// - логика закрытия
+// import { useState } from 'react';
+//   const [modal, setModal] = useState(true); 
+//   const onClose = () => {
+//     setModal(prev => !prev);
+//   };
+
+
+
+// Когда будут готовы все компоненты выход и добавление убрать дефолтное значение
+const Modal = ({ message="Вы действительно хотите выйти?", onClose }) => {
 
     // const [modal, setModal] = useState(true);
 
@@ -37,7 +50,7 @@ const Modal = ({ message, onClose }) => {
                         <use href={`${sprite}#close`}></use>
                     </svg>
                 </button>
-                <p className={style.text}>Вы действительно хотите выйти?</p>
+                <p className={style.text}>{ message }</p>
                 <div className={style.btnBlock}>
                     <button className={style.btn}>Да</button>
                     <button className={style.btn}>Нет</button>
