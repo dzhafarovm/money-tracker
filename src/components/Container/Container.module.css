@@ -3,7 +3,7 @@
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
-  outline: 1px solid tomato; /*это временно*/
+  /* outline: 1px solid tomato;  */
 }
 
 @media screen and (min-width: 320px) {

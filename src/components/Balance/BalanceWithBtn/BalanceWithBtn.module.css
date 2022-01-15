@@ -1,0 +1,90 @@
+.wrapper {
+  position: relative;
+  width: 248px;
+  height: 70px;
+  margin: 0px 37px;
+}
+
+.balanceTitle {
+  font-family: Roboto;
+  font-style: 400;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  color: var(--primary-text-transparency);
+}
+.valueBtn {
+  width: 125px;
+  height: 44px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.67;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--black-color);
+  text-align: right;
+
+  padding-right: 17px;
+  border: 1px solid var(--white-color);
+  border-radius: 22px 0px 0px 22px;
+  cursor: pointer;
+}
+.submitBtn {
+  width: 125px;
+  height: 44px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--primary-text-transparency);
+
+  padding-left: 17px;
+  border: 1px solid var(--white-color);
+  border-radius: 0px 22px 22px 0px;
+  cursor: pointer;
+}
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+}
+@media screen and (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 369px;
+    margin: 0;
+    /* border: 1px solid grey; */
+  }
+  .btnWrapper {
+    margin: 0;
+  }
+  .valueBtn,
+  .submitBtn {
+    border-radius: 16px;
+  }
+  .valueBtn {
+    margin-right: 15px;
+    padding-right: 20px;
+    cursor: text;
+  }
+  .submitBtn {
+    justify-content: center;
+  }
+}
+.inputBalance {
+  background-color: transparent;
+  border: transparent;
+}

@@ -1,0 +1,28 @@
+.GoToReportsWrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .GoToReportsWrapper {
+    /* border: 1px solid red; */
+    margin: 0;
+  }
+}
+.GoToRepoirtText {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-decoration: none;
+
+  text-align: right;
+  letter-spacing: 0.04em;
+  margin-right: 20px;
+
+  color: var(--primary-text-transparency);
+}
+.reportSvg {
+  padding: 5px;
+}
