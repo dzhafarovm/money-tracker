@@ -1,13 +1,44 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--white-color);
-  outline: 1px solid tomato; /*это временно*/
-  width: 100%;
+  /* outline: 1px solid tomato; это временно */
   height: 56px;
 }
 
-.logo {
-  margin-left: 19px;
+.navConteiner {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 19px;
+  padding-right: 19px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: inherit;
+}
+
+@media screen and (max-width: 767px) {
+  .navConteiner {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .navConteiner {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .navConteiner {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 100%;
+  }
 }

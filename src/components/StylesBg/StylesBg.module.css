@@ -1,0 +1,57 @@
+/* фон */
+
+@media screen and (max-width: 767px) {
+  /*Серый скруглённый фон на залогиненых стр.*/
+  .mainBg {
+    height: 286px;
+    background: var(--secondary-bcg-color);
+    border-bottom-left-radius: 150px;
+  }
+
+  /*Верхний фон с капустами на стр. логинизации*/
+  .mainBgAuth {
+    height: 286px;
+    background: var(--secondary-bcg-color) url(components/images/mob-top.svg);
+    background-position-y: 104px;
+    background-position-x: 100%;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 120px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mainBg {
+    height: 256px;
+    background: var(--secondary-bcg-color);
+    border-bottom-left-radius: 120px;
+  }
+
+  .mainBgAuth {
+    height: 526px;
+    background: var(--secondary-bcg-color) url(components/images/tablet-top.svg);
+    background-repeat: no-repeat;
+    background-position-y: 28px;
+    background-position-x: center;
+    border-bottom-left-radius: 120px;
+    background-size: contain;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .mainBg {
+    height: 526px;
+    background: var(--secondary-bcg-color);
+    border-bottom-left-radius: 120px;
+  }
+
+  .mainBgAuth {
+    height: 526px;
+    background: var(--secondary-bcg-color)
+      url(components/images/desktop-top.svg);
+    background-repeat: no-repeat;
+    background-position-y: 28px;
+    background-position-x: center;
+    border-bottom-left-radius: 120px;
+    background-size: contain;
+  }
+}
