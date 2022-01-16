@@ -1,0 +1,94 @@
+.navHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-right: 1px solid #e0e5eb;
+  text-decoration: none;
+  color: var(--primary-text-color);
+  outline: none;
+}
+
+.userIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 32px;
+  min-height: 32px;
+  background-color: var(--secondary-bcg-color);
+  border-radius: 50%;
+  font-weight: 700;
+
+  margin-right: 10px;
+}
+
+.logo {
+  margin-left: 19px;
+}
+
+.logoutButtonIcon {
+  fill: #cbccd0;
+}
+.logoutButtonIcon:hover,
+.logoutButtonIcon:focus {
+  fill: var(--accent-color);
+}
+
+.userEmail {
+  margin-right: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.userEmail:hover,
+.userEmail:focus {
+  text-decoration: underline;
+}
+
+.logoutButton {
+  display: flex;
+  padding: 0;
+  margin-left: 20px;
+  background-color: transparent;
+  border: none;
+  color: var(--primary-text-color);
+}
+.logoutButton:hover,
+.logoutButton:focus {
+  text-decoration: underline;
+}
+
+.logoutButtonText {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .user {
+    border-right: 0;
+  }
+  .userIcon:hover,
+  .userIcon:focus {
+    background-color: var(--accent-color);
+  }
+
+  .logoutButton {
+    margin-left: 12px;
+  }
+
+  .userIcon {
+    margin-right: 0px;
+  }
+  .userIcon:hover,
+  .userIcon:focus {
+    color: var(--white-color);
+  }
+}
