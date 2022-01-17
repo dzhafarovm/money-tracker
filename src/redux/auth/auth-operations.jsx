@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://teamproj-money-tracker.herokuapp.com';
 
@@ -20,7 +20,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
 
     return data;
   } catch (error) {
-    alert('This user is already registered');
+    toast('This user is already registered');
     console.log(error);
   }
 });
@@ -31,7 +31,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    alert('Вы ввели не верный пароль');
+    toast('Вы ввели неверный пароль');
     console.log(error);
   }
 });

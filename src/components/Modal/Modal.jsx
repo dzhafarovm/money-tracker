@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
 
+import authOperations from 'redux/auth/auth-operations';
 import style from './Modal.module.css';
 import sprite from '../images/sprite.svg';
 
@@ -33,9 +35,10 @@ const Modal = ({ message, onClose }) => {
     }
   };
 
+  const dispatch = useDispatch();
   const closeModalAndFetch = () => {
     if (message === 'Вы действительно хотите выйти?') {
-      // fetch для логаута
+       dispatch(authOperations.logOut());
     }
 
     if (message === 'Вы уверены?') {

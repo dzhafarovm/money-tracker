@@ -10,7 +10,7 @@ const FormSchema = Yup.object().shape({
   email: Yup.string().email().required('Это обязательное поле'),
   password: Yup.string()
     .required('Это обязательное поле')
-    .min(4, 'Пароль должен состоять как минимум из 4 символов'),
+    .min(6, 'Пароль должен состоять как минимум из 6 символов'),
 });
 
 const initialValues = {
