@@ -58,7 +58,9 @@
   background-color: transparent;
   border: none;
   color: var(--primary-text-color);
+  cursor: pointer;
 }
+
 .logoutButton:hover,
 .logoutButton:focus {
   text-decoration: underline;
