@@ -17,10 +17,10 @@ const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('/api/auth/signup', credentials);
     token.set(data.token);
-
+    toast.success('Вы зарегистрированы');
     return data;
   } catch (error) {
-    toast('This user is already registered');
+    toast.error('Пользователь с такми email уже зарегистрирован');
     console.log(error);
   }
 });
@@ -31,7 +31,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    toast('Вы ввели неверный пароль');
+    toast.error('Вы ввели неверный пароль');
     console.log(error);
   }
 });

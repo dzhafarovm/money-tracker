@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import authSelectors from 'redux/auth/auth-selectors';
 import authOperations from 'redux/auth/auth-operations';
+import { Toaster } from 'react-hot-toast';
 
 import Container from 'components/Container';
 import Header from 'components/Header';
@@ -41,6 +42,8 @@ function App() {
 
         {/* <Balance /> */}
       </Container>
+
+      <Toaster position="top-right" />
     </>
   );
 }
