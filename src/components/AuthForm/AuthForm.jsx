@@ -30,7 +30,7 @@ const AuthForm = () => {
       }}
     >
       {formik => {
-        const { errors, touched, validateForm, values, handleChange } = formik;
+        const { validateForm, values, handleChange } = formik;
 
         return (
           <div className={style.container}>

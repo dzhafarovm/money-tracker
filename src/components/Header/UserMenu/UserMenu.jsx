@@ -11,6 +11,7 @@ const UserMenu = () => {
   const mobile = useBreakpoint(767);
 
   const showModal = () => setModal(prev => !prev);
+
   return (
     <>
       <div className={style.navHeader}>

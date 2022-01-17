@@ -1,24 +1,19 @@
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+
 import style from './Modal.module.css';
 import sprite from '../images/sprite.svg';
-import { useEffect } from 'react';
 
 const modalRoot = document.querySelector('#modal-root');
 
 // Добавить в необходимый компонент
 // - рендер модалки
-// { modal && <Modal onClose={onClose} /> }
-// - логика закрытия
-// import { useState } from 'react';
-//   const [modal, setModal] = useState(true);
-//   const onClose = () => {
-//     setModal(prev => !prev);
-//   };
+// { modal && <Modal onClose={message, onClose} /> }
+// - message - если нажать на кнопку "выйти" передать текст "Вы действительно хотите выйти?"
+//           - если добавить транзакцию передать текст "Вы уверенны?"
+// - onClose - const showModal = () => setModal(prev => !prev);
 
-// Когда будут готовы все компоненты выход и добавление убрать дефолтное значение
-const Modal = ({ message = 'Вы действительно хотите выйти?', onClose }) => {
-  // const [modal, setModal] = useState(true);
-
+const Modal = ({ message, onClose }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleCloseByKey);
     return () => {
