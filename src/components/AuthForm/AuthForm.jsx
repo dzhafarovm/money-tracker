@@ -61,9 +61,7 @@ const AuthForm = () => {
                   onChange={handleChange}
                   className={style.email}
                 />
-                {errors.email && touched.email ? (
-                  <div>{errors.email}</div>
-                ) : null}
+
                 <ErrorMessage
                   name="email"
                   component="span"
@@ -82,13 +80,11 @@ const AuthForm = () => {
                   placeholder="Пароль"
                   onChange={handleChange}
                 />
-                {errors.password && touched.password ? (
-                  <div>{errors.password}</div>
-                ) : null}
+
                 <ErrorMessage
                   name="password"
                   component="span"
-                  className="error"
+                  className={style.error}
                 />
               </div>
               <div className={style.authButtons}>
