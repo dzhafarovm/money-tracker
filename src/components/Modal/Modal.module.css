@@ -45,8 +45,7 @@
   width: 12px;
   stroke: var(--primary-text-color);
   transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: ease-in-out;
+  transition: transform var(--time) var(--timing);
 }
 
 .closeBtn:hover,
@@ -82,9 +81,9 @@
   border: 2px solid var(--secondary-bcg-color);
   background-color: var(--white-color);
   cursor: pointer;
-  transition-property: color, background-color;
-  transition-duration: 250ms;
-  transition-timing-function: ease-in-out;
+
+  transition: background-color var(--time) var(--timing),
+    color var(--time) var(--timing);
 
   font-family: Roboto;
   font-size: 12px;

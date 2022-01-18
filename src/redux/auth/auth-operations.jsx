@@ -16,7 +16,7 @@ const token = {
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('/api/auth/signup', credentials);
-    token.set(data.token);
+    token.set(data.data.token);
     toast.success('Вы зарегистрированы');
     return data;
   } catch (error) {
@@ -30,7 +30,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
 const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/api/auth/signin', credentials);
-    token.set(data.token);
+    token.set(data.data.token);
     return data;
   } catch (error) {
     toast.error('Вы ввели неверный пароль');
@@ -40,7 +40,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
 
 const logOut = createAsyncThunk('auth/logout', async () => {
   try {
-    await axios.post('/api/auth/logout');
+    await axios.get('/api/auth/logout');
     token.unSet();
   } catch (error) {
     console.log(error);
