@@ -44,6 +44,7 @@
     margin-top: 24px;
     padding: 0px;
     background-color: #f6f7fb;
+    border: none;
 
     box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
       -5px -5px 10px #fdfdfd, inset 5px 5px 8px -4px #fdfdfd;
@@ -87,7 +88,8 @@
     color: #eb5757;
   }
 
-  input {
+  .email,
+  .password {
     font-weight: 400;
     font-size: 14px;
     line-height: 1.6;
@@ -102,7 +104,8 @@
     border-radius: 30px;
   }
 
-  input::placeholder {
+  .email,
+  .password::placeholder {
     color: var(--grey-color);
   }
 
@@ -123,7 +126,7 @@
     justify-content: space-evenly;
   }
 
-  button {
+  .btn {
     width: 125px;
     height: 44px;
     border: none;
@@ -196,8 +199,8 @@
     line-height: 1.4;
     margin-bottom: 10px;
   }
-  input {
-    /* padding: auto; */
+  .email,
+  .password {
     width: 225px;
   }
 
