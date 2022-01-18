@@ -1,15 +1,14 @@
 import AuthPageTitle from 'components/AuthPageTitle';
 import AuthForm from 'components/AuthForm';
-// здесь импорт формы авторизации import AuthPorm from "components/AuthPorm"
+import style from './AuthPages.module.css';
 
 const AuthPages = () => {
-    return (
-        <>
-            <AuthPageTitle />
-            <AuthForm />
-            </>
-    )
-    
-}
+  return (
+    <div className={style.authContainer}>
+      <AuthPageTitle />
+      <AuthForm />
+    </div>
+  );
+};
 
 export default AuthPages;

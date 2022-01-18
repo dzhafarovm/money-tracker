@@ -1,8 +1,50 @@
-.container {
+.titleContainer {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 86px;
+  max-width: 380px;
+  min-width: 183px;
+  text-align: center;
 }
 
 .mainTitle {
+  font-size: 60px;
+  font-weight: 900;
 }
 
 .title {
+  padding-left: 10px;
+
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary-text-color);
+}
+
+@media screen and (min-width: 768px) {
+  .titleContainer {
+    align-items: center;
+    padding-top: 86px;
+  }
+
+  .mainTitle {
+    font-size: 102px;
+  }
+
+  .title {
+    padding-left: 42px;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.18em;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .titleContainer {
+    padding-top: 0;
+  }
 }
