@@ -20,7 +20,9 @@ const register = createAsyncThunk('auth/register', async credentials => {
     toast.success('Вы зарегистрированы');
     return data;
   } catch (error) {
-    toast.error('Пользователь с такми email уже зарегистрирован');
+    toast.error(
+      'Пользователь с такми email уже зарегистрирован или введите правильный пароль',
+    );
     console.log(error);
   }
 });

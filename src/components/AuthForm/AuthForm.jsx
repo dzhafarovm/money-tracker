@@ -8,7 +8,6 @@ import style from './AuthForm.module.css';
 import sprite from 'components/images/sprite.svg';
 
 const FormSchema = Yup.object().shape({
-
   email: Yup.string().email().required('Это обязательное поле'),
   password: Yup.string()
     .required('Это обязательное поле')
@@ -19,23 +18,31 @@ const initialValues = {
   email: '',
   password: '',
 };
-console.log(ErrorMessage);
 
 const AuthForm = () => {
   const dispatch = useDispatch();
 
-  // const handleReset = {
-    
-  // }
+  const formSubmit = ({ email, password }) => {
+    if (email.trim() === '' || password.trim() === '') {
+      return;
+    }
+
+    dispatch(authOperations.logIn({ email, password }));
+  };
+
+  const butRegClick = ({ email, password }) => {
+    if (email.trim() === '' || password.trim() === '') {
+      return;
+    }
+
+    dispatch(authOperations.register({ email, password }));
+  };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={FormSchema}
-      onSubmit={({ email, password }) => {
-        dispatch(authOperations.logIn({ email, password }));
-        // onReset = { handleReset }
-      }}
+      onSubmit={formSubmit}
     >
       {formik => {
         const { validateForm, values, handleChange, isValid } = formik;
@@ -43,23 +50,28 @@ const AuthForm = () => {
         return (
           <div className={style.container}>
             <h4 className={style.auth}>
-              {' '}
               Вы можете авторизоваться с помощью <br /> Google Account:
             </h4>
+
             <button className={style.googleAuthButton}>
               <svg className={style.googleIcon} width="18" height="18">
                 <use href={`${sprite}#google`}></use>
               </svg>
               <span className={style.googletext}>Google</span>
             </button>
-            <h4 className={style.auth}>
-              {' '}
+
+            <h4 className={`${style.auth} ${style.authTittle}`}>
               Или зайти с помощью e-mail и пароля, <br />
               предварительно зарегистрировавшись:
             </h4>
+
             <Form>
               <div className={style.formRow}>
-                <label className={style.formRowTitle}> <span className={style.asterisk}>{!isValid &&'*'}</span>Электронная почта:</label>
+                <label className={style.formRowTitle}>
+                  <span className={style.asterisk}>{!isValid && '*'}</span>
+                  Электронная почта:
+                </label>
+
                 <Field
                   value={values.email}
                   type="text"
@@ -78,7 +90,11 @@ const AuthForm = () => {
               </div>
 
               <div className={style.formRow}>
-                <label className={style.formRowTitle}><span className={style.asterisk}>{!isValid &&'*'}</span>Пароль:</label>
+                <label className={style.formRowTitle}>
+                  <span className={style.asterisk}>{!isValid && '*'}</span>
+                  Пароль:
+                </label>
+
                 <Field
                   value={values.password}
                   type="password"
@@ -95,6 +111,7 @@ const AuthForm = () => {
                   className={style.error}
                 />
               </div>
+
               <div className={style.authButtons}>
                 <button type="submit" className={style.btn}>
                   ВOЙТИ
@@ -105,7 +122,7 @@ const AuthForm = () => {
                   className={style.btn}
                   onClick={() =>
                     validateForm().then(() => {
-                      dispatch(authOperations.register(values));
+                      butRegClick(values);
                     })
                   }
                 >
