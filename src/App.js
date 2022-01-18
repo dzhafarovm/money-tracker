@@ -14,8 +14,6 @@ import ExpensesPage from 'pages/ExpensesPage';
 import IncomePage from 'pages/IncomePage';
 import ReportPage from 'pages/ReportPage';
 
-import stylesBg from 'components/StylesBg/StylesBg.module.css';
-
 function App() {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
@@ -26,10 +24,8 @@ function App() {
 
   return (
     <>
+      <Header />
       <Container>
-        <Header />
-        <div className={stylesBg.mainBg}></div>
-
         <Routes>
           <Route path="/" element={<AuthPages />} />
           <Route path="/signup" element={<AuthPages />} />
