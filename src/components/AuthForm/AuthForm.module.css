@@ -141,9 +141,9 @@
     cursor: pointer;
     color: var(--primary-text-color);
     background-color: var(--secondary-bcg-color);
-    transition-property: color, background-color;
-    transition-duration: 250ms;
-    transition-timing-function: ease-in-out;
+
+    transition: background-color var(--time) var(--timing),
+      color var(--time) var(--timing);
   }
 
   .btn:hover {
