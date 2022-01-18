@@ -4,7 +4,6 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* background-color: rgba(87, 86, 86, 0.8); */
   z-index: 1200;
 }
 
@@ -37,6 +36,8 @@
   border: none;
   background-color: transparent;
   color: black;
+  height: 12px;
+  width: 12px;
 }
 
 .icon {
