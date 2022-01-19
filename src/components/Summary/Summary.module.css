@@ -1,0 +1,54 @@
+.table {
+  width: 230px;
+
+  background-color: #f5f6fb;
+
+  border-collapse: collapse;
+  border-radius: 20px 20px 20px 0px;
+  overflow: hidden;
+}
+
+.tableHeader {
+  font-weight: 700;
+}
+
+.month {
+  text-transform: uppercase;
+  text-align: left;
+  padding-left: 22px;
+  color: var(--primary-text-color);
+}
+
+.sum {
+  padding-right: 20px;
+  text-align: center;
+  color: var(--primary-text-color);
+}
+
+.table th {
+  height: 38px;
+  background-color: var(--secondary-bcg-color);
+
+  border-bottom: 2px solid var(--white-color);
+}
+th {
+  font-weight: 400;
+}
+
+@media screen and (max-width: 767px) {
+  .table {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .table {
+    margin-top: 90px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .table {
+    margin-top: 90px;
+  }
+}
