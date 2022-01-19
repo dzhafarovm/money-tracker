@@ -1,0 +1,127 @@
+@media screen and (max-width: 767px) {
+  .slider {
+    justify-content: center;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .button {
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: var(--white-color);
+    border: transparent;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .icon {
+    margin-top: 15px;
+    fill: var(--accent-color);
+  }
+
+  .title {
+    display: none;
+  }
+
+  .currentDate {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: var(--primary-text-transparency);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    margin: auto;
+    width: 664px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: var(--primary-text-transparency);
+  }
+
+  .slider {
+    display: flex;
+    align-items: center;
+  }
+
+  .button {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: var(--white-color);
+    border: transparent;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .icon {
+    margin-right: 15px;
+    fill: var(--accent-color);
+  }
+
+  .currentDate {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: var(--primary-text-transparency);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .nav {
+    margin: auto;
+    display: flex;
+    width: 1060px;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: var(--primary-text-transparency);
+  }
+}
+
+.icon {
+  margin-right: 15px;
+  fill: var(--accent-color);
+}
+
+.iconDate {
+  stroke: var(--accent-color);
+}
+
+.date {
+  margin: 0;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+}

@@ -1,0 +1,112 @@
+@media screen and (max-width: 767px) {
+  .section {
+    padding: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 282px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    border-radius: 30px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .boxSpending {
+    color: var(--white-color);
+    padding-right: 15px;
+  }
+
+  .spending {
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+    color: var(--primary-text-color);
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .boxIncom {
+    border-left: 1px solid var(--border-color);
+    height: 70.5px;
+    padding-left: 10px;
+    color: var(--white-color);
+  }
+
+  .income {
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+    color: var(--primary-text-color);
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .plus {
+    color: var(--green-color);
+  }
+  .minus {
+    color: var(--costs-color);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    padding: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 668px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    /* outline: 1px solid tomato; */
+    border-radius: 30px;
+    box-shadow: var(--box-shadow);
+  }
+
+  .boxSpending {
+    color: var(--white-color);
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .spending {
+    text-align: center;
+    margin: 0;
+    margin-right: 15px;
+    color: var(--primary-text-color);
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .boxIncom {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid var(--border-color);
+    height: 36px;
+    padding-left: 19px;
+    color: var(--white-color);
+  }
+
+  .income {
+    text-align: center;
+    margin: 0;
+    margin-right: 15px;
+    color: var(--primary-text-color);
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .plus {
+    color: var(--green-color);
+  }
+  .minus {
+    color: var(--costs-color);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .section {
+    width: 1060px;
+  }
+}
