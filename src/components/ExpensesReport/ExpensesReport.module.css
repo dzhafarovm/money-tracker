@@ -1,0 +1,155 @@
+@media screen and (max-width: 767px) {
+  .section {
+    margin-top: 40px;
+  }
+
+  .box {
+    display: flex;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 20px;
+  }
+
+  .listItem {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: var(--primary-text-color);
+  }
+
+  .iconBox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+  }
+
+  .iconBox:hover,
+  .iconBox:focus {
+    fill: var(--accent-color);
+  }
+
+  .iconDate {
+    stroke: var(--accent-color);
+  }
+
+  .slider {
+    justify-content: center;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .date {
+    margin: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    margin: auto;
+    width: 666px;
+    margin-top: 30px;
+    padding-top: 20px;
+    box-shadow: var(--box-shadow);
+    border-radius: 30px;
+    background-color: var(--white-color);
+  }
+
+  .box {
+    display: flex;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-row-gap: 20px;
+  }
+
+  .listItem {
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: var(--primary-text-color);
+  }
+
+  .iconBox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+  }
+
+  .iconBox:hover,
+  .iconBox:focus {
+    fill: var(--accent-color);
+  }
+
+  .iconDate {
+    stroke: var(--accent-color);
+  }
+
+  .slider {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .date {
+    margin: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .section {
+    margin: auto;
+    width: 1060px;
+  }
+
+  .box {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .listItem:first-child {
+    margin-left: 0;
+  }
+}
