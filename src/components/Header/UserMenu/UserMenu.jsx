@@ -1,12 +1,18 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useBreakpoint } from 'react-use-size';
 
 import Modal from 'components/Modal';
+import sprite from 'components/images/sprite.svg';
+import authSelectors from 'redux/auth/auth-selectors';
 
 import style from './UserMenu.module.css';
-import sprite from 'components/images/sprite.svg';
 
 const UserMenu = () => {
+  const email = useSelector(authSelectors.getUserEmail);
+  const name = email.split('@')[0];
+  const letter = name[0].toUpperCase();
+
   const [modal, setModal] = useState(false);
   const mobile = useBreakpoint(767);
 
@@ -16,8 +22,8 @@ const UserMenu = () => {
     <>
       <div className={style.navHeader}>
         <div className={style.user}>
-          <span className={style.userIcon}>U</span>
-          {!mobile && <p className={style.userEmail}>User</p>}
+          <span className={style.userIcon}>{letter}</span>
+          {!mobile && <p className={style.userEmail}>{name}</p>}
         </div>
 
         <button
