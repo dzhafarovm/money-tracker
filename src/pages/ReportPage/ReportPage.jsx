@@ -6,9 +6,9 @@ import StatisticsReport from 'components/StatisticsReport';
 const ReportPage = () => {
   return (
     <>
+      <NavigationReport />
       <DebedCreditReport />
       <ExpensesReport />
-      <NavigationReport />
       <StatisticsReport />
     </>
   );
