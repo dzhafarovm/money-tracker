@@ -9,10 +9,10 @@ import authSelectors from 'redux/auth/auth-selectors';
 import style from './UserMenu.module.css';
 
 const UserMenu = () => {
-  const email = useSelector(authSelectors.getUserEmail);
-
   let name = null;
   let letter = null;
+
+  const email = useSelector(authSelectors.getUserEmail);
 
   if (email) {
     name = email.split('@')[0];

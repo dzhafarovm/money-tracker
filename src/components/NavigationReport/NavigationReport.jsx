@@ -8,7 +8,7 @@ const NavigationReport = () => {
   return (
     <nav className={style.nav}>
       <button
-        onClick={() => navigate('/home')}
+        onClick={() => navigate('/')}
         className={style.button}
         type="button"
       >
