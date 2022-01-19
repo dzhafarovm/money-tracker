@@ -1,30 +1,3 @@
-/*Контейнер для фона*/
-.bgContainer {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media screen and (max-width: 767px) {
-  .bgContainer {
-    width: 320px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .bgContainer {
-    width: 806px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .bgContainer {
-    margin-left: auto;
-    margin-right: auto;
-
-    width: 1318px;
-  }
-}
-
 /* фон */
 
 @media screen and (max-width: 767px) {
@@ -79,6 +52,6 @@
     background-position-y: 28px;
     background-position-x: center;
     border-bottom-left-radius: 120px;
-    background-size: contain;
+    background-size: cover;
   }
 }

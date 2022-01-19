@@ -10,14 +10,14 @@ const Container = ({ children }) => {
   // let bg = pageAuth ? 'mainBgAuth' : 'mainBg'; /**потом поставить переменую  bg вместо имени класса '.mainBgAuth'*/
   
   return (
-    <div className={stylesBg.bgContainer}>
-    <div className={stylesBg.mainBgAuth}> 
+    
+    <div className={stylesBg.mainBgAuth}>
       <div className={style.container}>
         {children}
       </div>
     </div>
-  </div>
-)
+  
+  )
 };
 
 export default Container;
