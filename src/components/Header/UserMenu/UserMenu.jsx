@@ -10,8 +10,17 @@ import style from './UserMenu.module.css';
 
 const UserMenu = () => {
   const email = useSelector(authSelectors.getUserEmail);
-  const name = email.split('@')[0];
-  const letter = name[0].toUpperCase();
+
+  let name = null;
+  let letter = null;
+
+  if (email) {
+    name = email.split('@')[0];
+  }
+
+  if (name) {
+    letter = name[0].toUpperCase();
+  }
 
   const [modal, setModal] = useState(false);
   const mobile = useBreakpoint(767);
