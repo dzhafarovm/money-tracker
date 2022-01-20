@@ -1,5 +1,5 @@
 const routes = {
-  home: '/',
+  auth: '/',
   expenses: '/expenses',
   income: '/income',
   report: '/report',

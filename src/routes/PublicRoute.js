@@ -2,14 +2,15 @@ import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import routes from 'routes/routes';
 
-const PrivateRoute = ({ component }) => {
+const PublicRoute = ({ component }) => {
   const { isLoggedIn } = useSelector(state => state.auth);
-  console.log('PrivateRoute > isLoggedIn', isLoggedIn);
+  console.log('PublicRoute > isLoggedIn', isLoggedIn);
 
   if (isLoggedIn) {
-    return component;
+    return <Navigate to={routes.expenses} />;
   }
 
-  return <Navigate to={routes.auth} />;
+    
+    return component;
 };
-export default PrivateRoute;
+export default PublicRoute;
