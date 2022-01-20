@@ -20,7 +20,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
     } = await axios.post('/api/auth/signup', credentials);
     token.set(data.token);
     toast.success('Вы зарегистрированы');
-    return data;
+    return data.user;
   } catch (error) {
     toast.error(
       'Пользователь с такми email уже зарегистрирован или введите правильный пароль',
