@@ -33,7 +33,7 @@
     background-position-y: 28px;
     background-position-x: center;
     border-bottom-left-radius: 120px;
-    background-size: contain;
+    /* background-size: contain; */
   }
 }
 
@@ -52,6 +52,6 @@
     background-position-y: 28px;
     background-position-x: center;
     border-bottom-left-radius: 120px;
-    background-size: cover;
+    /* background-size: cover; */
   }
 }
