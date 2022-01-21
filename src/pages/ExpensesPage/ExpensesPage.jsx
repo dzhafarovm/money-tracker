@@ -6,6 +6,7 @@ import TransactionContainer from 'components/TransactionContainer';
 import Button from 'components/TransactionContainer/Button';
 import Table from 'components/TransactionTable';
 import Summary from 'components/Summary'
+import TransitionForm from 'components/TransitionForm'
 
 import style from './ExpensesPage.module.css';
 import styleBtn from 'components/TransactionContainer/Button/Button.module.css';
@@ -26,6 +27,8 @@ const ExpensesPage = () => {
         <Button title="Доход" route={routes.income} style={styleBtn.buttonTitle} />
       </div>
       <TransactionContainer>
+      <TransitionForm/>
+
         <div className={style.wrapper}>
           <Table />
           <Summary />
