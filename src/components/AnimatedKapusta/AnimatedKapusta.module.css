@@ -1,0 +1,35 @@
+.animationBlock {
+  display: block;
+  position: relative;
+  margin-top: 20px;
+}
+
+.kapustaBody {
+  display: block;
+  position: absolute;
+  height: 142px;
+  width: 183px;
+}
+
+.kapustaBody:hover {
+  display: none;
+}
+
+.kapustaVivus {
+  display: none;
+}
+
+.animationBlock:hover .kapustaVivus {
+  display: block;
+  height: 142px;
+  width: 183px;
+  position: absolute;
+}
+
+/* .rightEllips {
+  display: block;
+}
+
+.leftEllips {
+  display: block;
+} */
