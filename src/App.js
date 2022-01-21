@@ -1,6 +1,6 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 import Container from 'components/Container';
@@ -23,6 +23,7 @@ const IncomePage = lazy(() => import('pages/IncomePage'));
 const ReportPage = lazy(() => import('pages/ReportPage'));
 
 function App() {
+  const { pathname } = useLocation();
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
@@ -58,7 +59,9 @@ function App() {
               />
             </Routes>
           </Suspense>
-          <AnimatedKapusta />
+
+          {pathname === routes.auth ? <AnimatedKapusta /> : null}
+          
         </Container>
 
         <Toaster position="top-right" />
