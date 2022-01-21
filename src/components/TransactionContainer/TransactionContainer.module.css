@@ -1,0 +1,21 @@
+@media screen and (min-width: 768px) {
+  .section {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 250px;
+    padding-top: 28px;
+    background-color: var(--white-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 0px 30px 30px 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .section {
+    padding-top: 33px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+    margin-bottom: 0px;
+  }
+}
