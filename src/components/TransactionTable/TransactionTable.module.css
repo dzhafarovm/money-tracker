@@ -1,0 +1,34 @@
+.table {
+  border-collapse: collapse;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  overflow: hidden;
+}
+
+.thead {
+  margin: 0;
+  padding: 0;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  background-color: var(--secondary-bcg-color);
+}
+
+@media screen and (max-width: 767px) {
+  .table {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .table {
+    width: 605px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .table {
+    width: 760px;
+  }
+}
