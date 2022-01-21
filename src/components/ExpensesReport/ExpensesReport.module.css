@@ -9,18 +9,34 @@
 
   .list {
     list-style: none;
+    width: 282px;
     padding: 0;
     margin-top: 20px;
-    margin-left: 25px;
-    margin-bottom: 20px;
+    margin-left: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 20px;
   }
 
   .listItem {
+    display: flex;
+    justify-content: center;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 20px;
+  }
+
+  .category {
+    margin: 0;
+    margin: auto;
+    height: 106px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
   }
 
   .title {
@@ -36,7 +52,6 @@
   .iconBox {
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 15px;
   }
 
   .iconBox:hover,
@@ -91,8 +106,22 @@
 
   .listItem {
     padding-bottom: 20px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     margin-right: 10px;
+  }
+
+  .category {
+    margin: 0;
+    margin: auto;
+    height: 106px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
   }
 
   .title {
@@ -105,10 +134,15 @@
     color: var(--primary-text-color);
   }
 
+  .arrowDate {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
   .iconBox {
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 15px;
   }
 
   .iconBox:hover,
@@ -138,7 +172,6 @@
 
 @media screen and (min-width: 1280px) {
   .section {
-    margin: auto;
     width: 1060px;
   }
 
