@@ -23,7 +23,8 @@ const NavigationReport = () => {
       <span>
         <p className={style.currentDate}>Текущий период:</p>
         <span className={style.slider}>
-          <svg
+          <button type="button" className={style.arrowDate}>
+            <svg
             width="12"
             height="18"
             viewBox="0 0 24 24"
@@ -31,8 +32,12 @@ const NavigationReport = () => {
           >
             <use href={`${sprite}#arrow-left`}></use>
           </svg>
+          </button>
+          
           <p className={style.date}>НОЯБРЬ 2019</p>
-          <svg
+
+          <button type="button" className={style.arrowDate}>
+            <svg
             width="12"
             height="18"
             viewBox="0 0 24 24"
@@ -40,6 +45,7 @@ const NavigationReport = () => {
           >
             <use href={`${sprite}#arrow-right`}></use>
           </svg>
+          </button>       
         </span>
       </span>
     </nav>
