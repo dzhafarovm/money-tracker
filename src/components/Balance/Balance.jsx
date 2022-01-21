@@ -7,7 +7,7 @@ import s from './Balance.module.css';
 import BalanceWithBtn from 'components/Balance/BalanceWithBtn/BalanceWithBtn';
 
 const Balance = () => {
-  const balance = 0;
+  // const balance = 0;
   // const location = useLocation();
   // const [isLoading, setIsLoading] = useState(false);
   // const width = useWindowWidth();
@@ -25,8 +25,6 @@ const Balance = () => {
 
 export default Balance;
 
-{
-  /* {location.pathname === routes.reportPage &&
-width > 319 &&
-width < 1280 ?  */
-}
+///{location.pathname === routes.reportPage &&
+///width > 319 &&
+///width < 1280 ?

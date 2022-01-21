@@ -6,7 +6,7 @@ import GreetingNotification from 'components/Balance/GreetingNotification';
 const BalanceWithBtn = () => {
   // const dispatch = useDispatch();
 
-  const startValue = '00.00';
+  let startValue = '00.00';
   const balance = 0;
   const [value, setValue] = useState(balance.toFixed(2));
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,7 @@ const BalanceWithBtn = () => {
     e => {
       e.preventDefault();
       // setIsLoading(true);
-      
+
       startValue = '';
       setValue(Number(value).toFixed(2));
       // TODO dispatch(setCurrentBalance(value));

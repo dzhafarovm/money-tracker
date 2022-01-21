@@ -1,15 +1,15 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ReactComponent as ReportSvg } from '../../images/iconReports.svg';
-import routes from '../../../routes/routes';
+//import routes from '../../../routes/routes';
 import s from './GoToReport.module.css';
 // import eachDayOfInterval from 'date-fns/eachDayOfInterval';
 
 const GoToReport = () => {
   return (
     <div className={s.GoToReportsWrapper}>
-      <NavLink exact to={routes.reportPage} className={s.GoToRepoirtText}>
+      <Link to={`/report`} className={s.GoToRepoirtText}>
         Перейти к отчетам
-      </NavLink>
+      </Link>
       <ReportSvg className={s.reportSvg} />
     </div>
   );
