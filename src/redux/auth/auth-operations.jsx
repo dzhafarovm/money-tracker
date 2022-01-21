@@ -42,6 +42,22 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
   }
 });
 
+// GOOGLE//
+
+const googleLogin = createAsyncThunk(
+  'auth/googlelogin',
+  true,
+  async credentials => {
+    try {
+      const { data } = await axios.get('/api/auth/google', credentials);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
 const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.get('/api/auth/logout');
@@ -76,6 +92,7 @@ const fetchCurrentUser = createAsyncThunk(
 const authOperations = {
   register,
   logIn,
+  googleLogin,
   logOut,
   fetchCurrentUser,
 };

@@ -4,7 +4,6 @@ import routes from 'routes/routes';
 
 const PrivateRoute = ({ component }) => {
   const { isLoggedIn } = useSelector(state => state.auth);
-  console.log('PrivateRoute > isLoggedIn', isLoggedIn);
 
   if (isLoggedIn) {
     return component;

@@ -49,6 +49,7 @@
     padding: 0px;
     background-color: #f6f7fb;
     border: none;
+    cursor: pointer;
 
     box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
       -5px -5px 10px #fdfdfd, inset 5px 5px 8px -4px #fdfdfd;

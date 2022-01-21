@@ -4,6 +4,7 @@ import authOperations from './auth-operations';
 const initialState = {
   email: null,
   token: null,
+  access_token: null,
   avatar: null,
   balance: null,
   isLoggedIn: false,
@@ -23,7 +24,17 @@ const authSlice = createSlice({
     [authOperations.logIn.fulfilled](state, action) {
       state.email = action.payload.email;
       state.token = action.payload.token;
-      // state.avatar = action.payload.avatar;
+      state.avatar = action.payload.avatar;
+      state.balance = action.payload.balance;
+      state.isLoggedIn = true;
+    },
+
+    // GOOGLE//
+
+    [authOperations.googleLogin.fulfilled](state, action) {
+      state.email = action.payload.email;
+      state.token = action.payload.token;
+      state.access_token = action.payload.access_token;
       state.balance = action.payload.balance;
       state.isLoggedIn = true;
     },
@@ -31,6 +42,7 @@ const authSlice = createSlice({
     [authOperations.logOut.fulfilled](state, action) {
       state.email = null;
       state.token = null;
+      state.access_token = null;
       state.avatar = null;
       state.balance = null;
       state.isLoggedIn = false;
@@ -42,6 +54,9 @@ const authSlice = createSlice({
 
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
       state.email = action.payload.email;
+      state.token = action.payload.token;
+      state.avatar = action.payload.avatar;
+      state.balance = action.payload.balance;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },

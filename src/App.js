@@ -37,7 +37,7 @@ function App() {
       <>
         <Header />
         <Container>
-          <Balance />
+          {/* <Balance /> */}
           <Suspense fallback={<p>Loading...</p>}>
             <Routes>
               <Route
