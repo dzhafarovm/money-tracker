@@ -13,6 +13,7 @@ import Header from 'components/Header';
 // import ExpensesPage from 'pages/ExpensesPage';
 // import IncomePage from 'pages/IncomePage';
 // import ReportPage from 'pages/ReportPage';
+import Balance from './components/Balance';
 import AnimatedKapusta from './components/AnimatedKapusta';
 import authSelectors from 'redux/auth/auth-selectors';
 import authOperations from 'redux/auth/auth-operations';
@@ -36,6 +37,7 @@ function App() {
       <>
         <Header />
         <Container>
+          <Balance />
           <Suspense fallback={<p>Loading...</p>}>
             <Routes>
               <Route
@@ -60,8 +62,8 @@ function App() {
             </Routes>
           </Suspense>
 
+          {/* {pathname === routes.expenses ? <Balance /> : null} */}
           {pathname === routes.auth ? <AnimatedKapusta /> : null}
-          
         </Container>
 
         <Toaster position="top-right" />
