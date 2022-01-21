@@ -13,7 +13,7 @@ import Header from 'components/Header';
 // import ExpensesPage from 'pages/ExpensesPage';
 // import IncomePage from 'pages/IncomePage';
 // import ReportPage from 'pages/ReportPage';
-
+import AnimatedKapusta from './components/AnimatedKapusta';
 import authSelectors from 'redux/auth/auth-selectors';
 import authOperations from 'redux/auth/auth-operations';
 
@@ -36,25 +36,29 @@ function App() {
         <Header />
         <Container>
           <Suspense fallback={<p>Loading...</p>}>
-          <Routes>
-            
-            <Route
-              path={routes.auth}
-              element={<PublicRoute component={<AuthPages />} />} />
-            
-            <Route path={routes.expenses}
-              element={<PrivateRoute component={<ExpensesPage />} />} />
-            
-            <Route path={routes.income}
-               element={<PrivateRoute component={<IncomePage />} />} />
-            
-            <Route 
-              path={routes.report}
-              element={<PrivateRoute component={<ReportPage />} />}
-            />
-          
-          </Routes>
-           </Suspense>
+            <Routes>
+              <Route
+                path={routes.auth}
+                element={<PublicRoute component={<AuthPages />} />}
+              />
+
+              <Route
+                path={routes.expenses}
+                element={<PrivateRoute component={<ExpensesPage />} />}
+              />
+
+              <Route
+                path={routes.income}
+                element={<PrivateRoute component={<IncomePage />} />}
+              />
+
+              <Route
+                path={routes.report}
+                element={<PrivateRoute component={<ReportPage />} />}
+              />
+            </Routes>
+          </Suspense>
+          <AnimatedKapusta />
         </Container>
 
         <Toaster position="top-right" />
