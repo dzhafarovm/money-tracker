@@ -29,7 +29,11 @@
     margin: auto;
   }
 
+<<<<<<< Updated upstream
   /* .authTittle {
+=======
+  /* .authTitle {
+>>>>>>> Stashed changes
     text-align: left;
   } */
 
@@ -48,7 +52,10 @@
     margin-top: 24px;
     padding: 0px;
     text-decoration: none;
+<<<<<<< Updated upstream
     color: var(--black-color);
+=======
+>>>>>>> Stashed changes
     background-color: #f6f7fb;
     border: none;
     cursor: pointer;
