@@ -38,8 +38,10 @@
     font-size: 14px;
     line-height: 1.6;
     text-align: left;
+    align-items: center;
     vertical-align: center;
     letter-spacing: 0.02em;
+    text-decoration: none;
     display: flex;
     width: 122px;
     height: 40px;
@@ -67,6 +69,7 @@
 
   .googletext {
     padding: 10px 10px 10px 0px;
+    color: var(--black-color);
   }
 
   .formRow {

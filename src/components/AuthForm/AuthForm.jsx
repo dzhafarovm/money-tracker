@@ -62,7 +62,7 @@ const AuthForm = () => {
                 <use href={`${sprite}#google`}></use>
               </svg>
 
-              <span className={style.googleText}>Google</span>
+              <span className={style.googletext}>Google</span>
             </a>
 
             <h4 className={`${style.auth} ${style.authTittle}`}>
