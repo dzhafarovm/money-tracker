@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import transOperations from '../../redux/transaction/transactions-operation.jsx';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import DropDownList from './DropDownList';
 import * as Yup from 'yup';
@@ -37,8 +40,11 @@ const TransitionForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [placeholderCategories, setPlaceholderCategories] = useState('');
-  const typeForm = true;
-
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const nameUrl = location.pathname;
+  const typeForm = nameUrl.includes('expenses');
+  const type = typeForm ? 'expenses' : 'income';
   const options = typeForm ? expenses : income;
 
   const {
@@ -71,18 +77,20 @@ const TransitionForm = () => {
     };
   }, [open]);
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     const { date, name, value, categories } = data;
     const arr = date.toLocaleDateString().split('.');
     const newData = {
+      type: type,
       day: arr[0],
       month: arr[1],
       year: arr[2],
-      name: name,
-      categories: categories,
-      value: value,
+      description: name,
+      category: categories,
+      sum: value,
     };
-    console.log(newData);
+
+    await dispatch(transOperations.addTransaction(newData));
     reset({
       name: '',
       categories: '',

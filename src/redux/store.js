@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import logger from 'redux-logger';
+
 import {
   persistStore,
   persistReducer,
@@ -12,7 +12,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth-slice';
-
+import transactionsReduser from './transaction/transactions-slice.jsx';
 
 const authPersistConfig = {
   key: 'auth',
@@ -20,9 +20,19 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const transactionsPersistConfig = {
+  key: 'transactions',
+  storage,
+  whitelist: ['token'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    transactions: persistReducer(
+      transactionsPersistConfig,
+      transactionsReduser,
+    ),
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>
