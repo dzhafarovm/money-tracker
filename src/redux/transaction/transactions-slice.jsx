@@ -4,6 +4,7 @@ import transactionsOperations from './transactions-operation';
 const initialState = {
   byMonth: {},
   addTransaction: {},
+  getAll: []
 };
 
 const transactionsSlice = createSlice({
@@ -24,6 +25,10 @@ const transactionsSlice = createSlice({
 
     [transactionsOperations.addTransaction.rejected](state, action) {
       state.addTransaction = action.payload;
+    },
+
+    [transactionsOperations.getAll.fulfilled](state, action) {
+      state.getAll = action.payload;
     },
   },
 });
