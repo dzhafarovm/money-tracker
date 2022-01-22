@@ -3,26 +3,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
+import Header from 'components/Header';
 import Container from 'components/Container';
+import AnimatedKapusta from 'components/AnimatedKapusta';
+import Spinner from 'components/Spinner';
+
 import PrivateRoute from 'routes/PrivateRoute';
 import PublicRoute from 'routes/PublicRoute';
-import routes from 'routes/routes';
-
-import Header from 'components/Header';
-// import AuthPages from 'pages/AuthPages';
-// import ExpensesPage from 'pages/ExpensesPage';
-// import IncomePage from 'pages/IncomePage';
-// import ReportPage from 'pages/ReportPage';
-import Google from 'pages/google/google';
-// import Balance from './components/Balance';
-import AnimatedKapusta from './components/AnimatedKapusta';
 import authSelectors from 'redux/auth/auth-selectors';
 import authOperations from 'redux/auth/auth-operations';
+import routes from 'routes/routes';
 
 const AuthPages = lazy(() => import('pages/AuthPages'));
 const ExpensesPage = lazy(() => import('pages/ExpensesPage'));
 const IncomePage = lazy(() => import('pages/IncomePage'));
 const ReportPage = lazy(() => import('pages/ReportPage'));
+const Google = lazy(() => import('pages/Google'));
 
 function App() {
   const { pathname } = useLocation();
@@ -38,8 +34,7 @@ function App() {
       <>
         <Header />
         <Container>
-          {/* <Balance /> */}
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<Spinner />}>
             <Routes>
               <Route
                 path={routes.auth}
@@ -67,8 +62,6 @@ function App() {
               />
             </Routes>
           </Suspense>
-
-          {/* {pathname === routes.expenses ? <Balance /> : null} */}
 
           {pathname === routes.auth ? <AnimatedKapusta /> : null}
         </Container>

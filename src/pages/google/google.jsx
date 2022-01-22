@@ -1,15 +1,12 @@
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
+import Spinner from 'components/Spinner';
 
 const Google = () => {
   const dispatch = useDispatch();
   dispatch(authOperations.googleLogin());
 
-  return (
-    <>
-      <h4>Перенаправляем...</h4>
-    </>
-  );
+  return <>{<Spinner />}</>;
 };
 
 export default Google;
