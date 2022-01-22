@@ -2,21 +2,22 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import transOperations from '../../redux/transaction/transactions-operation.jsx';
 import DatePicker, { registerLocale } from 'react-datepicker';
-import DropDownList from './DropDownList';
-import * as Yup from 'yup';
-import style from './TransitionForm.module.css';
-import sprite from '../images/sprite.svg';
 import 'react-datepicker/dist/react-datepicker.css';
+
+// import * as Yup from 'yup';
+import transOperations from 'redux/transaction/transactions-operation.jsx';
+import DropDownList from './DropDownList';
+import style from './TransitionForm.module.css';
+import sprite from 'components/images/sprite.svg';
 import ru from 'date-fns/locale/ru';
 registerLocale('ru', ru);
 
-const FormSchema = Yup.object().shape({
-  value: Yup.number().min(1).positive().integer().required('Required'),
-  name: Yup.string().required('Required'),
-  categories: Yup.string().required('Required'),
-});
+// const FormSchema = Yup.object().shape({
+//   value: Yup.number().min(1).positive().integer().required('Required'),
+//   name: Yup.string().required('Required'),
+//   categories: Yup.string().required('Required'),
+// });
 
 const expenses = [
   { value: 'transport', label: 'Транспорт' },
@@ -44,7 +45,7 @@ const TransitionForm = () => {
   const location = useLocation();
   const nameUrl = location.pathname;
   const typeForm = nameUrl.includes('expenses');
-  const type = typeForm ? 'expenses' : 'income';
+  const type = typeForm ? 'costs' : 'income';
   const options = typeForm ? expenses : income;
 
   const {
@@ -79,18 +80,23 @@ const TransitionForm = () => {
 
   const onSubmit = async data => {
     const { date, name, value, categories } = data;
+    const categoryEng = options.filter(data => data.label === categories);
+
     const arr = date.toLocaleDateString().split('.');
     const newData = {
-      type: type,
+      type,
       day: arr[0],
       month: arr[1],
       year: arr[2],
       description: name,
-      category: categories,
+      category: categoryEng[0].value,
       sum: value,
     };
 
-    await dispatch(transOperations.addTransaction(newData));
+    console.log('newData: ', newData);
+
+    dispatch(transOperations.addTransaction(newData));
+
     reset({
       name: '',
       categories: '',

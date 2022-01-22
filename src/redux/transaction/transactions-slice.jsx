@@ -13,12 +13,15 @@ const transactionsSlice = createSlice({
     [transactionsOperations.getByMonth.fulfilled](state, action) {
       state.byMonth = action.payload;
     },
+
     [transactionsOperations.addTransaction.pending](state, action) {
       state.addTransaction = action.payload;
     },
+
     [transactionsOperations.addTransaction.fulfilled](state, action) {
       state.addTransaction = action.payload;
     },
+
     [transactionsOperations.addTransaction.rejected](state, action) {
       state.addTransaction = action.payload;
     },

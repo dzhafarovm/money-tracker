@@ -11,8 +11,6 @@ const getByMonth = createAsyncThunk(
         `api/transactions/getByMonth/?${_id}&month=${month}&year=${year}`,
       );
 
-      console.log(data);
-
       return data;
     } catch (error) {
       throw new Error(error.message);
@@ -22,11 +20,9 @@ const getByMonth = createAsyncThunk(
 
 const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
-  async newTransaction => {
-    console.log(newTransaction);
+  async newData => {
     try {
-      const transaction = await axios.post(`api/transactions/`, newTransaction);
-      console.log(transaction);
+      const transaction = await axios.post(`api/transactions/`, newData);
       return transaction;
     } catch (error) {
       throw new Error(error.message);
