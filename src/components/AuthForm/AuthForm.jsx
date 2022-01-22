@@ -1,9 +1,7 @@
 import React from 'react';
 
-// import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useGoogleLogin } from 'react-google-login';
 
 import sprite from 'components/images/sprite.svg';
 import { useDispatch } from 'react-redux';
@@ -23,7 +21,7 @@ const initialValues = {
   password: '',
 };
 
-// const URL = 'https://teamproj-money-tracker.herokuapp.com/api/auth/google';
+const URL = 'https://teamproj-money-tracker.herokuapp.com/api/auth/google';
 
 const AuthForm = () => {
   const dispatch = useDispatch();
@@ -44,27 +42,6 @@ const AuthForm = () => {
     dispatch(authOperations.register({ email, password }));
   };
 
-  //
-
-  const responseGoogle = response => {
-    console.log(response.profileObj);
-
-    // fetch
-  };
-
-  const clientId =
-    '913443228810-s39qocqhk2opv7bt5sps40h9rre882o9.apps.googleusercontent.com';
-
-  const { signIn } = useGoogleLogin({
-    onSuccess: responseGoogle,
-    onFailure: responseGoogle,
-    clientId,
-    isSignedIn: true,
-    accessType: 'offline',
-    // responseType: 'code',
-    prompt: 'consent',
-  });
-
   return (
     <Formik
       initialValues={initialValues}
@@ -80,15 +57,13 @@ const AuthForm = () => {
               Вы можете авторизоваться с помощью <br /> Google Account:
             </h4>
 
-            {/* <a href={`${URL}/api/auth/google`}> */}
-            <button onClick={signIn} className={style.googleAuthButton}>
+            <a href={`${URL}`} className={style.googleAuthButton}>
               <svg className={style.googleIcon} width="18" height="18">
                 <use href={`${sprite}#google`}></use>
               </svg>
 
               <span className={style.googleText}>Google</span>
-            </button>
-            {/* </a> */}
+            </a>
 
             <h4 className={`${style.auth} ${style.authTittle}`}>
               Или зайти с помощью e-mail и пароля, <br />

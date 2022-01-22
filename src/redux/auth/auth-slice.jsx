@@ -29,16 +29,6 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
     },
 
-    // GOOGLE//
-
-    [authOperations.googleLogin.fulfilled](state, action) {
-      state.email = action.payload.email;
-      state.token = action.payload.token;
-      state.access_token = action.payload.access_token;
-      state.balance = action.payload.balance;
-      state.isLoggedIn = true;
-    },
-
     [authOperations.logOut.fulfilled](state, action) {
       state.email = null;
       state.token = null;
@@ -53,6 +43,15 @@ const authSlice = createSlice({
     },
 
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
+      state.email = action.payload.email;
+      state.token = action.payload.token;
+      state.avatar = action.payload.avatar;
+      state.balance = action.payload.balance;
+      state.isLoggedIn = true;
+      state.isFetchingCurrentUser = false;
+    },
+
+    [authOperations.googleLogin.fulfilled](state, action) {
       state.email = action.payload.email;
       state.token = action.payload.token;
       state.avatar = action.payload.avatar;

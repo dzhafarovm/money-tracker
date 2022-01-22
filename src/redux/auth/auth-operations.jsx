@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
+import { useLocation } from 'react-router-dom';
 
 axios.defaults.baseURL = 'https://teamproj-money-tracker.herokuapp.com';
 
@@ -44,20 +45,6 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
 
 // GOOGLE//
 
-const googleLogin = createAsyncThunk(
-  'auth/googlelogin',
-  true,
-  async credentials => {
-    try {
-      const { data } = await axios.get('/api/auth/google', credentials);
-      token.set(data.token);
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  },
-);
-
 const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.get('/api/auth/logout');
@@ -77,6 +64,31 @@ const fetchCurrentUser = createAsyncThunk(
       return thunkAPI.rejectWithValue();
     }
     token.set(persistedToken);
+
+    try {
+      const {
+        data: { data },
+      } = await axios.get('api/users/current');
+      return data.user;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const googleLogin = createAsyncThunk(
+  'auth/googlelogin',
+  async (_, thunkAPI) => {
+    const data = useLocation();
+    console.log(data);
+
+    const googleToken = data.search.split('=')[1];
+
+    if (googleToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    token.set(googleToken);
 
     try {
       const {

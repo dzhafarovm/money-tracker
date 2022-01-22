@@ -13,7 +13,8 @@ import Header from 'components/Header';
 // import ExpensesPage from 'pages/ExpensesPage';
 // import IncomePage from 'pages/IncomePage';
 // import ReportPage from 'pages/ReportPage';
-import Balance from './components/Balance';
+import Google from 'pages/google/google';
+// import Balance from './components/Balance';
 import AnimatedKapusta from './components/AnimatedKapusta';
 import authSelectors from 'redux/auth/auth-selectors';
 import authOperations from 'redux/auth/auth-operations';
@@ -46,6 +47,11 @@ function App() {
               />
 
               <Route
+                path={routes.google}
+                element={<PublicRoute component={<Google />} />}
+              />
+
+              <Route
                 path={routes.expenses}
                 element={<PrivateRoute component={<ExpensesPage />} />}
               />
@@ -63,6 +69,7 @@ function App() {
           </Suspense>
 
           {/* {pathname === routes.expenses ? <Balance /> : null} */}
+
           {pathname === routes.auth ? <AnimatedKapusta /> : null}
         </Container>
 
