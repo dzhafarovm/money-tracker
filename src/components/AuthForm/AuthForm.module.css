@@ -29,14 +29,6 @@
     margin: auto;
   }
 
-<<<<<<< Updated upstream
-  /* .authTittle {
-=======
-  /* .authTitle {
->>>>>>> Stashed changes
-    text-align: left;
-  } */
-
   .googleAuthButton {
     font-weight: 500;
     font-size: 14px;
@@ -52,10 +44,6 @@
     margin-top: 24px;
     padding: 0px;
     text-decoration: none;
-<<<<<<< Updated upstream
-    color: var(--black-color);
-=======
->>>>>>> Stashed changes
     background-color: #f6f7fb;
     border: none;
     cursor: pointer;
@@ -75,6 +63,7 @@
   }
 
   .googleText {
+    color: var(--black-color);
     display: block;
     padding: 10px 10px 10px 0px;
   }
