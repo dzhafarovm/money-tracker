@@ -1,33 +1,32 @@
 @media screen and (max-width: 767px) {
-  /* .section {
-   
-  } */
+  .wrapper {
+    margin-top: 30px;
+    margin-bottom: 75px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .section {
-    margin: auto;
-    width: 668px;
-    height: 422px;
+  .wrapper {
+    padding: 65px 50px 5px 50px;
     margin-top: 30px;
     margin-bottom: 75px;
-    box-shadow: var(--box-shadow);
     border-radius: 30px;
     background-color: var(--white-color);
+    box-shadow: var(--box-shadow);
+  }
+
+  .section {
+    margin: auto;
     height: 350px;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .wrapper {
+    padding: 65px 150px 19px 150px;
+  }
   .section {
-    width: 1060px;
+    margin: auto;
     height: 422px;
   }
-
-  /* .chart {
-    margin-top: 50px;
-    margin-right: 151px;
-    margin-left: 151px;
-    margin-bottom: 5px;
-  } */
 }

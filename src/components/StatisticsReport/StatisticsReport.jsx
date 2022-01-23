@@ -1,27 +1,28 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { useBreakpoint } from 'react-use-size';
+import Media from 'react-media';
+// import {useBreakpoint} from 'use-breakpoint';
 import style from './StatisticsReport.module.css';
 
 import {
-  BarChart,
+  ComposedChart,
   Bar,
   XAxis,
   YAxis,
-    CartesianGrid,
+  CartesianGrid,
   Cell,
-  Label,
-  LabelList,
   ResponsiveContainer,
-//   Tooltip,
 } from "recharts";
+
 
 const data = [
   {
     name: "Свинина",
-    uv: 3300,
+    uv: 200,
   },
   {
     name: "Говядина",
-    uv: 3000,
+    uv: 4500,
   },
   {
     name: "Курица",
@@ -44,49 +45,91 @@ const data = [
     uv: 3490,
     // pv: 4300,
     // amt: 2210
-  }
+  },
+  // {
+  //   name: "Свинина",
+  //   uv: 200,
+  // },
+  // {
+  //   name: "Говядина",
+  //   uv: 4500,
+  // },
+  // {
+  //   name: "Курица",
+  //   uv: 2000,
+  // },
+  // {
+  //   name: "Page G",
+  //   uv: 3490,
+  //   // pv: 4300,
+  //   // amt: 2210
+  // },
+  // {
+  //   name: "Свинина",
+  //   uv: 200,
+  // },
+  // {
+  //   name: "Говядина",
+  //   uv: 4500,
+  // },
+  {
+    name: "Курица",
+    uv: 2000,
+  },
 ];
 
 const barColors = ["#ff7f0e", "#FFDAC0", "#FFDAC0"];
 
 const StatisticsReport = () => {
-    return (
-        <div className={style.section}>
-            <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-                // className={style.barchart}
-                data={data}
-                margin={{
-                    top: 50,
-                    right: 51,
-                    left: 51,
-                    bottom: 5
-                }}
-        >
-                    <CartesianGrid
-                        vertical={false}
-                        interval={40}
+   const mobile = useBreakpoint(767);
+  // console.log(mobile);
+ 
+  return (
+    <div className={style.wrapper}>
+      <div className={style.section}>
+      <ResponsiveContainer width="100%" height="100%">
+            <ComposedChart
+            data={data}
+            align="right"
+            fill="#52555F"
+            fontSize={12} 
+            // scaleToFit={true}
+            maxBarSize={38}
+            layout={mobile ? 'vertical' : 'horizontal'}
+            >
+              <CartesianGrid
+                      horizontal={mobile ? false : true}
+                      vertical={false}
+                      interval={mobile ? 0 : 40}
                     />
-                    <XAxis
-                        fill="#ff7f0e"
-                        dataKey="name"
-                        tickLine={false}
-                        axisLine={false}
+            <XAxis
+              dataKey={mobile ? "" : "name"}
+              type={mobile ? "number" : "category"}
+              tickLine={false}
+              axisLine={false}
+              padding={mobile ? {left: 10} : { top: 10 }}
+              // interval={0} angle={30} dx={20}
+              interval={0} 
+              // interval="preserveStartEnd"
+              hide={mobile ? true : false}
                     />
-                    <YAxis
-                        width={40}
-                        type="number"
-                        tickCount={9} hide
-                    />
-                    <Label dataKey="name"/>
+            <YAxis
+              dataKey={mobile ? "name" : ''}
+              type={mobile ? "category" : 'number'} 
+              width={mobile ? 0 : 40} 
+              tickCount={mobile ? 0 : 9}
+              tickLine={false}
+              axisLine={false}                        
+              hide={mobile ? false : true}
+            /> 
                     <Bar
                         dataKey="uv"
-                        barSize={38}
-                        barCategoryGap={25}
-                        minPointSize={5}
-                        maxPointSize={390}
-                        radius={[10, 10, 0, 0]}
-                        label={{ position: "top" }}                    
+                        minBarSize={5}
+                        // barCategoryGap={25}
+                        // maxPointSize={420}
+                        minPointSize={5}                        
+                        radius={mobile ? [0, 10, 10, 0] : [10, 10, 0, 0]}
+                        label={mobile ? { position: "right",  fill: "#52555F", fontSize: 12 } : { position: "top",  fill: "#52555F", fontSize: 12 }}                   
                         >
                             {
                                 data.map((entry, index) => (
@@ -94,9 +137,10 @@ const StatisticsReport = () => {
                                 ))
                             }
                     </Bar>
-                    </BarChart>
+          </ComposedChart>
                 </ResponsiveContainer>
-            </div>
+        </div>
+      </div>
     )
 };
 
