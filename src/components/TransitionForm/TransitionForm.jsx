@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 
-// import * as Yup from 'yup';
 import transOperations from 'redux/transaction/transactions-operation.jsx';
 import DropDownList from './DropDownList';
 import style from './TransitionForm.module.css';
@@ -13,16 +14,17 @@ import sprite from 'components/images/sprite.svg';
 import ru from 'date-fns/locale/ru';
 registerLocale('ru', ru);
 
-// const FormSchema = Yup.object().shape({
-//   value: Yup.number().min(1).positive().integer().required('Required'),
-//   name: Yup.string().required('Required'),
-//   categories: Yup.string().required('Required'),
-// });
+const FormSchema = Yup.object().shape({
+  value: Yup.number().min(1).positive().integer().required('Required'),
+  name: Yup.string().required('Required'),
+  categories: Yup.string().required('Required'),
+});
 
 const expenses = [
   { value: 'transport', label: 'Транспорт' },
   { value: 'products', label: 'Продукты' },
-  { value: 'health', label: 'Алкоголь' },
+  { value: 'alcohol', label: 'Алкоголь' },
+  { value: 'health', label: 'Здоровье' },
   { value: 'fun', label: 'Развлечения' },
   { value: 'home', label: 'Всё для дома' },
   { value: 'technic', label: 'Техника' },
@@ -54,7 +56,9 @@ const TransitionForm = () => {
     setValue,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(FormSchema),
+  });
 
   const getDate = newdata => {
     setSelectedDate(newdata);
@@ -150,7 +154,7 @@ const TransitionForm = () => {
               className={style.input}
               {...register('name', { required: true })}
             />
-            {errors.name && <p className={style.errors}>Required</p>}
+            {errors.name && <p className={style.errors}>Обязательное поле</p>}
           </div>
           <div className={style.category}>
             <input
@@ -160,7 +164,7 @@ const TransitionForm = () => {
               onClick={() => setOpen(!open)}
               readOnly
             />
-            {errors.name && <p className={style.errors}>Required</p>}
+            {errors.name && <p className={style.errors}>Обязательное поле</p>}
             {open ? (
               <div className={style.icon}>
                 <svg className={style.arrowUp}>
@@ -188,8 +192,7 @@ const TransitionForm = () => {
               className={style.inputValue}
               {...register('value', { required: true })}
             />
-            {errors.name && <p className={style.errors}>Required</p>}
-
+            {errors.name && <p className={style.errors}>Обязательное поле</p>}
             <svg className={style.calculator}>
               <use href={`${sprite}#calculator`}></use>
             </svg>
