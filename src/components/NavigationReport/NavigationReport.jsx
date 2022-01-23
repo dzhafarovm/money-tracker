@@ -1,49 +1,60 @@
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import style from './NavigationReport.module.css';
 import sprite from 'components/images/sprite.svg';
 
+import currentDateOperations from 'redux/currentDate/currentDate-operations';
+
 const arrMonthName = [
-  { id: '1', name: 'январь' },
-  { id: '2', name: 'февраль' },
-  { id: '3', name: 'март' },
-  { id: '4', name: 'апрель' },
-  { id: '5', name: 'май' },
-  { id: '6', name: 'июнь' },
-  { id: '7', name: 'июль' },
-  { id: '8', name: 'август' },
-  { id: '9', name: 'сентябрь' },
-  { id: '10', name: 'октябрь' },
-  { id: '11', name: 'ноябрь' },
-  { id: '12', name: 'декабрь' },
+  { id: '1', name: 'январь', engName: 'January' },
+  { id: '2', name: 'февраль', engName: 'February' },
+  { id: '3', name: 'март', engName: 'March' },
+  { id: '4', name: 'апрель', engName: 'April' },
+  { id: '5', name: 'май', engName: 'May' },
+  { id: '6', name: 'июнь', engName: 'June' },
+  { id: '7', name: 'июль', engName: 'July' },
+  { id: '8', name: 'август', engName: 'August' },
+  { id: '9', name: 'сентябрь', engName: 'September' },
+  { id: '10', name: 'октябрь', engName: 'October' },
+  { id: '11', name: 'ноябрь', engName: 'November' },
+  { id: '12', name: 'декабрь', engName: 'December' },
 ];
 
 const NavigationReport = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const nowDate = new Date();
-  const [mounth, setMounth] = useState(nowDate.getMonth() + 1);
+  const [month, setMonth] = useState(nowDate.getMonth() + 1);
   const [year, setYear] = useState(nowDate.getFullYear());
 
-  const handlePrevMounth = () => {
-    if (mounth <= 1) {
-      setMounth(12);
+  const handlePrevMonth = () => {
+    if (month <= 1) {
+      setMonth(12);
       setYear(prev => (prev -= 1));
     } else {
-      setMounth(prev => (prev -= 1));
+      setMonth(prev => (prev -= 1));
     }
   };
-  const handleNextMounth = () => {
-    if (mounth < 12) {
-      setMounth(prev => (prev += 1));
+  const handleNextMonth = () => {
+    if (month < 12) {
+      setMonth(prev => (prev += 1));
     } else {
-      setMounth(1);
+      setMonth(1);
       setYear(prev => (prev += 1));
     }
   };
 
-  const getMounth = arrMonthName.filter(el => el.id === String(mounth));
+  const getMonth = arrMonthName.filter(el => el.id === String(month));
+
+  const time = {
+    month: getMonth,
+    year: `${year}`,
+  };
+
+  dispatch(currentDateOperations.getDate(time));
 
   return (
     <nav className={style.nav}>
@@ -66,7 +77,7 @@ const NavigationReport = () => {
           <button
             type="button"
             className={style.arrowDate}
-            onClick={handlePrevMounth}
+            onClick={handlePrevMonth}
           >
             <svg
               width="12"
@@ -79,14 +90,14 @@ const NavigationReport = () => {
           </button>
 
           <p className={style.date}>
-            {getMounth[0].name.toLocaleUpperCase()}
+            {getMonth[0].name.toLocaleUpperCase()}
             <span className={style.year}>{year}</span>
           </p>
 
           <button
             type="button"
             className={style.arrowDate}
-            onClick={handleNextMounth}
+            onClick={handleNextMonth}
           >
             <svg
               width="12"

@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import transactionsOperations from './transactions-operation';
 
 const initialState = {
-  byMonth: {},
+  getByMonth: {},
   addTransaction: {},
-  getAll: []
+  getAll: [],
 };
 
 const transactionsSlice = createSlice({
@@ -12,7 +12,7 @@ const transactionsSlice = createSlice({
   initialState,
   extraReducers: {
     [transactionsOperations.getByMonth.fulfilled](state, action) {
-      state.byMonth = action.payload;
+      state.getByMonth = action.payload;
     },
 
     [transactionsOperations.addTransaction.pending](state, action) {

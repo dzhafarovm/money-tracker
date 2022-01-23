@@ -30,27 +30,22 @@ const addTransaction = createAsyncThunk(
   },
 );
 
+const getAll = createAsyncThunk('transactions/getAll', async type => {
+  try {
+    console.log(type);
+    const { data } = await axios.get(`api/transactions/getType/${type}`);
+    console.log('transaction', data.data);
 
-const getAll = createAsyncThunk(
-  'transactions/getAll',
-  async type => {
-    try {
-      console.log(type);
-      const {data} = await axios.get(`api/transactions/getType/${type}`);
-      console.log('transaction', data.data)
-      
-      
-      return data.data;
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  },
-);
+    return data.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+});
 
 const transOperations = {
   getByMonth,
   addTransaction,
-  getAll
+  getAll,
 };
 
 export default transOperations;
