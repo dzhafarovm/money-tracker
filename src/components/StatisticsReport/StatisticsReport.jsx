@@ -1,7 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useBreakpoint } from 'react-use-size';
-import Media from 'react-media';
-// import {useBreakpoint} from 'use-breakpoint';
 import style from './StatisticsReport.module.css';
 
 import {
@@ -12,13 +10,14 @@ import {
   CartesianGrid,
   Cell,
   ResponsiveContainer,
+  LabelList,
 } from "recharts";
 
 
 const data = [
   {
     name: "Свинина",
-    uv: 200,
+    uv: 7000,
   },
   {
     name: "Говядина",
@@ -29,52 +28,36 @@ const data = [
     uv: 2000,
   },
   {
-    name: "Page D",
+    name: "Рыба",
     uv: 2780,
   },
   {
-    name: "Page E",
+    name: "Чай",
     uv: 1890,
   },
   {
-    name: "Page F",
+    name: "Кофе",
     uv: 2390,
   },
   {
-    name: "Page G",
+    name: "Шоколад",
     uv: 3490,
-    // pv: 4300,
-    // amt: 2210
   },
-  // {
-  //   name: "Свинина",
-  //   uv: 200,
-  // },
-  // {
-  //   name: "Говядина",
-  //   uv: 4500,
-  // },
-  // {
-  //   name: "Курица",
-  //   uv: 2000,
-  // },
-  // {
-  //   name: "Page G",
-  //   uv: 3490,
-  //   // pv: 4300,
-  //   // amt: 2210
-  // },
-  // {
-  //   name: "Свинина",
-  //   uv: 200,
-  // },
-  // {
-  //   name: "Говядина",
-  //   uv: 4500,
-  // },
   {
-    name: "Курица",
+    name: "Зелень",
+    uv: 500,
+  },
+  {
+    name: "Овощи",
+    uv: 4500,
+  },
+  {
+    name: "Фрукты",
     uv: 2000,
+  },
+  {
+    name: "Крупы",
+    uv: 3490,
   },
 ];
 
@@ -82,7 +65,6 @@ const barColors = ["#ff7f0e", "#FFDAC0", "#FFDAC0"];
 
 const StatisticsReport = () => {
    const mobile = useBreakpoint(767);
-  // console.log(mobile);
  
   return (
     <div className={style.wrapper}>
@@ -93,7 +75,6 @@ const StatisticsReport = () => {
             align="right"
             fill="#52555F"
             fontSize={12} 
-            // scaleToFit={true}
             maxBarSize={38}
             layout={mobile ? 'vertical' : 'horizontal'}
             >
@@ -108,13 +89,12 @@ const StatisticsReport = () => {
               tickLine={false}
               axisLine={false}
               padding={mobile ? {left: 10} : { top: 10 }}
-              // interval={0} angle={30} dx={20}
               interval={0} 
-              // interval="preserveStartEnd"
               hide={mobile ? true : false}
                     />
             <YAxis
               dataKey={mobile ? "name" : ''}
+              value={`${"name"}грн.`}
               type={mobile ? "category" : 'number'} 
               width={mobile ? 0 : 40} 
               tickCount={mobile ? 0 : 9}
@@ -122,23 +102,27 @@ const StatisticsReport = () => {
               axisLine={false}                        
               hide={mobile ? false : true}
             /> 
-                    <Bar
-                        dataKey="uv"
-                        minBarSize={5}
-                        // barCategoryGap={25}
-                        // maxPointSize={420}
-                        minPointSize={5}                        
-                        radius={mobile ? [0, 10, 10, 0] : [10, 10, 0, 0]}
-                        label={mobile ? { position: "right",  fill: "#52555F", fontSize: 12 } : { position: "top",  fill: "#52555F", fontSize: 12 }}                   
-                        >
-                            {
-                                data.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={barColors[index % 3]} />
-                                ))
-                            }
+            <Bar
+              dataKey="uv"             
+              minBarSize={mobile ? 20 : 5}
+              barCategoryGap={50}                        
+              minPointSize={70}                        
+              radius={mobile ? [0, 10, 10, 0] : [10, 10, 0, 0]}
+              label={mobile ? {  value: `${"name"}грн.`, position: "right",  fill: "#52555F", fontSize: 12 } : { position: "top",  fill: "#52555F", fontSize: 12 }}                   
+            >
+              {
+                  data.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={barColors[index % 3]} />
+                  ))
+              }
+              {mobile && (
+                <LabelList
+                  dataKey="name"
+                  position="insideLeft"
+                  style={{ fill: "#52555F" }} />)}
                     </Bar>
           </ComposedChart>
-                </ResponsiveContainer>
+          </ResponsiveContainer>
         </div>
       </div>
     )

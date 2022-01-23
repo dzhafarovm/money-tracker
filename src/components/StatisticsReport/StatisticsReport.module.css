@@ -1,14 +1,13 @@
 @media screen and (max-width: 767px) {
   .wrapper {
-    margin-top: 30px;
-    margin-bottom: 75px;
+    padding: 34px 0px 51px 0px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    padding: 65px 50px 5px 50px;
-    margin-top: 30px;
+    padding: 65px 50px 19px 50px;
+    margin-top: 32px;
     margin-bottom: 75px;
     border-radius: 30px;
     background-color: var(--white-color);
