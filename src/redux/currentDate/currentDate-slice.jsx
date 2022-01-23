@@ -11,7 +11,7 @@ const currentDateSlice = createSlice({
   initialState,
   extraReducers: {
     [currentDateOperations.getDate.fulfilled](state, action) {
-      state.month = action.payload.month;
+      state.month = action.payload.month[0].engName;
       state.year = action.payload.year;
     },
   },
