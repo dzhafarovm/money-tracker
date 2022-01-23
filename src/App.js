@@ -18,7 +18,7 @@ const AuthPages = lazy(() => import('pages/AuthPages'));
 const ExpensesPage = lazy(() => import('pages/ExpensesPage'));
 const IncomePage = lazy(() => import('pages/IncomePage'));
 const ReportPage = lazy(() => import('pages/ReportPage'));
-const GooglPage = lazy(() => import('pages/GooglPage'));
+const GooglePage = lazy(() => import('pages/GooglePage'));
 
 function App() {
   const { pathname } = useLocation();
@@ -43,7 +43,7 @@ function App() {
 
               <Route
                 path={routes.google}
-                element={<PublicRoute component={<GooglPage />} />}
+                element={<PublicRoute component={<GooglePage />} />}
               />
 
               <Route

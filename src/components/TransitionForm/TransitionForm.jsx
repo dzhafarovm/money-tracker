@@ -23,7 +23,8 @@ const FormSchema = Yup.object().shape({
 const expenses = [
   { value: 'transport', label: 'Транспорт' },
   { value: 'products', label: 'Продукты' },
-  { value: 'health', label: 'Алкоголь' },
+  { value: 'alcohol', label: 'Алкоголь' },
+  { value: 'health', label: 'Здоровье' },
   { value: 'fun', label: 'Развлечения' },
   { value: 'home', label: 'Всё для дома' },
   { value: 'technic', label: 'Техника' },
