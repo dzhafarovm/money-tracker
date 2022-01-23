@@ -1,1 +1,1 @@
-export { default } from './Google';
+export { default } from './google';
