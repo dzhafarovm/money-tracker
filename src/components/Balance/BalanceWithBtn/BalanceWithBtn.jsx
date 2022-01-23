@@ -1,68 +1,70 @@
-import { useState, useCallback, useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+//import { useDispatch } from 'react-redux';
+import React from 'react';
 import s from './BalanceWithBtn.module.css';
 import GreetingNotification from 'components/Balance/GreetingNotification';
 
-const BalanceWithBtn = () => {
+function BalanceWithBtn() {
+  const [balance, setBalance] = useState('00.00');
   // const dispatch = useDispatch();
-
-  let startValue = '00.00';
-  const balance = 0;
-  const [value, setValue] = useState(balance.toFixed(2));
-  const [isLoading, setIsLoading] = useState(false);
   const [isNotifyShow, setIsNotifyShow] = useState(true);
 
-  // const handleChange = e => setValue(Number(e.target.value));
+  const handleChange = e => {
+    const data = e.currentTarget.value;
+    switch (e.currentTarget.name) {
+      case 'balance':
+        setBalance(data);
+        break;
+      default:
+        return;
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const data = { balance };
+    console.log(data);
+    localStorage.setItem('balance', data);
+    //setBalance();
+    // dispatch(console.log(data));
+  };
 
   const onNotifyClick = condition => setIsNotifyShow(condition);
 
-  const handleSubmit = useCallback(
-    e => {
-      e.preventDefault();
-      // setIsLoading(true);
-
-      startValue = '';
-      setValue(Number(value).toFixed(2));
-      // TODO dispatch(setCurrentBalance(value));
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
-    },
-    ['', value],
-  );
-  useEffect(() => {
-    setValue(() => balance.toFixed(2));
-  }, [balance]);
   return (
     <>
-      <form className={s.wrapper} onSubmit={handleSubmit}>
-        <label className={s.balanceTitle} htmlFor="balance">
+      <form
+        className={s.wrapper}
+        onSubmit={handleSubmit}
+        //action="http://foo.com"
+        method="get"
+      >
+        <h2 className={s.balanceTitle} htmlFor="balance">
           Баланс:
-        </label>
-        <div className={s.btnWrapper}>
-          <button className={s.valueBtn}>{startValue} UAH</button>
+        </h2>
+        <div className={s.inputAndBtn}>
+          <div className="position_for_UAH">
+            <input
+              name="balance"
+              onChange={handleChange}
+              type="text"
+              className={s.inputBalance}
+              pattern="\d+(\.\d{2})?"
+              title="Баланс должен состоять цифр"
+              required
+              value={balance}
+            />
+            <span className={s.span}>UAH</span>
+          </div>
           <button className={s.submitBtn} type="submit">
-            подтвердить
+            ПОДТВЕРДИТЬ
           </button>
-          {/* <input
-            autoComplete="off"
-            className={styles.inputBalance}
-            type="number"
-            value={isLoading ? null : value}
-            onChange={handleChange}
-            onFocus={() => setValue('')}
-            onBlur={() => setTimeout(() => setValue(balance.toFixed(2)), delay)}
-            id="balance"
-            required
-          />
-
-          <span className={styles.span}>UAH</span> */}
         </div>
       </form>
-      {isNotifyShow && startValue === '00.00' && (
+      {isNotifyShow && balance === '00.00' && (
         <GreetingNotification onNotifyClick={onNotifyClick} />
       )}
     </>
   );
-};
+}
 export default BalanceWithBtn;

@@ -1,79 +1,23 @@
 .balanceWrapper {
   margin: auto;
-  margin-top: 30px;
   text-align: center;
+  justify-content: center;
+  padding-top: 30px;
 }
 
-.labelBalance {
-  margin: 0 auto;
-  margin-bottom: 6px;
-  display: flex;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.67;
-  letter-spacing: 0.02em;
-  color: var(--primary-text-transparency);
-}
-.wrapperBalance {
-  display: flex;
-}
-.container {
-  position: relative;
-}
-.inputBalance {
-  width: 125px;
-  height: 44px;
-  padding-left: 10px;
-  padding-right: 43px;
-  border-radius: 22px 0px 0px 22px;
-  background: var(--secondary-bcg-color);
-  border: 2px solid var(--white-color);
-  font-size: 12px;
-  line-height: 1.16;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  text-align: right;
-  outline: none;
-}
-.inputBalance:hover,
-.inputBalance:active {
-  outline: var(--white-color);
-  background: var(--secondary-bcg-color);
-}
-.inputBalance::placeholder {
-  padding-left: 26px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--black-color);
-}
-.span {
-  position: absolute;
-  top: 35%;
-  right: 15px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--black-color);
-}
 @media screen and (min-width: 768px) {
   .balanceWrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-direction: row-reverse;
-    /* border: 3px solid green; */
-    margin-top: 40px;
-    width: 634px;
-    height: 44px;
+    padding-top: 40px;
+    padding-left: 82px;
+    padding-right: 52px;
+    margin-bottom: 58px;
   }
 }
 @media screen and (min-width: 1280px) {
   .balanceWrapper {
-    width: 100%;
-    margin-top: 52px;
-    margin-right: 205px;
+    padding-top: 52px;
   }
 }

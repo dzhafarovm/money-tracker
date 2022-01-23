@@ -11,80 +11,149 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
-  text-align: center;
   letter-spacing: 0.02em;
-
   color: var(--primary-text-transparency);
 }
-.valueBtn {
-  width: 125px;
-  height: 44px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.67;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--black-color);
-  text-align: right;
 
-  padding-right: 17px;
-  border: 1px solid var(--white-color);
-  border-radius: 22px 0px 0px 22px;
-  cursor: pointer;
+.inputAndBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 44px;
 }
-.submitBtn {
+
+.inputBalance {
+  display: flex;
+  text-align: center;
+  background-color: transparent;
   width: 125px;
   height: 44px;
+  margin: 0;
+  padding: 0;
   font-family: Roboto;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--black-color);
+  border: 1px solid var(--white-color);
+  cursor: pointer;
+}
+
+.submitBtn {
   display: flex;
+  justify-content: center;
   align-items: center;
+  background-color: transparent;
+  width: 125px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--primary-text-transparency);
-
-  padding-left: 17px;
   border: 1px solid var(--white-color);
-  border-radius: 0px 22px 22px 0px;
+  border-radius: 22px;
   cursor: pointer;
 }
-.btnWrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 6px;
+.submitBtn:hover {
+  background-color: var(--accent-color);
+  color: var(--white-color);
 }
+
+.position_for_UAH {
+  position: relative;
+  top: 0;
+  display: inline-block;
+  width: 125px;
+  height: 44px;
+}
+
+.span {
+  position: absolute;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+  .span {
+    top: 36px;
+    left: 90px;
+  }
+  .balanceTitle {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .inputBalance {
+    border-radius: 22px 0px 0px 22px;
+  }
+  .submitBtn {
+    border-radius: 0px 22px 22px 0px;
+  }
+}
+
 @media screen and (min-width: 768px) {
+  .span {
+    bottom: 0;
+    right: 24px;
+    top: 30px;
+    left: 0;
+  }
   .wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
     width: 369px;
     margin: 0;
-    /* border: 1px solid grey; */
   }
-  .btnWrapper {
-    margin: 0;
+  .inputBalance {
+    border-radius: 22px;
   }
+
+  .balanceTitle {
+    display: flex;
+    margin-right: 21px;
+  }
+
   .valueBtn,
   .submitBtn {
     border-radius: 16px;
   }
+
   .valueBtn {
-    margin-right: 15px;
+    margin-left: 15px;
+    margin-right: 111px;
     padding-right: 20px;
     cursor: text;
   }
   .submitBtn {
     justify-content: center;
+    margin-left: 15px;
   }
 }
-.inputBalance {
-  background-color: transparent;
-  border: transparent;
+
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 369px;
+    margin-right: 205px;
+  }
 }

@@ -1,7 +1,6 @@
-import { NavLink } from 'react-router-dom';
+//import { NavLink } from 'react-router-dom';
 import routes from 'routes/routes';
-
-// import Balance from 'components/Balance';
+import Balance from 'components/Balance';
 import TransactionContainer from 'components/TransactionContainer';
 import Button from 'components/TransactionContainer/Button';
 import Table from 'components/TransactionTable';
@@ -14,11 +13,11 @@ import styleBtn from 'components/TransactionContainer/Button/Button.module.css';
 const ExpensesPage = () => {
   return (
     <>
-      <nav>
+      {/* <nav>
         <NavLink to={routes.report}>Отчёт</NavLink>
-      </nav>
+      </nav> */}
 
-      {/* <Balance /> */}
+      <Balance />
 
       <div className={style.buttonConteiner}>
         <Button
