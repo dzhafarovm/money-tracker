@@ -1,5 +1,5 @@
 import DebedCreditReport from 'components/DebetCreditReport';
-import ExpensesReport from 'components/ExpensesReport';
+import ShowPage from 'components/ShowPage';
 import NavigationReport from 'components/NavigationReport';
 import StatisticsReport from 'components/StatisticsReport';
 
@@ -8,7 +8,7 @@ const ReportPage = () => {
     <>
       <NavigationReport />
       <DebedCreditReport />
-      <ExpensesReport />
+      <ShowPage />
       <StatisticsReport />
     </>
   );

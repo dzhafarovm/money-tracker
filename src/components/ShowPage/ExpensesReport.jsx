@@ -27,22 +27,18 @@ const ExpensesReport = () => {
   const { data } = useSelector(transactionsSelectors.getByMonth);
 
   let costsArr = [];
-  let incomeArr = [];
 
   if (data) {
-    incomeArr = data.incomeTransactions;
     costsArr = data.costsTransactions;
   }
-  console.log('SelectTransaction > costsArr', costsArr);
-  console.log('SelectTransaction > incomeArr', incomeArr);
 
-  const totalCosts = costsArr.reduce((acc, trans) => {
-    return acc + trans.sum;
-  }, 0);
+  // const totalCosts = costsArr.reduce((acc, trans) => {
+  //   return acc + trans.sum;
+  // }, 0);
 
-  const totalIncome = incomeArr.reduce((acc, trans) => {
-    return acc + trans.sum;
-  }, 0);
+  // const totalIncome = incomeArr.reduce((acc, trans) => {
+  //   return acc + trans.sum;
+  // }, 0);
 
   let productsSum = null;
   let alcoholSum = null;
@@ -196,19 +192,3 @@ const ExpensesReport = () => {
 };
 
 export default ExpensesReport;
-
-// {/* <div className={style.slider}>
-//   <button type="button" className={style.arrowDate}>
-//     <svg width="12" height="18" viewBox="0 0 24 24" className={style.iconDate}>
-//       <use href={`${sprite}#arrow-left`}></use>
-//     </svg>
-//   </button>
-
-//   <p className={style.date}>РАСХОДЫ</p>
-
-//   <button type="button" className={style.arrowDate}>
-//     <svg width="12" height="18" viewBox="0 0 24 24" className={style.iconDate}>
-//       <use href={`${sprite}#arrow-right`}></use>
-//     </svg>
-//   </button>
-// </div>; */}
