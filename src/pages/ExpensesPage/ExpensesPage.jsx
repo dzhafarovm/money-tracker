@@ -1,17 +1,20 @@
 import { NavLink } from 'react-router-dom';
 import routes from 'routes/routes';
+// import { useBreakpoint } from 'react-use-size';
 
 // import Balance from 'components/Balance';
 import TransactionContainer from 'components/TransactionContainer';
 import Button from 'components/TransactionContainer/Button';
-import Table from 'components/TransactionTable';
-import Summary from 'components/Summary';
 import TransitionForm from 'components/TransitionForm';
+// import Summary from 'components/Summary';
+// import TransactionTable from 'components/TransactionTable';
+// import MobileTransactionTable from 'components/MobileTransactionTable';
 
 import style from './ExpensesPage.module.css';
 import styleBtn from 'components/TransactionContainer/Button/Button.module.css';
 
 const ExpensesPage = () => {
+  // const mobile = useBreakpoint(767);
   return (
     <>
       <nav>
@@ -36,8 +39,8 @@ const ExpensesPage = () => {
         <TransitionForm />
 
         <div className={style.wrapper}>
-          <Table />
-          <Summary />
+          {/* {mobile ? <MobileTransactionTable /> : <TransactionTable />} */}
+          {/* <Summary /> */}
         </div>
       </TransactionContainer>
     </>

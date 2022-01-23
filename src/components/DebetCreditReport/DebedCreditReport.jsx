@@ -14,16 +14,18 @@ const DebedCreditReport = () => {
   const month = currentDate.month;
   const year = currentDate.year;
 
-  const date = {
-    month,
-    year,
-  };
-
   useEffect(() => {
+    const date = {
+      month,
+      year,
+    };
+
     dispatch(transOperations.getByMonth(date));
-  }, [dispatch]);
+  }, [dispatch, month, year]);
 
   const { data } = useSelector(transactionsSelectors.getByMonth);
+
+  console.log(data);
 
   let costsArr = [];
   let incomeArr = [];
@@ -36,6 +38,10 @@ const DebedCreditReport = () => {
     return acc + trans.sum;
   }, 0);
 
+  if (data) {
+    incomeArr = data.incomeTransactions;
+  }
+
   const totalIncome = incomeArr.reduce((acc, trans) => {
     return acc + trans.sum;
   }, 0);
@@ -44,11 +50,11 @@ const DebedCreditReport = () => {
     <div className={style.section}>
       <div className={style.boxSpending}>
         <p className={style.spending}>Расходы:</p>
-        <span className={style.minus}>- {totalCosts} грн</span>
+        <span className={style.minus}>- {totalCosts} грн.</span>
       </div>
       <div className={style.boxIncom}>
         <p className={style.income}>Доходы:</p>
-        <span className={style.plus}>+ {totalIncome} грн</span>
+        <span className={style.plus}>+ {totalIncome} грн.</span>
       </div>
     </div>
   );

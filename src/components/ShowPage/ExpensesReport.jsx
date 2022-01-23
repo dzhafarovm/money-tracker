@@ -15,14 +15,14 @@ const ExpensesReport = () => {
   const month = currentDate.month;
   const year = currentDate.year;
 
-  const date = {
-    month,
-    year,
-  };
-
   useEffect(() => {
+    const date = {
+      month,
+      year,
+    };
+
     dispatch(transOperations.getByMonth(date));
-  }, [dispatch]);
+  }, [dispatch, month, year]);
 
   const { data } = useSelector(transactionsSelectors.getByMonth);
 
@@ -31,14 +31,6 @@ const ExpensesReport = () => {
   if (data) {
     costsArr = data.costsTransactions;
   }
-
-  // const totalCosts = costsArr.reduce((acc, trans) => {
-  //   return acc + trans.sum;
-  // }, 0);
-
-  // const totalIncome = incomeArr.reduce((acc, trans) => {
-  //   return acc + trans.sum;
-  // }, 0);
 
   let productsSum = null;
   let alcoholSum = null;

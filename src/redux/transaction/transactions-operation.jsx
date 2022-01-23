@@ -30,6 +30,18 @@ const addTransaction = createAsyncThunk(
   },
 );
 
+const deleteTransaction = createAsyncThunk(
+  'transactions/deleteTransaction',
+  async _id => {
+    try {
+      await axios.delete(`api/transactions/${_id}`);
+      return _id;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
+);
+
 const getAll = createAsyncThunk('transactions/getAll', async type => {
   try {
     console.log(type);
@@ -46,6 +58,7 @@ const transOperations = {
   getByMonth,
   addTransaction,
   getAll,
+  deleteTransaction,
 };
 
 export default transOperations;
