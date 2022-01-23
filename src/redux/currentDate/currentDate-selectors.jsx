@@ -1,4 +1,4 @@
-const getcurrentDate = state => state.currentDate.getDate;
+const getcurrentDate = state => state.currentDate;
 
 const currentDateSelectors = {
   getcurrentDate,
