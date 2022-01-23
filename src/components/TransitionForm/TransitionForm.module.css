@@ -189,6 +189,17 @@
   transform: rotate(-90deg);
 }
 
+.errors {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  margin-top: 5px;
+  color: tomato;
+
+  position: absolute;
+}
+
 @media screen and (min-width: 768px) {
   .allContainer {
     margin-left: 0;

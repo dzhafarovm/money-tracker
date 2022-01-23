@@ -1,3 +1,9 @@
+.arrowDate {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
 @media screen and (max-width: 767px) {
   .slider {
     justify-content: center;
@@ -57,12 +63,6 @@
     line-height: 14px;
     letter-spacing: 0.04em;
     color: var(--primary-text-transparency);
-  }
-
-  .arrowDate {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
   }
 
   .slider {
@@ -132,4 +132,8 @@
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.02em;
+}
+
+.year {
+  margin-left: 5px;
 }
