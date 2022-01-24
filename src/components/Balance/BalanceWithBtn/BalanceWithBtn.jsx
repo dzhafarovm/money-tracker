@@ -1,68 +1,119 @@
-import { useState, useCallback, useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-import s from './BalanceWithBtn.module.css';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+
 import GreetingNotification from 'components/Balance/GreetingNotification';
+import balanceOperations from 'redux/balance/balance-operations';
+import balanceSelectors from 'redux/balance/balance-selectors';
+import s from './BalanceWithBtn.module.css';
+
+const FormSchema = Yup.object().shape({
+  balance: Yup.number().required('Введите баланс'),
+});
 
 const BalanceWithBtn = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  let startValue = '00.00';
-  const balance = 0;
-  const [value, setValue] = useState(balance.toFixed(2));
-  const [isLoading, setIsLoading] = useState(false);
-  const [isNotifyShow, setIsNotifyShow] = useState(true);
+  const initialValues = {
+    balance: null,
+  };
 
-  // const handleChange = e => setValue(Number(e.target.value));
-
-  const onNotifyClick = condition => setIsNotifyShow(condition);
-
-  const handleSubmit = useCallback(
-    e => {
-      e.preventDefault();
-      // setIsLoading(true);
-
-      startValue = '';
-      setValue(Number(value).toFixed(2));
-      // TODO dispatch(setCurrentBalance(value));
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
-    },
-    ['', value],
-  );
   useEffect(() => {
-    setValue(() => balance.toFixed(2));
-  }, [balance]);
-  return (
-    <>
-      <form className={s.wrapper} onSubmit={handleSubmit}>
-        <label className={s.balanceTitle} htmlFor="balance">
-          Баланс:
-        </label>
-        <div className={s.btnWrapper}>
-          <button className={s.valueBtn}>{startValue} UAH</button>
-          <button className={s.submitBtn} type="submit">
-            подтвердить
-          </button>
-          {/* <input
-            autoComplete="off"
-            className={styles.inputBalance}
-            type="number"
-            value={isLoading ? null : value}
-            onChange={handleChange}
-            onFocus={() => setValue('')}
-            onBlur={() => setTimeout(() => setValue(balance.toFixed(2)), delay)}
-            id="balance"
-            required
-          />
+    dispatch(balanceOperations.getCurrentUserBalance());
+  }, [dispatch]);
 
-          <span className={styles.span}>UAH</span> */}
-        </div>
-      </form>
-      {isNotifyShow && startValue === '00.00' && (
-        <GreetingNotification onNotifyClick={onNotifyClick} />
-      )}
-    </>
+  const currentBalance = useSelector(balanceSelectors.getCurrentUserBalance);
+
+  if (currentBalance !== null) {
+    initialValues.balance = currentBalance;
+  }
+
+  const handleSubmit = ({ balance }) => {
+    console.log('BalanceWithBtn > balance', balance);
+
+    dispatch(balanceOperations.updateBalance(balance));
+  };
+
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={FormSchema}
+      onSubmit={handleSubmit}
+    >
+      {formik => {
+        const { values, handleChange } = formik;
+
+        return (
+          <div>
+            {currentBalance === null && <GreetingNotification />}
+
+            <span>Баланс:</span>
+
+            <Form>
+              <div>
+                <Field
+                  value={values.balance}
+                  type="text"
+                  name="balance"
+                  id="balance"
+                  placeholder={
+                    initialValues.balance === null
+                      ? '00.00'
+                      : initialValues.balance
+                  }
+                  onChange={handleChange}
+                />
+
+                <ErrorMessage
+                  name="balance"
+                  component="span"
+                  className={s.error}
+                />
+              </div>
+
+              <button type="submit">Подтвердить</button>
+            </Form>
+          </div>
+        );
+      }}
+    </Formik>
   );
 };
+
 export default BalanceWithBtn;
+
+// <Formik initialValues={balance} onSubmit={handleSubmit}>
+//   {formik => {
+//     const { values, handleChange } = formik;
+//     // const onNotifyClick = condition => setIsNotifyShow(condition);
+//     return (
+//       <>
+//         <Form className={s.wrapper}>
+//           <h2 className={s.balanceTitle} htmlFor="balance">
+//             Баланс:
+//           </h2>
+//           <div className={s.inputAndBtn}>
+//             <div className="position_for_UAH">
+//               <Field
+//                 name="balance"
+//                 onChange={handleChange}
+//                 type="text"
+//                 className={s.inputBalance}
+//                 pattern="\d+(\.\d{2})?"
+//                 title="Баланс должен состоять из цифр"
+//                 required
+//                 value={values.balance}
+//               />
+//               <span className={s.span}>UAH</span>
+//             </div>
+//             <button className={s.submitBtn} type="submit">
+//               ПОДТВЕРДИТЬ
+//             </button>
+//           </div>
+//         </Form>
+
+//       </>
+//     );
+//   }}
+// </Formik>

@@ -1,30 +1,17 @@
-// import { useState } from 'react';
-// import { useLocation } from 'react-router-dom';
-// import { useWindowWidth } from '@react-hook/window-size';
 import GoToReport from './GoToReport';
-// import useWindowWidth from './helpers/useWindowWidth';
+import { useLocation } from 'react-router-dom';
 import s from './Balance.module.css';
-import BalanceWithBtn from 'components/Balance/BalanceWithBtn/BalanceWithBtn';
-
+import BalanceWithBtn from 'components/Balance/BalanceWithBtn';
+import routes from '../../routes/routes';
 const Balance = () => {
-  // const balance = 0;
-  // const location = useLocation();
-  // const [isLoading, setIsLoading] = useState(false);
-  // const width = useWindowWidth();
-  // const [value, setValue] = useState(balance.toFixed(2));
-
-  // const handleChange = e => setValue(Number(e.target.value));
+  const { pathname } = useLocation();
 
   return (
     <div className={s.balanceWrapper}>
-      <GoToReport />
+      {pathname === routes.report ? null : <GoToReport />}
       <BalanceWithBtn />
     </div>
   );
 };
 
 export default Balance;
-
-///{location.pathname === routes.reportPage &&
-///width > 319 &&
-///width < 1280 ?
