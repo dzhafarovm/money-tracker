@@ -16,7 +16,7 @@ const BalanceWithBtn = () => {
   const dispatch = useDispatch();
 
   const initialValues = {
-    balance: '00.00',
+    balance: null,
   };
 
   useEffect(() => {

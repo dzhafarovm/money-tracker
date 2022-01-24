@@ -7,6 +7,7 @@ import Summary from 'components/Summary';
 // import TransactionTable from 'components/TransactionTable';
 // import MobileTransactionTable from 'components/MobileTransactionTable';
 import routes from 'routes/routes';
+import Balance from 'components/Balance';
 
 import style from './ExpensesPage.module.css';
 import styleBtn from 'components/TransactionContainer/Button/Button.module.css';
@@ -16,6 +17,8 @@ const ExpensesPage = () => {
 
   return (
     <>
+      <Balance />
+
       <div className={style.buttonConteiner}>
         <Button
           title="Расход"

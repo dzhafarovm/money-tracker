@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import authReducer from './auth/auth-slice';
 import transactionsReduser from './transaction/transactions-slice.jsx';
 import currentDateReducer from './currentDate/currentDate-slice.jsx';

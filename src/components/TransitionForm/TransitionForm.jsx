@@ -39,6 +39,21 @@ const income = [
   { value: 'other income', label: 'Доп. доход' },
 ];
 
+const monthNames = [
+  { monthId: '01', label: 'January' },
+  { monthId: '02', label: 'February' },
+  { monthId: '03', label: 'March' },
+  { monthId: '04', label: 'April' },
+  { monthId: '05', label: 'May' },
+  { monthId: '06', label: 'June' },
+  { monthId: '07', label: 'July' },
+  { monthId: '08', label: 'August' },
+  { monthId: '09', label: 'September' },
+  { monthId: '10', label: 'October' },
+  { monthId: '11', label: 'November' },
+  { monthId: '12', label: 'December' },
+];
+
 const TransitionForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [open, setOpen] = useState(false);
@@ -87,10 +102,13 @@ const TransitionForm = () => {
     const categoryEng = options.filter(data => data.label === categories);
 
     const arr = date.toLocaleDateString().split('.');
+
+    const searchMonthArr = monthNames.filter(el => el.monthId === arr[1]);
+
     const newData = {
       type,
       day: arr[0],
-      month: arr[1],
+      month: searchMonthArr[0].label,
       year: arr[2],
       description: name,
       category: categoryEng[0].value,

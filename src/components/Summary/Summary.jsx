@@ -16,7 +16,12 @@ const Summary = () => {
   // }, [dispatch, type]);
 
   // const { result } = useSelector(transactionsSelectors.getAll);
-  // console.log('Summary > result', result);
+
+  // let arrTransaction = [];
+
+  // if (result) {
+  //   arrTransaction = result;
+  // }
 
   return (
     <div>
