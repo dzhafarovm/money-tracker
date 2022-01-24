@@ -1,19 +1,19 @@
-import routes from 'routes/routes';
-
-// import { useBreakpoint } from 'react-use-size';
+import { useBreakpoint } from 'react-use-size';
 
 import TransactionContainer from 'components/TransactionContainer';
-import Button from 'components/TransactionContainer/Button';
 import TransitionForm from 'components/TransitionForm';
-// import Summary from 'components/Summary';
+import Button from 'components/TransactionContainer/Button';
+import Summary from 'components/Summary';
 // import TransactionTable from 'components/TransactionTable';
 // import MobileTransactionTable from 'components/MobileTransactionTable';
+import routes from 'routes/routes';
 
 import style from './ExpensesPage.module.css';
 import styleBtn from 'components/TransactionContainer/Button/Button.module.css';
 
 const ExpensesPage = () => {
-  // const mobile = useBreakpoint(767);
+  const mobile = useBreakpoint(767);
+
   return (
     <>
       <div className={style.buttonConteiner}>
@@ -28,12 +28,13 @@ const ExpensesPage = () => {
           style={styleBtn.buttonTitle}
         />
       </div>
+
       <TransactionContainer>
         <TransitionForm />
 
         <div className={style.wrapper}>
           {/* {mobile ? <MobileTransactionTable /> : <TransactionTable />} */}
-          {/* <Summary /> */}
+          {mobile ? null : <Summary />}
         </div>
       </TransactionContainer>
     </>

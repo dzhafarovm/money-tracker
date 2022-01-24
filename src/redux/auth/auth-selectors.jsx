@@ -8,6 +8,8 @@ const getIsFetchingCurrent = state => state.auth.isFetchingCurrentUser;
 
 const getBalance = state => state.auth.balance;
 
+const getToken = state => state.auth.token;
+
 const authSelectors = {
   getIsLoggedIn,
   getUserEmail,
