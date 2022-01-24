@@ -30,8 +30,6 @@ const BalanceWithBtn = () => {
   }
 
   const handleSubmit = ({ balance }) => {
-    console.log('BalanceWithBtn > balance', balance);
-
     dispatch(balanceOperations.updateBalance(balance));
   };
 

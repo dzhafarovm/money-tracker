@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://teamproj-money-tracker.herokuapp.com';
 
@@ -28,6 +29,7 @@ const updateBalance = createAsyncThunk(
         balance,
       });
 
+      toast.success('Ваш баланс обновлён');
       return data.result;
     } catch (error) {
       console.log(error);
