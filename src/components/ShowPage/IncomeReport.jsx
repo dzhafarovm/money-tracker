@@ -15,14 +15,14 @@ const IncomeReport = () => {
   const month = currentDate.month;
   const year = currentDate.year;
 
-  const date = {
-    month,
-    year,
-  };
-
   useEffect(() => {
+    const date = {
+      month,
+      year,
+    };
+
     dispatch(transOperations.getByMonth(date));
-  }, [dispatch]);
+  }, [dispatch, month, year]);
 
   const { data } = useSelector(transactionsSelectors.getByMonth);
 

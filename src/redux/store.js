@@ -36,7 +36,6 @@ const currentDatePersistConfig = {
 const balancePersistConfig = {
   key: 'balance',
   storage,
-  whitelist: ['token'],
 };
 
 export const store = configureStore({
