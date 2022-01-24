@@ -1,8 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import routes from 'routes/routes';
+
 // import { useBreakpoint } from 'react-use-size';
 
-// import Balance from 'components/Balance';
 import TransactionContainer from 'components/TransactionContainer';
 import Button from 'components/TransactionContainer/Button';
 import TransitionForm from 'components/TransitionForm';
@@ -17,12 +16,6 @@ const ExpensesPage = () => {
   // const mobile = useBreakpoint(767);
   return (
     <>
-      <nav>
-        <NavLink to={routes.report}>Отчёт</NavLink>
-      </nav>
-
-      {/* <Balance /> */}
-
       <div className={style.buttonConteiner}>
         <Button
           title="Расход"

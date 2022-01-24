@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 import Header from 'components/Header';
+import Balance from 'components/Balance';
 import Container from 'components/Container';
 import AnimatedKapusta from 'components/AnimatedKapusta';
 import Spinner from 'components/Spinner';
@@ -34,6 +35,8 @@ function App() {
       <>
         <Header />
         <Container>
+          {pathname === routes.auth ? null : <Balance />}
+
           <Suspense fallback={<Spinner />}>
             <Routes>
               <Route
