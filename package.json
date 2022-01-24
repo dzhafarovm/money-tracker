@@ -40,6 +40,7 @@
     "recharts": "^2.1.8",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
+    "use-breakpoint": "^3.0.1",
     "uuid": "^8.3.2",
     "victory": "^36.2.0",
     "vivus": "^0.4.6",

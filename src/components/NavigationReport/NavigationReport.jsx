@@ -1,9 +1,60 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import style from './NavigationReport.module.css';
 import sprite from 'components/images/sprite.svg';
 
+import currentDateOperations from 'redux/currentDate/currentDate-operations';
+
+const arrMonthName = [
+  { id: '1', name: 'январь', engName: 'January' },
+  { id: '2', name: 'февраль', engName: 'February' },
+  { id: '3', name: 'март', engName: 'March' },
+  { id: '4', name: 'апрель', engName: 'April' },
+  { id: '5', name: 'май', engName: 'May' },
+  { id: '6', name: 'июнь', engName: 'June' },
+  { id: '7', name: 'июль', engName: 'July' },
+  { id: '8', name: 'август', engName: 'August' },
+  { id: '9', name: 'сентябрь', engName: 'September' },
+  { id: '10', name: 'октябрь', engName: 'October' },
+  { id: '11', name: 'ноябрь', engName: 'November' },
+  { id: '12', name: 'декабрь', engName: 'December' },
+];
+
 const NavigationReport = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const nowDate = new Date();
+  const [month, setMonth] = useState(nowDate.getMonth() + 1);
+  const [year, setYear] = useState(nowDate.getFullYear());
+
+  const handlePrevMonth = () => {
+    if (month <= 1) {
+      setMonth(12);
+      setYear(prev => (prev -= 1));
+    } else {
+      setMonth(prev => (prev -= 1));
+    }
+  };
+  const handleNextMonth = () => {
+    if (month < 12) {
+      setMonth(prev => (prev += 1));
+    } else {
+      setMonth(1);
+      setYear(prev => (prev += 1));
+    }
+  };
+
+  const getMonth = arrMonthName.filter(el => el.id === String(month));
+
+  const time = {
+    month: getMonth,
+    year: `${year}`,
+  };
+
+  dispatch(currentDateOperations.getDate(time));
 
   return (
     <nav className={style.nav}>
@@ -23,29 +74,40 @@ const NavigationReport = () => {
       <span>
         <p className={style.currentDate}>Текущий период:</p>
         <span className={style.slider}>
-          <button type="button" className={style.arrowDate}>
-            <svg
-            width="12"
-            height="18"
-            viewBox="0 0 24 24"
-            className={style.iconDate}
+          <button
+            type="button"
+            className={style.arrowDate}
+            onClick={handlePrevMonth}
           >
-            <use href={`${sprite}#arrow-left`}></use>
-          </svg>
+            <svg
+              width="12"
+              height="18"
+              viewBox="0 0 24 24"
+              className={style.iconDate}
+            >
+              <use href={`${sprite}#arrow-left`}></use>
+            </svg>
           </button>
-          
-          <p className={style.date}>НОЯБРЬ 2019</p>
 
-          <button type="button" className={style.arrowDate}>
-            <svg
-            width="12"
-            height="18"
-            viewBox="0 0 24 24"
-            className={style.iconDate}
+          <p className={style.date}>
+            {getMonth[0].name.toLocaleUpperCase()}
+            <span className={style.year}>{year}</span>
+          </p>
+
+          <button
+            type="button"
+            className={style.arrowDate}
+            onClick={handleNextMonth}
           >
-            <use href={`${sprite}#arrow-right`}></use>
-          </svg>
-          </button>       
+            <svg
+              width="12"
+              height="18"
+              viewBox="0 0 24 24"
+              className={style.iconDate}
+            >
+              <use href={`${sprite}#arrow-right`}></use>
+            </svg>
+          </button>
         </span>
       </span>
     </nav>

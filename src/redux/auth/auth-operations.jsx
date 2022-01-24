@@ -80,8 +80,6 @@ const googleLogin = createAsyncThunk(
   'auth/googlelogin',
   async (_, thunkAPI) => {
     const data = useLocation();
-    console.log(data);
-
     const googleToken = data.search.split('=')[1];
 
     if (googleToken === null) {

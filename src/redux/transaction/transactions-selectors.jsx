@@ -1,4 +1,4 @@
-const getByMonth = state => state.transactions.transactions;
+const getByMonth = state => state.transactions.getByMonth;
 const addTransaction = state => state.transactions.addTransaction;
 const getAll = state => state.transactions.getAll;
 
