@@ -14,6 +14,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth-slice';
 import transactionsReduser from './transaction/transactions-slice.jsx';
 import currentDateReducer from './currentDate/currentDate-slice.jsx';
+import balanceReduser from './balance/balance-slice.jsx';
 
 const authPersistConfig = {
   key: 'auth',
@@ -32,6 +33,12 @@ const currentDatePersistConfig = {
   storage,
 };
 
+const balancePersistConfig = {
+  key: 'balance',
+  storage,
+  whitelist: ['token'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
@@ -40,6 +47,7 @@ export const store = configureStore({
       transactionsReduser,
     ),
     currentDate: persistReducer(currentDatePersistConfig, currentDateReducer),
+    balance: persistReducer(balancePersistConfig, balanceReduser),
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>

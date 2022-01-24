@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import s from './Balance.module.css';
 import BalanceWithBtn from 'components/Balance/BalanceWithBtn';
 import routes from '../../routes/routes';
-
 const Balance = () => {
   const { pathname } = useLocation();
 
@@ -16,7 +15,3 @@ const Balance = () => {
 };
 
 export default Balance;
-
-///{location.pathname === routes.reportPage &&
-///width > 319 &&
-///width < 1280 ?

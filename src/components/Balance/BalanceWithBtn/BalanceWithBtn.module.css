@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   width: 248px;
-  height: 70px;
+  height: 44px;
   margin: 0px 37px;
 }
 
@@ -30,7 +30,6 @@
   width: 125px;
   height: 44px;
   margin: 0;
-  padding: 0;
   font-family: Roboto;
   font-style: normal;
   font-weight: 600;
@@ -73,8 +72,6 @@
   position: relative;
   top: 0;
   display: inline-block;
-  width: 125px;
-  height: 44px;
 }
 
 .span {
@@ -112,7 +109,7 @@
   .span {
     bottom: 0;
     right: 24px;
-    top: 30px;
+    top: 14px;
     left: 0;
   }
   .wrapper {
