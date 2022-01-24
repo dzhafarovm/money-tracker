@@ -115,8 +115,6 @@ const TransitionForm = () => {
       sum: value,
     };
 
-    console.log('newData: ', newData);
-
     dispatch(transOperations.addTransaction(newData));
 
     reset({
