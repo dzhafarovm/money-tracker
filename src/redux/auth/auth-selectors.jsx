@@ -16,5 +16,6 @@ const authSelectors = {
   getUserAvatar,
   getIsFetchingCurrent,
   getBalance,
+  getToken,
 };
 export default authSelectors;
