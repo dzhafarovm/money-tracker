@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 import GreetingNotification from 'components/Balance/GreetingNotification';
@@ -16,20 +16,23 @@ const FormSchema = Yup.object().shape({
 const BalanceWithBtn = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  const [balance, setBalance] = useState(null);
 
   const initialValues = {
-    balance: null,
+    balance,
   };
 
   useEffect(() => {
     dispatch(balanceOperations.getCurrentUserBalance());
-  }, [dispatch]);
+  }, []);
 
   const currentBalance = useSelector(balanceSelectors.getCurrentUserBalance);
 
-  if (currentBalance !== null) {
-    initialValues.balance = currentBalance;
-  }
+  useEffect(() => {
+    if (currentBalance !== null) {
+      setBalance(currentBalance);
+    }
+  }, [currentBalance]);
 
   const handleSubmit = ({ balance }) => {
     dispatch(balanceOperations.updateBalance(balance));
