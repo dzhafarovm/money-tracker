@@ -7,8 +7,6 @@
 
 .balanceTitle {
   font-family: Roboto;
-  font-style: 400;
-  font-weight: 600;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
@@ -17,6 +15,7 @@
 
 .inputAndBtn {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -24,11 +23,15 @@
 }
 
 .inputBalance {
-  display: flex;
+  display: inline-flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
-  width: 125px;
-  height: 44px;
+  width: 79px;
+  padding-right: 33px;
+  padding-left: 9px;
+  height: 38px;
   margin: 0;
   font-family: Roboto;
   font-style: normal;
@@ -38,8 +41,11 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--black-color);
-  border: 1px solid var(--white-color);
+  border: 2px solid var(--white-color);
   cursor: pointer;
+}
+.inputBalance::placeholder {
+  color: var(--black-color);
 }
 
 .submitBtn {
@@ -50,17 +56,15 @@
   width: 125px;
   height: 44px;
   margin: 0;
-  padding: 0;
   font-family: Roboto;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--primary-text-transparency);
-  border: 1px solid var(--white-color);
-  border-radius: 22px;
+  border: 2px solid var(--white-color);
   cursor: pointer;
 }
 .submitBtn:hover {
@@ -68,14 +72,7 @@
   color: var(--white-color);
 }
 
-.position_for_UAH {
-  position: relative;
-  top: 0;
-  display: inline-block;
-}
-
 .span {
-  position: absolute;
   font-family: Roboto;
   font-style: normal;
   font-weight: 600;
@@ -85,11 +82,69 @@
   text-transform: uppercase;
 }
 
+.inputBalanceReport {
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 79px;
+  padding-right: 33px;
+  padding-left: 9px;
+  height: 40px;
+  margin: 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--black-color);
+  border: 2px solid var(--white-color);
+  cursor: pointer;
+  border-radius: 16px;
+  margin-top: 6px;
+}
+.inputBalanceReport::placeholder {
+  color: var(--black-color);
+}
+.submitBtnReport {
+  width: 1px;
+  display: none;
+}
+.inputAndBtnReport {
+  padding: 0;
+}
+
 @media screen and (max-width: 767px) {
   .span {
-    top: 36px;
-    left: 90px;
+    transform: translate(-30px, 1px);
   }
+
+  .balanceTitle {
+    margin-bottom: 6px;
+  }
+  .wrapperReport {
+    text-align: center;
+  }
+
+  .spanReport {
+    transform: translate(-37px, 4px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .inputBalanceReport {
+    width: 137px;
+    margin-top: 6px;
+  }
+
   .balanceTitle {
     text-align: center;
     justify-content: center;
@@ -97,30 +152,47 @@
     margin-bottom: 6px;
   }
 
-  .inputBalance {
-    border-radius: 22px 0px 0px 22px;
-  }
   .submitBtn {
-    border-radius: 0px 22px 22px 0px;
+    border-radius: 0px 16px 16px 0px;
+  }
+
+  .inputBalance {
+    border-radius: 16px 0px 0px 16px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .span {
-    bottom: 0;
-    right: 24px;
-    top: 14px;
-    left: 0;
+    transform: translate(-30px, 1px);
   }
+  .spanReport {
+    transform: translate(-31px, 4px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .inputBalance {
+    border-radius: 16px;
+  }
+
   .wrapper {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     width: 369px;
     margin: 0;
   }
-  .inputBalance {
-    border-radius: 22px;
+
+  .wrapperReport {
+    display: flex;
+    align-items: center;
+    width: 369px;
+    margin-left: 110px;
+    justify-content: flex-end;
+    margin-top: -70.5px;
   }
 
   .balanceTitle {
@@ -128,20 +200,10 @@
     margin-right: 21px;
   }
 
-  .valueBtn,
-  .submitBtn {
-    border-radius: 16px;
-  }
-
-  .valueBtn {
-    margin-left: 15px;
-    margin-right: 111px;
-    padding-right: 20px;
-    cursor: text;
-  }
   .submitBtn {
     justify-content: center;
-    margin-left: 15px;
+    /* margin-left: 15px; */
+    border-radius: 16px;
   }
 }
 
@@ -150,10 +212,57 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 369px;
-    margin-right: 205px;
+
+    margin-right: 190px;
+  }
+  .span {
+    transform: translate(-30px, 0px);
+  }
+  .submitBtnReport {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 125px;
+    height: 44px;
+    margin: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--primary-text-transparency);
+    border: 2px solid var(--white-color);
+    cursor: pointer;
+    border-radius: 16px;
+    margin-left: 15px;
+    text-align: center;
+  }
+  .spanReport {
+    transform: translate(-30px, 0px);
+  }
+  .wrapperReport {
+    margin-left: 330px;
+  }
+
+  .inputBalanceReport {
+    margin: 0;
   }
 }
 
 .error {
+  position: absolute;
+  bottom: 50px;
+  right: -87px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  /* text-align: left; */
+  letter-spacing: 0.02em;
+  border: 1px solid red;
+  padding: 1px;
+  border-radius: 30px;
+  color: #eb5757;
 }

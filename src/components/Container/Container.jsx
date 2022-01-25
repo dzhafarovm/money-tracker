@@ -9,12 +9,18 @@ const Container = ({ children }) => {
   const { pathname } = useLocation();
 
   return (
-    <div
+   <div
       className={
-        pathname === routes.auth ? `${stylesBg.mainBgAuth} ${stylesBg.greyFon}` : stylesBg.mainBg
+        pathname === routes.auth ? stylesBg.mainBgAuth : stylesBg.mainBg
       }
     >
-      <div className={style.container}>{children}</div>
+      <div className={
+        pathname === routes.auth ? null : stylesBg.bottomFon
+      }>
+
+        <div className={style.container}>{children}</div>
+        
+      </div>
     </div>
   );
 };

@@ -1,8 +1,22 @@
 .balanceWrapper {
   margin: auto;
   text-align: center;
-  justify-content: center;
   padding-top: 30px;
+}
+
+.balanceWrapperReport {
+  margin-top: 30px;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .formComponent {
+    display: none;
+  }
+
+  .formComponentAuth {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -10,14 +24,19 @@
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
+    justify-content: space-between;
     padding-top: 40px;
     padding-left: 82px;
     padding-right: 52px;
     margin-bottom: 58px;
   }
+
+  .formComponent {
+    display: block;
+  }
 }
 @media screen and (min-width: 1280px) {
   .balanceWrapper {
-    padding-top: 52px;
+    justify-content: normal;
   }
 }

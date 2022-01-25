@@ -16,8 +16,8 @@ const ReportPage = () => {
 
   return (
     <>
-      <Balance />
       <NavigationReport />
+      <Balance />
       <DebedCreditReport />
       <ShowPage dataArr={dataArr} />
       <StatisticsReport categoryName={categoryName} page={pageName} />

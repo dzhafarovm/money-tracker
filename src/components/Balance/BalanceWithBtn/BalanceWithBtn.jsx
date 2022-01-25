@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -14,20 +15,24 @@ const FormSchema = Yup.object().shape({
 
 const BalanceWithBtn = () => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+  const [balance, setBalance] = useState(null);
 
   const initialValues = {
-    balance: null,
+    balance,
   };
 
   useEffect(() => {
     dispatch(balanceOperations.getCurrentUserBalance());
-  }, [dispatch]);
+  }, []);
 
   const currentBalance = useSelector(balanceSelectors.getCurrentUserBalance);
 
-  if (currentBalance !== null) {
-    initialValues.balance = currentBalance;
-  }
+  useEffect(() => {
+    if (currentBalance !== null) {
+      setBalance(currentBalance);
+    }
+  }, [currentBalance]);
 
   const handleSubmit = ({ balance }) => {
     dispatch(balanceOperations.updateBalance(balance));
@@ -44,13 +49,17 @@ const BalanceWithBtn = () => {
 
         return (
           <div>
-            {currentBalance === null && <GreetingNotification />}
-
-            <span>Баланс:</span>
-
-            <Form>
-              <div>
+            <Form
+              className={pathname === '/report' ? s.wrapperReport : s.wrapper}
+            >
+              <span className={s.balanceTitle}>Баланс:</span>
+              <div className={s.inputAndBtn}>
                 <Field
+                  className={
+                    pathname === '/report'
+                      ? s.inputBalanceReport
+                      : s.inputBalance
+                  }
                   value={values.balance}
                   type="text"
                   name="balance"
@@ -62,16 +71,28 @@ const BalanceWithBtn = () => {
                   }
                   onChange={handleChange}
                 />
-
+                <span
+                  className={pathname === '/report' ? s.spanReport : s.span}
+                >
+                  UAH
+                </span>
                 <ErrorMessage
                   name="balance"
                   component="span"
                   className={s.error}
                 />
-              </div>
 
-              <button type="submit">Подтвердить</button>
+                <button
+                  className={
+                    pathname === '/report' ? s.submitBtnReport : s.submitBtn
+                  }
+                  type="submit"
+                >
+                  Подтвердить
+                </button>
+              </div>
             </Form>
+            {currentBalance === null && <GreetingNotification />}
           </div>
         );
       }}
@@ -80,38 +101,3 @@ const BalanceWithBtn = () => {
 };
 
 export default BalanceWithBtn;
-
-// <Formik initialValues={balance} onSubmit={handleSubmit}>
-//   {formik => {
-//     const { values, handleChange } = formik;
-//     // const onNotifyClick = condition => setIsNotifyShow(condition);
-//     return (
-//       <>
-//         <Form className={s.wrapper}>
-//           <h2 className={s.balanceTitle} htmlFor="balance">
-//             Баланс:
-//           </h2>
-//           <div className={s.inputAndBtn}>
-//             <div className="position_for_UAH">
-//               <Field
-//                 name="balance"
-//                 onChange={handleChange}
-//                 type="text"
-//                 className={s.inputBalance}
-//                 pattern="\d+(\.\d{2})?"
-//                 title="Баланс должен состоять из цифр"
-//                 required
-//                 value={values.balance}
-//               />
-//               <span className={s.span}>UAH</span>
-//             </div>
-//             <button className={s.submitBtn} type="submit">
-//               ПОДТВЕРДИТЬ
-//             </button>
-//           </div>
-//         </Form>
-
-//       </>
-//     );
-//   }}
-// </Formik>

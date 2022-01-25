@@ -26,7 +26,6 @@ const StatisticsReport = ({ categoryName, page }) => {
   const currentDate = useSelector(currentDateSelectors.getcurrentDate);
   const month = currentDate.month;
   const year = currentDate.year;
-
   useEffect(() => {
     const date = {
       month,
@@ -37,7 +36,6 @@ const StatisticsReport = ({ categoryName, page }) => {
   }, [dispatch, month, year]);
 
   const trArr = useSelector(transactionsSelectors.getByMonth);
-
   let costsArr = [];
   let incomeArr = [];
 
@@ -56,6 +54,8 @@ const StatisticsReport = ({ categoryName, page }) => {
 
   if (categoryName) {
     costsCategoryFilter = costsArr.filter(el => el.category === categoryName);
+  } else {
+    costsCategoryFilter = costsArr.filter(el => el.category === 'products');
   }
 
   if (categoryName) {
@@ -66,6 +66,12 @@ const StatisticsReport = ({ categoryName, page }) => {
 
    if ((costsCategoryFilter !== []) & (nameUrl === '/report')) {
     desc = costsCategoryFilter.map(el => ({
+      name: el.description,
+      uv: el.sum,
+    }));
+  }
+  if ((costsCategoryFilter !== []) & (nameUrl === '/report')) {
+    data = costsCategoryFilter.map(el => ({
       name: el.description,
       uv: el.sum,
     }));

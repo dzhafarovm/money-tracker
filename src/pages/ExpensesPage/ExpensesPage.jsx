@@ -51,12 +51,17 @@ const ExpensesPage = () => {
               style={styleBtn.buttonTitle}
             />
           </div>
-
-          <TransitionForm />
-
-          <TransactionTable />
-
-          <Summary />
+           
+            <div className={style.transactionSummaryContainer}>
+             
+              <TransitionForm />
+                <div className={style.tableSummaryContainer}>
+                <TransactionTable />
+             
+                 <Summary />
+              </div>
+            </div>
+          
         </div>
       )}
     </>

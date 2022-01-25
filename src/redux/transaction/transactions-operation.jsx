@@ -2,6 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
+import balanceOperations from '../balance/balance-operations';
+
 axios.defaults.baseURL = 'https://teamproj-money-tracker.herokuapp.com';
 
 const getByMonth = createAsyncThunk(
@@ -21,9 +23,11 @@ const getByMonth = createAsyncThunk(
 
 const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
-  async newData => {
+  async function (newData, { dispatch }) {
     try {
       const transaction = await axios.post(`api/transactions/`, newData);
+
+      dispatch(balanceOperations.getCurrentUserBalance());
       return transaction.data.data;
     } catch (error) {
       throw new Error(error.message);
@@ -33,10 +37,14 @@ const addTransaction = createAsyncThunk(
 
 const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
-  async _id => {
+  async function (_id, { dispatch }) {
     try {
-      await axios.delete(`api/transactions/${_id}`);
+      const data = await axios.delete(`api/transactions/${_id}`);
+      console.log('data', data);
       toast.success('Ваша транзакция удалена');
+
+      dispatch(balanceOperations.getCurrentUserBalance());
+
       return _id;
     } catch (error) {
       throw new Error(error.message);
