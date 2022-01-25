@@ -5,12 +5,9 @@ import { NavLink } from 'react-router-dom';
 const Button = ({ title, route, style}) => {
   return (
     <NavLink
-      to={route}
-      className={style}
-      // className={style.buttonTitle}
-      // activeClassName={style.buttonActiveTitle}
-    >
-      {title}
+      to={route}      
+      сlassName={({ isActive }) => (isActive ? 'style.active' : 'style.inactive')}
+    > {title}            
     </NavLink>
   );
 }
