@@ -7,9 +7,19 @@ const Balance = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className={s.balanceWrapper}>
-      {pathname === routes.report ? null : <GoToReport />}
-      <BalanceWithBtn />
+    <div
+      className={
+        pathname !== '/expenses' ? s.formComponentAuth : s.formComponent
+      }
+    >
+      <div
+        className={
+          pathname === '/report' ? s.balanceWrapperReport : s.balanceWrapper
+        }
+      >
+        {pathname === routes.report ? null : <GoToReport />}
+        <BalanceWithBtn />
+      </div>
     </div>
   );
 };
