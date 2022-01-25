@@ -70,13 +70,7 @@ const StatisticsReport = ({ categoryName, page }) => {
       uv: el.sum,
     }));
   }
-  if ((costsCategoryFilter !== []) & (nameUrl === '/report')) {
-    data = costsCategoryFilter.map(el => ({
-      name: el.description,
-      uv: el.sum,
-    }));
-  }
-
+ 
   if ((costsCategoryFilter !== []) & (page === 'expenses')) {
     desc = costsCategoryFilter.map(el => ({
       name: el.description,
