@@ -72,7 +72,6 @@ const NavigationReport = () => {
     month: newMonth[0].month,
     year: `${year}`,
   };
-  console.log('NavigationReport > time', time);
 
   dispatch(currentDateOperations.getDate(time));
 

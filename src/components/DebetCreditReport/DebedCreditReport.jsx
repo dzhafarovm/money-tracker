@@ -25,8 +25,6 @@ const DebedCreditReport = () => {
 
   const { data } = useSelector(transactionsSelectors.getByMonth);
 
-  console.log(data);
-
   let costsArr = [];
   let incomeArr = [];
 
