@@ -16,11 +16,15 @@ const transactionsSlice = createSlice({
     },
 
     [transactionsOperations.addTransaction.fulfilled](state, action) {
-      state.addTransaction = action.payload;
+      state.getAll.push(action.payload);
     },
 
     [transactionsOperations.getAll.fulfilled](state, action) {
-      state.getAll = action.payload;
+      state.getAll = action.payload.result;
+    },
+
+    [transactionsOperations.deleteTransaction.fulfilled](state, action) {
+      state.getAll = state.getAll.filter(el => el._id !== action.payload);
     },
   },
 });

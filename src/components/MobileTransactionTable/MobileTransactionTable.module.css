@@ -1,7 +1,13 @@
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .transactionList {
+    width: 282px;
+    height: 90px;
     margin: 0px;
     padding: 0px;
+  }
+
+  .transactionList::-webkit-scrollbar {
+    width: 5px;
   }
 
   .row {
