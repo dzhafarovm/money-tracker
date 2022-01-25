@@ -6,9 +6,9 @@
     padding: 0px;
   }
 
-  .transactionList::-webkit-scrollbar {
-    width: 5px;
-  }
+  /* .width: 5px;
+  }transactionList::-webkit-scrollbar {
+     */
 
   .row {
     list-style: none;
@@ -90,8 +90,8 @@
   }
 }
 
-@media screen and (min-width: 480px) {
+/* @media screen and (min-width: 480px) {
   .transactionList {
     display: none;
   }
-}
+} */

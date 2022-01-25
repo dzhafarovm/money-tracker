@@ -9,21 +9,6 @@ import balanceOperations from 'redux/balance/balance-operations';
 
 import style from './TransactionTable.module.css';
 
-// const months = [
-//   { id: '1', month: 'January' },
-//   { id: '2', month: 'February' },
-//   { id: '3', month: 'March' },
-//   { id: '4', month: 'April' },
-//   { id: '5', month: 'May' },
-//   { id: '6', month: 'June' },
-//   { id: '7', month: 'July' },
-//   { id: '8', month: 'August' },
-//   { id: '9', month: 'September' },
-//   { id: '10', month: 'October' },
-//   { id: '11', month: 'November' },
-//   { id: '12', month: 'December' },
-// ];
-
 const TransactionTable = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
@@ -44,7 +29,7 @@ const TransactionTable = () => {
   };
 
   return (
-    <>
+    <div className={style.tableWrapper}>
       <div className={style.columnTitles}>
         <h3 className={style.dataColumn}>ДАТА</h3>
         <h3 className={style.descriptionColumn}>Описание</h3>
@@ -56,6 +41,7 @@ const TransactionTable = () => {
       <ul className={style.transactionList}>
         {result &&
           result.map(transaction => (
+            
             <li className={style.transactionData} key={transaction._id}>
               <h3 className={style.dataColumn}>
                 {transaction.day}.{transaction.month}.{transaction.year}
@@ -67,16 +53,17 @@ const TransactionTable = () => {
               <h3 className={style.sumColumn}>{transaction.sum}</h3>
               <div
                 className={style.deleteIcon}
-                onClick={() => onDeleteTransaction(transaction._id)}
-              >
+                onClick={() =>
+                  onDeleteTransaction(transaction._id)}>
                 <svg className={style.deleteleIcon} width="18" height="18">
                   <use href={`${sprite}#delete`}></use>
                 </svg>
               </div>
-            </li>
+              </li>
+              
           ))}
       </ul>
-    </>
+    </div>
   );
 };
 

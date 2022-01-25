@@ -1,37 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 // import toast from 'react-hot-toast';
 
 import style from './MobileTransactionTable.module.css';
-
+import balanceOperations from 'redux/balance/balance-operations';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import transOperations from 'redux/transaction/transactions-operation';
 import MobileTransactionItem from 'components/MobileTransactionTable/MobileTransactionItem';
 // import sprite from 'components/images/sprite.svg';
 
 const MobileTransactionTable = () => {
-  const dispatch = useDispatch();
-  const pathname = useLocation();
-  const [type, setType] = useState(null);
+   const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (pathname === '/expenses') {
-      setType('costs');
+      dispatch(transOperations.getAll('costs'));
     } else {
-      setType('income');
+      dispatch(transOperations.getAll('income'));
     }
   }, [pathname]);
 
-  useEffect(() => {
-    dispatch(transOperations.getAll(type));
-  }, [dispatch, type]);
-
-  const { result } = useSelector(transactionsSelectors.getAll);
+  const result = useSelector(transactionsSelectors.getAll);
 
   const onDeleteTransaction = _id => {
     dispatch(transOperations.deleteTransaction(_id));
-    // toast('Транзакция удалена');
+    dispatch(balanceOperations.getCurrentUserBalance());
   };
 
   console.log('transactions', result);
@@ -39,16 +34,16 @@ const MobileTransactionTable = () => {
   return (
     <ul className={style.transactionList}>
       {result &&
-        result.map(t => (
-          <li className={style.row} key={t._id}>
+        result.map(transaction => (
+          <li className={style.row} key={transaction._id}>
             <MobileTransactionItem
-              day={t.day}
-              month={t.month}
-              year={t.year}
-              description={t.description}
-              category={t.category}
-              sum={t.sum}
-              onClick={() => onDeleteTransaction(t._id)}
+              day={transaction.day}
+              month={transaction.month}
+              year={transaction.year}
+              description={transaction.description}
+              category={transaction.category}
+              sum={transaction.sum}
+              onClick={() => onDeleteTransaction(transaction._id)}
             />
           </li>
         ))}

@@ -1,1 +1,1 @@
-export { default } from './TransactionTable.jsx';
+export { default } from './TransactionTable';
