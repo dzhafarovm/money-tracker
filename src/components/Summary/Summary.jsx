@@ -19,7 +19,7 @@ const Summary = () => {
 
   let arrTransaction = [];
 
-  if (result.length > 1) {
+  if (result.length > 0) {
     arrTransaction = result;
   }
 
