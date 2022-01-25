@@ -37,6 +37,7 @@ const Summary = () => {
   let decArr = arrTransaction.filter(el => el.month === '12');
 
   const sumAll = [
+    { month: 'Январь', sum: 0 },
     { month: 'Декабрь', sum: 0 },
     { month: 'Ноябрь', sum: 0 },
     { month: 'Октябрь', sum: 0 },
@@ -48,77 +49,76 @@ const Summary = () => {
     { month: 'Апрель', sum: 0 },
     { month: 'Март', sum: 0 },
     { month: 'Февраль', sum: 0 },
-    { month: 'Январь', sum: 0 },
   ];
 
-  if (janArr !== []) {
-    sumAll[11].sum = janArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
   if (febArr !== []) {
-    sumAll[10].sum = febArr.reduce((acc, trans) => {
+    sumAll[11].sum = febArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (marArr !== []) {
-    sumAll[9].sum = marArr.reduce((acc, trans) => {
+    sumAll[10].sum = marArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (aprArr !== []) {
-    sumAll[8].sum = aprArr.reduce((acc, trans) => {
+    sumAll[9].sum = aprArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (mayArr !== []) {
-    sumAll[7].sum = mayArr.reduce((acc, trans) => {
+    sumAll[8].sum = mayArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (junArr !== []) {
-    sumAll[6].sum = junArr.reduce((acc, trans) => {
+    sumAll[7].sum = junArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (julArr !== []) {
-    sumAll[5].sum = julArr.reduce((acc, trans) => {
+    sumAll[6].sum = julArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (augArr !== []) {
-    sumAll[4].sum = augArr.reduce((acc, trans) => {
+    sumAll[5].sum = augArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (sepArr !== []) {
-    sumAll[3].sum = sepArr.reduce((acc, trans) => {
+    sumAll[4].sum = sepArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (octArr !== []) {
-    sumAll[2].sum = octArr.reduce((acc, trans) => {
+    sumAll[3].sum = octArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (novArr !== []) {
-    sumAll[1].sum = novArr.reduce((acc, trans) => {
+    sumAll[2].sum = novArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }
 
   if (decArr !== []) {
-    sumAll[0].sum = decArr.reduce((acc, trans) => {
+    sumAll[1].sum = decArr.reduce((acc, trans) => {
+      return acc + trans.sum;
+    }, 0);
+  }
+
+  if (janArr !== []) {
+    sumAll[0].sum = janArr.reduce((acc, trans) => {
       return acc + trans.sum;
     }, 0);
   }

@@ -28,6 +28,7 @@ const addTransaction = createAsyncThunk(
       const transaction = await axios.post(`api/transactions/`, newData);
 
       dispatch(balanceOperations.getCurrentUserBalance());
+
       return transaction.data.data;
     } catch (error) {
       throw new Error(error.message);
@@ -40,7 +41,8 @@ const deleteTransaction = createAsyncThunk(
   async function (_id, { dispatch }) {
     try {
       const data = await axios.delete(`api/transactions/${_id}`);
-      console.log('data', data);
+      console.log(data);
+
       toast.success('Ваша транзакция удалена');
 
       dispatch(balanceOperations.getCurrentUserBalance());
