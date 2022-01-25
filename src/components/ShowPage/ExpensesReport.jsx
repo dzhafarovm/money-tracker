@@ -8,7 +8,7 @@ import currentDateSelectors from 'redux/currentDate/currentDate-selectors';
 import style from './ExpensesReport.module.css';
 import sprite from 'components/images/sprite.svg';
 
-const ExpensesReport = () => {
+const ExpensesReport = ({ dataArr }) => {
   const dispatch = useDispatch();
 
   const currentDate = useSelector(currentDateSelectors.getcurrentDate);
@@ -156,7 +156,10 @@ const ExpensesReport = () => {
     { value: 'other', label: 'Прочее', svg: '#ufo', sum: otherSum },
   ];
 
-  const btnClick = () => {};
+  const btnClick = e => {
+    const category = e.currentTarget.id;
+    dataArr(category, 'expenses');
+  };
 
   return (
     <div className={style.section}>
@@ -168,6 +171,7 @@ const ExpensesReport = () => {
                 type="button"
                 className={style.category}
                 onClick={btnClick}
+                id={obj.value}
               >
                 <p className={style.title}>{obj.sum}</p>
                 <svg width="56" height="56" className={style.iconBox}>

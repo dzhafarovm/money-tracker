@@ -1,1 +1,1 @@
-export { default } from './StatisticsReport';
+export { default } from './StatisticsReport.jsx';
