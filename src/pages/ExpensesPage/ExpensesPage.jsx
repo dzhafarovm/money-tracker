@@ -28,12 +28,12 @@ const ExpensesPage = () => {
             <Button
               title="Расход"
               route={routes.expenses}
-              style={styleBtn.buttonActiveTitle}
+              // style={styleBtn.buttonActiveTitle}
             />
             <Button
               title="Доход"
               route={routes.income}
-              style={styleBtn.buttonTitle}
+              // style={styleBtn.buttonTitle}
             />
           </div>
         </div>
