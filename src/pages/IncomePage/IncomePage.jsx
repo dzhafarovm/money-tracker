@@ -1,6 +1,6 @@
 import { useBreakpoint } from 'react-use-size';
 
-import TransactionContainer from 'components/TransactionContainer';
+// import TransactionContainer from 'components/TransactionContainer';
 import TransitionForm from 'components/TransitionForm';
 import Button from 'components/TransactionContainer/Button';
 import Summary from 'components/Summary';
@@ -19,26 +19,46 @@ const IncomePage = () => {
     <>
       <Balance />
 
-      <div className={style.buttonConteiner}>
-        <Button
-          title="Расход"
-          route={routes.expenses}
-          style={styleBtn.buttonTitle}
-        />
-        <Button
-          title="Доход"
-          route={routes.income}
-          style={styleBtn.buttonActiveTitle}
-        />
-      </div>
-      <TransactionContainer>
-        <TransitionForm />
+      {mobile ? (
+        <div>
+          <TransitionForm />
+          <MobileTransactionTable />
 
-        <div className={style.wrapper}>
-          {mobile ? <MobileTransactionTable /> : <TransactionTable />}
-          {mobile ? null : <Summary />}
+          <div className={style.buttonConteiner}>
+            <Button
+              title="Расход"
+              route={routes.expenses}
+              style={styleBtn.buttonActiveTitle}
+            />
+            <Button
+              title="Доход"
+              route={routes.income}
+              style={styleBtn.buttonTitle}
+            />
+          </div>
         </div>
-      </TransactionContainer>
+      ) : (
+        <div>
+          <div className={style.buttonConteiner}>
+            <Button
+              title="Расход"
+              route={routes.expenses}
+              style={styleBtn.buttonActiveTitle}
+            />
+            <Button
+              title="Доход"
+              route={routes.income}
+              style={styleBtn.buttonTitle}
+            />
+          </div>
+
+          <TransitionForm />
+
+          <TransactionTable />
+
+          <Summary />
+        </div>
+      )}
     </>
   );
 };

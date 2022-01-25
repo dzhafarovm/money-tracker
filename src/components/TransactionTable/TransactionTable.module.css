@@ -17,6 +17,7 @@
   }
 
   .transactionList {
+
     padding-left: 0px;
     margin: 0px;
     width: 605px;
@@ -42,7 +43,7 @@
     color: var(--primary-text-color);
     border: 2px solid var(--secondary-bcg-color);
 
-    width: 605px;
+    width: 601px;
     height: 40px;
   }
 
@@ -69,10 +70,22 @@
   }
 }
 
-@media screen and (min-width: 1240px) {
+@media screen and (min-width: 1280px) {
+.tableWrapper {
+  display: block;
+}
+
   .columnTitles,
   .transactionData {
     width: 760px;
+  }
+
+    .transactionData {
+  
+
+    color: var(--primary-text-color);
+    border: 2px solid var(--secondary-bcg-color);
+
   }
 
   .descriptionColumn {

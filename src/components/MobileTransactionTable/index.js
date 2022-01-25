@@ -1,2 +1,2 @@
-export { default } from './MobileTransactionTable.jsx';
+export { default } from './MobileTransactionTable';
 
