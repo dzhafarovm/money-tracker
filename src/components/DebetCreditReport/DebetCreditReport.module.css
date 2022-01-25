@@ -9,6 +9,7 @@
     margin-top: 30px;
     border-radius: 30px;
     box-shadow: var(--box-shadow);
+    background-color: var(--white-color);
   }
 
   .boxSpending {
