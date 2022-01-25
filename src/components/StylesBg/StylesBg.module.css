@@ -35,6 +35,14 @@
     border-bottom-left-radius: 120px;
     /* background-size: contain; */
   }
+
+  .bottomFon {
+    padding-bottom: 219px;
+    background: url(components/images/tablet-bottom.svg);
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    background-position-x: 70%;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -53,5 +61,14 @@
     background-position-x: center;
     border-bottom-left-radius: 120px;
     /* background-size: cover; */
+  }
+
+  .bottomFon {
+    padding-bottom: 74px;
+    background: url(components/images/desktop-bottom2.svg);
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    background-position-x: center;
+    /* background-size: contain; */
   }
 }
