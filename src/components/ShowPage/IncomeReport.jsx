@@ -52,11 +52,11 @@ const IncomeReport = ({ dataArr }) => {
   }
 
   const income = [
-    { value: 'salary', label: 'ЗП', svg: '#cocktail', sum: salarySum },
+    { value: 'salary', label: 'ЗП', svg: '#main-salary', sum: salarySum },
     {
       value: 'other income',
       label: 'Доп. доход',
-      svg: '#cocktail',
+      svg: '#add-salary',
       sum: otherSum,
     },
   ];
