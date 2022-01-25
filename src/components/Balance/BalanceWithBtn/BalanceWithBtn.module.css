@@ -7,8 +7,6 @@
 
 .balanceTitle {
   font-family: Roboto;
-  font-style: 400;
-  font-weight: 600;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
@@ -30,8 +28,10 @@
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  width: 121px;
-  height: 40px;
+  width: 79px;
+  padding-right: 33px;
+  padding-left: 9px;
+  height: 38px;
   margin: 0;
   font-family: Roboto;
   font-style: normal;
@@ -73,7 +73,6 @@
 }
 
 .span {
-  position: absolute;
   font-family: Roboto;
   font-style: normal;
   font-weight: 600;
@@ -89,12 +88,14 @@
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  width: 79px;
+  padding-right: 33px;
+  padding-left: 9px;
   height: 40px;
-  width: 121px;
   margin: 0;
   font-family: Roboto;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
@@ -105,8 +106,11 @@
   border-radius: 16px;
   margin-top: 6px;
 }
-
+.inputBalanceReport::placeholder {
+  color: var(--black-color);
+}
 .submitBtnReport {
+  width: 1px;
   display: none;
 }
 .inputAndBtnReport {
@@ -115,9 +119,9 @@
 
 @media screen and (max-width: 767px) {
   .span {
-    top: 15.5px;
-    right: 130px;
+    transform: translate(-30px, 1px);
   }
+
   .balanceTitle {
     margin-bottom: 6px;
   }
@@ -126,10 +130,7 @@
   }
 
   .spanReport {
-    position: absolute;
-    top: 18px;
-    right: 0px;
-    left: 130px;
+    transform: translate(-37px, 4px);
     font-family: Roboto;
     font-style: normal;
     font-weight: 600;
@@ -140,7 +141,7 @@
   }
 
   .inputBalanceReport {
-    width: 179px;
+    width: 137px;
     margin-top: 6px;
   }
 
@@ -162,17 +163,10 @@
 
 @media screen and (min-width: 768px) {
   .span {
-    bottom: 0;
-    right: 70px;
-    top: 16px;
-    left: 0;
+    transform: translate(-30px, 1px);
   }
   .spanReport {
-    position: absolute;
-    top: 18.5px;
-    right: 10px;
-    left: 90px;
-    position: absolute;
+    transform: translate(-31px, 4px);
     font-family: Roboto;
     font-style: normal;
     font-weight: 600;
@@ -183,10 +177,6 @@
   }
   .inputBalance {
     border-radius: 16px;
-  }
-
-  .inputBalanceReport {
-    width: 121px;
   }
 
   .wrapper {
@@ -200,9 +190,9 @@
     display: flex;
     align-items: center;
     width: 369px;
-    margin-left: 75px;
+    margin-left: 110px;
     justify-content: flex-end;
-    margin-top: -70px;
+    margin-top: -70.5px;
   }
 
   .balanceTitle {
@@ -212,7 +202,7 @@
 
   .submitBtn {
     justify-content: center;
-    margin-left: 15px;
+    /* margin-left: 15px; */
     border-radius: 16px;
   }
 }
@@ -222,11 +212,11 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 340px;
+
     margin-right: 190px;
   }
   .span {
-    top: 16px;
+    transform: translate(-30px, 0px);
   }
   .submitBtnReport {
     display: flex;
@@ -251,10 +241,7 @@
     text-align: center;
   }
   .spanReport {
-    position: absolute;
-    top: 18px;
-    right: 60px;
-    left: 0;
+    transform: translate(-30px, 0px);
   }
   .wrapperReport {
     margin-left: 330px;
@@ -265,5 +252,17 @@
   }
 }
 
-/* .error {
-} */
+.error {
+  position: absolute;
+  bottom: 50px;
+  right: -87px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  /* text-align: left; */
+  letter-spacing: 0.02em;
+  border: 1px solid red;
+  padding: 1px;
+  border-radius: 30px;
+  color: #eb5757;
+}
