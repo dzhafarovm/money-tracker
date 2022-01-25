@@ -24,7 +24,7 @@ const IncomePage = () => {
           <TransitionForm />
           <MobileTransactionTable />
 
-          <div className={style.buttonConteiner}>
+          <div className={style.buttonContainer}>
             <Button
               title="Расход"
               route={routes.expenses}
@@ -39,7 +39,7 @@ const IncomePage = () => {
         </div>
       ) : (
         <div>
-          <div className={style.buttonConteiner}>
+          <div className={style.buttonContainer}>
             <Button
               title="Расход"
               route={routes.expenses}

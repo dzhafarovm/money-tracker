@@ -6,9 +6,8 @@ const Button = ({ title, route}) => {
   return (
     <NavLink
       to={route}
-      // сlassName={style.buttonActiveTitle }
-      сlassName={({ isActive }) => (isActive ?
-        style.active : style.inactive)}
+      className={({isActive}) => `${isActive ? style.active : style.inactive}`
+    }
     > {title}            
     </NavLink>
   );

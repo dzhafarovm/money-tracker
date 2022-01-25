@@ -1,4 +1,4 @@
-.buttonConteiner {
+.buttonContainer {
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .buttonConteiner {
+  .buttonContainer {
     justify-content: flex-start;
     position: static;
   }
