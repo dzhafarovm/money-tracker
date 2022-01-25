@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://teamproj-money-tracker.herokuapp.com';
 
@@ -35,6 +36,7 @@ const deleteTransaction = createAsyncThunk(
   async _id => {
     try {
       await axios.delete(`api/transactions/${_id}`);
+      toast.success('Ваша транзакция удалена');
       return _id;
     } catch (error) {
       throw new Error(error.message);
