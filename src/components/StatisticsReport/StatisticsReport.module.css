@@ -1,41 +1,31 @@
 @media screen and (max-width: 767px) {
-  .title {
-    padding: 20px;
-    margin: 0;
-    font-size: 20px;
-    line-height: 20px;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: var(--primary-text-color);
+  .wrapper {
+    padding: 34px 0px 51px 0px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .section {
-    margin: auto;
-    width: 668px;
-    margin-top: 30px;
-    box-shadow: var(--box-shadow);
+  .wrapper {
+    padding: 65px 50px 19px 50px;
+    margin-top: 32px;
+    margin-bottom: 75px;
     border-radius: 30px;
     background-color: var(--white-color);
-    height: 350px;
+    box-shadow: var(--box-shadow);
   }
 
-  .name {
-    padding: 20px;
-    margin: 0;
-    font-size: 20px;
-    line-height: 20px;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: var(--primary-text-color);
+  .section {
+    margin: auto;
+    height: 350px;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .wrapper {
+    padding: 65px 150px 19px 150px;
+  }
   .section {
-    width: 1060px;
+    margin: auto;
+    height: 422px;
   }
 }

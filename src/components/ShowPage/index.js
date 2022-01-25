@@ -1,1 +1,1 @@
-export { default } from './ShowPage.jsx';
+export {default}  from './ShowPage.jsx';

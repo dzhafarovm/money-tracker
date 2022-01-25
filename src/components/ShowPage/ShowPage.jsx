@@ -5,7 +5,7 @@ import IncomeReport from './IncomeReport';
 import style from './ExpensesReport.module.css';
 import sprite from 'components/images/sprite.svg';
 
-const ShowPage = () => {
+const ShowPage = ({ dataArr }) => {
   const [page, setPage] = useState(true);
 
   const btnClick = () => {
@@ -40,7 +40,11 @@ const ShowPage = () => {
           </svg>
         </button>
       </div>
-      {page ? <ExpensesReport /> : <IncomeReport />}
+      {page ? (
+        <ExpensesReport dataArr={dataArr} />
+      ) : (
+        <IncomeReport dataArr={dataArr} />
+      )}
     </>
   );
 };
