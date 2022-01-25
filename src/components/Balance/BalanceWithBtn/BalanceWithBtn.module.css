@@ -201,7 +201,7 @@
     align-items: center;
     width: 369px;
     margin-left: 75px;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: -66px;
   }
 
