@@ -19,11 +19,34 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  
+.transactionSummaryContainer {
+    display: block;
+    background-color: var(--white-color);
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 0px 30px 30px 30px;
+  }
+}
+
 @media screen and (min-width: 1280px) {
-  .wrapper {
+
+  .transactionSummaryContainer {
+    /* display: block; */
+    /* background-color: var(--white-color);
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 0px 30px 30px 30px; */
+  }
+
+  .tableSummaryContainer {
+    display: flex;
+    margin-top: 59px;
+  }
+
+  /* .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 59px;
-  }
+  } */
 }
