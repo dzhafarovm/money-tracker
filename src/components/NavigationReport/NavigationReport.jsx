@@ -49,10 +49,30 @@ const NavigationReport = () => {
 
   const getMonth = arrMonthName.filter(el => el.id === String(month));
 
+  const monthArr = [
+    { id: '1', month: '01' },
+    { id: '2', month: '02' },
+    { id: '3', month: '03' },
+    { id: '4', month: '04' },
+    { id: '5', month: '05' },
+    { id: '6', month: '06' },
+    { id: '7', month: '07' },
+    { id: '8', month: '08' },
+    { id: '9', month: '09' },
+    { id: '10', month: '10' },
+    { id: '11', month: '11' },
+    { id: '12', month: '12' },
+  ];
+
+  let newMonth = [];
+
+  newMonth = monthArr.filter(el => el.id === getMonth[0].id);
+
   const time = {
-    month: getMonth,
+    month: newMonth[0].month,
     year: `${year}`,
   };
+  console.log('NavigationReport > time', time);
 
   dispatch(currentDateOperations.getDate(time));
 
