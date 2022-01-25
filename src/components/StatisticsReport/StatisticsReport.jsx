@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useBreakpoint } from 'react-use-size';
 import {
@@ -9,7 +10,7 @@ import {
   CartesianGrid,
   Cell,
   ResponsiveContainer,
-  LabelList,
+  // LabelList,
 } from 'recharts';
 
 import transOperations from 'redux/transaction/transactions-operation.jsx';
@@ -20,6 +21,8 @@ import style from './StatisticsReport.module.css';
 
 const StatisticsReport = ({ categoryName, page }) => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const nameUrl = location.pathname;
   const currentDate = useSelector(currentDateSelectors.getcurrentDate);
   const month = currentDate.month;
   const year = currentDate.year;
@@ -59,21 +62,45 @@ const StatisticsReport = ({ categoryName, page }) => {
     incomeCategoryFilter = incomeArr.filter(el => el.category === categoryName);
   }
 
-  let data = [];
+    let desc = [];
+
+   if ((costsCategoryFilter !== []) & (nameUrl === '/report')) {
+    desc = costsCategoryFilter.map(el => ({
+      name: el.description,
+      uv: el.sum,
+    }));
+  }
 
   if ((costsCategoryFilter !== []) & (page === 'expenses')) {
-    data = costsCategoryFilter.map(el => ({
+    desc = costsCategoryFilter.map(el => ({
+      name: el.description,
+      uv: el.sum,
+    }));
+  } 
+ 
+  if ((incomeCategoryFilter !== []) & (page === 'income')) {
+    desc = incomeCategoryFilter.map(el => ({
       name: el.description,
       uv: el.sum,
     }));
   }
 
-  if ((incomeCategoryFilter !== []) & (page === 'income')) {
-    data = incomeCategoryFilter.map(el => ({
-      name: el.description,
-      uv: el.sum,
-    }));
+    const desc2 = desc.reduce((a, b) => {
+    a[b.name] = (a[b.name] || 0) + b.uv;
+    return a;
+  }, {});
+
+  const entries = Object.entries(desc2);
+
+  let desc3 = [];
+
+  for (const entry of entries) {
+    const key = entry[0];
+    const value = entry[1];
+    desc3.push({ name: `${key}`, uv: Number(`${value}`) });
   }
+
+  const data= desc3.sort((a, b) => b.uv - a.uv)
 
   const barColors = ['#ff7f0e', '#FFDAC0', '#FFDAC0'];
 
@@ -94,7 +121,6 @@ const StatisticsReport = ({ categoryName, page }) => {
             <CartesianGrid
               horizontal={mobile ? false : true}
               vertical={false}
-              // interval={mobile ? 0 : 40}
             />
             <XAxis
               dataKey={mobile ? '' : 'name'}
@@ -107,7 +133,6 @@ const StatisticsReport = ({ categoryName, page }) => {
             />
             <YAxis
               dataKey={mobile ? 'name' : ''}
-              // value={`${"name"}грн.`}
               type={mobile ? 'category' : 'number'}
               tickCount={mobile ? 0 : 9}
               tickLine={false}
@@ -123,7 +148,7 @@ const StatisticsReport = ({ categoryName, page }) => {
               label={
                 mobile
                   ? {
-                      /*  value: `${"name"}грн.`, */ position: 'right',
+                      position: 'right',
                       fill: '#52555F',
                       fontSize: 12,
                     }
@@ -133,13 +158,6 @@ const StatisticsReport = ({ categoryName, page }) => {
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={barColors[index % 3]} />
               ))}
-              {mobile && (
-                <LabelList
-                  dataKey="name"
-                  position="insideLeft"
-                  style={{ fill: '#52555F' }}
-                />
-              )}
             </Bar>
           </ComposedChart>
         </ResponsiveContainer>
