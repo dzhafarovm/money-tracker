@@ -15,26 +15,26 @@ const Summary = () => {
     dispatch(transOperations.getAll(type));
   }, [dispatch, type]);
 
-  const { result } = useSelector(transactionsSelectors.getAll);
+  const result = useSelector(transactionsSelectors.getAll);
 
   let arrTransaction = [];
 
-  if (result) {
+  if (result.length > 1) {
     arrTransaction = result;
   }
 
-  let janArr = arrTransaction.filter(el => el.month === 'January');
-  let febArr = arrTransaction.filter(el => el.month === 'February');
-  let marArr = arrTransaction.filter(el => el.month === 'March');
-  let aprArr = arrTransaction.filter(el => el.month === 'April');
-  let mayArr = arrTransaction.filter(el => el.month === 'May');
-  let junArr = arrTransaction.filter(el => el.month === 'June');
-  let julArr = arrTransaction.filter(el => el.month === 'July');
-  let augArr = arrTransaction.filter(el => el.month === 'August');
-  let sepArr = arrTransaction.filter(el => el.month === 'September');
-  let octArr = arrTransaction.filter(el => el.month === 'October');
-  let novArr = arrTransaction.filter(el => el.month === 'November');
-  let decArr = arrTransaction.filter(el => el.month === 'December');
+  let janArr = arrTransaction.filter(el => el.month === '01');
+  let febArr = arrTransaction.filter(el => el.month === '02');
+  let marArr = arrTransaction.filter(el => el.month === '03');
+  let aprArr = arrTransaction.filter(el => el.month === '04');
+  let mayArr = arrTransaction.filter(el => el.month === '05');
+  let junArr = arrTransaction.filter(el => el.month === '06');
+  let julArr = arrTransaction.filter(el => el.month === '07');
+  let augArr = arrTransaction.filter(el => el.month === '08');
+  let sepArr = arrTransaction.filter(el => el.month === '09');
+  let octArr = arrTransaction.filter(el => el.month === '10');
+  let novArr = arrTransaction.filter(el => el.month === '11');
+  let decArr = arrTransaction.filter(el => el.month === '12');
 
   const sumAll = [
     { month: 'Декабрь', sum: 0 },
