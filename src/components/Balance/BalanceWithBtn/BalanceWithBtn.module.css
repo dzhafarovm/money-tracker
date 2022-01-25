@@ -169,7 +169,7 @@
   }
   .spanReport {
     position: absolute;
-    top: 18px;
+    top: 18.5px;
     right: 10px;
     left: 90px;
     position: absolute;
@@ -202,7 +202,7 @@
     width: 369px;
     margin-left: 75px;
     justify-content: flex-end;
-    margin-top: -66px;
+    margin-top: -70px;
   }
 
   .balanceTitle {
