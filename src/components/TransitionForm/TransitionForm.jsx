@@ -108,7 +108,7 @@ const TransitionForm = () => {
     const newData = {
       type,
       day: arr[0],
-      month: searchMonthArr[0].label,
+      month: searchMonthArr[0].monthId,
       year: arr[2],
       description: name,
       category: categoryEng[0].value,
