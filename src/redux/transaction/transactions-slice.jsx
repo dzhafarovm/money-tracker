@@ -20,7 +20,7 @@ const transactionsSlice = createSlice({
     },
 
     [transactionsOperations.addTransaction.fulfilled](state, action) {
-      state.addTransaction = action.payload;
+      state.getAll.push(action.payload);
     },
 
     [transactionsOperations.addTransaction.rejected](state, action) {
@@ -28,7 +28,16 @@ const transactionsSlice = createSlice({
     },
 
     [transactionsOperations.getAll.fulfilled](state, action) {
-      state.getAll = action.payload;
+      state.getAll = action.payload.result;
+    },
+    
+
+    // [transactionsOperations.deleteTransaction.pending](state, action) {
+    //   state.deleteTransaction=action.payload.result._id;
+    // },
+
+    [transactionsOperations.deleteTransaction.fulfilled](state, action) {
+      state.deleteTransaction.find(action.payload.result._id).splice(action.payload.result._id, 1);
     },
   },
 });

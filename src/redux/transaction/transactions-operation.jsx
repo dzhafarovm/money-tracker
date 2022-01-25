@@ -23,7 +23,7 @@ const addTransaction = createAsyncThunk(
   async newData => {
     try {
       const transaction = await axios.post(`api/transactions/`, newData);
-      return transaction;
+      return transaction.data.data;
     } catch (error) {
       throw new Error(error.message);
     }
@@ -44,10 +44,7 @@ const deleteTransaction = createAsyncThunk(
 
 const getAll = createAsyncThunk('transactions/getAll', async type => {
   try {
-    console.log(type);
     const { data } = await axios.get(`api/transactions/getType/${type}`);
-    console.log('transaction', data.data);
-
     return data.data;
   } catch (error) {
     throw new Error(error.message);

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 
 import style from './MobileTransactionTable.module.css';
 
@@ -12,25 +12,33 @@ import MobileTransactionItem from 'components/MobileTransactionTable/MobileTrans
 
 const MobileTransactionTable = () => {
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
-  const type = pathname === '/expenses' ? 'costs' : 'income';
+  const  pathname  = useLocation();
+  const [type, setType] = useState(null);
+
+  useEffect(() => {
+    if (pathname === '/expenses') {
+      setType('costs');
+    } else {
+      setType('income');
+    }
+  }, [pathname]);
 
   useEffect(() => {
     dispatch(transOperations.getAll(type));
-  }, [dispatch, type]);
+  }, [dispatch, type]); 
 
   const { result } = useSelector(transactionsSelectors.getAll);
 
   const onDeleteTransaction = _id => {
     dispatch(transOperations.deleteTransaction(_id));
-    toast('Транзакция удалена');
+    // toast('Транзакция удалена');
   };
 
   console.log('transactions', result);
 
   return (
     <ul className={style.transactionList}>
-      {result &&
+      { result &&
         result.map(t => (
           <li className={style.row} key={t._id}>
             <MobileTransactionItem
@@ -40,9 +48,7 @@ const MobileTransactionTable = () => {
               description={t.description}
               category={t.category}
               sum={t.sum}
-              onClick={() => {
-                onDeleteTransaction(t._id);
-              }}
+              onClick={() => onDeleteTransaction(t._id)}
             />
           </li>
         ))}

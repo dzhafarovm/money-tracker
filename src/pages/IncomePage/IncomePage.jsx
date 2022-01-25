@@ -4,8 +4,8 @@ import TransactionContainer from 'components/TransactionContainer';
 import TransitionForm from 'components/TransitionForm';
 import Button from 'components/TransactionContainer/Button';
 import Summary from 'components/Summary';
-// import TransactionTable from 'components/TransactionTable';
-// import MobileTransactionTable from 'components/MobileTransactionTable';
+import TransactionTable from 'components/TransactionTable';
+import MobileTransactionTable from 'components/MobileTransactionTable';
 import routes from 'routes/routes';
 
 import style from './IncomePage.module.css';
@@ -32,7 +32,7 @@ const IncomePage = () => {
         <TransitionForm />
 
         <div className={style.wrapper}>
-          {/* {mobile ? <MobileTransactionTable /> : <TransactionTable />} */}
+          {mobile ? <MobileTransactionTable /> : <TransactionTable />}
           {mobile ? null : <Summary />}
         </div>
       </TransactionContainer>
