@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import GreetingNotification from 'components/Balance/GreetingNotification';
@@ -49,8 +49,6 @@ const BalanceWithBtn = () => {
 
         return (
           <div>
-            {currentBalance === null && <GreetingNotification />}
-
             <Form
               className={pathname === '/report' ? s.wrapperReport : s.wrapper}
             >
@@ -78,11 +76,11 @@ const BalanceWithBtn = () => {
                 >
                   UAH
                 </span>
-                {/* <ErrorMessage
+                <ErrorMessage
                   name="balance"
                   component="span"
                   className={s.error}
-                /> */}
+                />
 
                 <button
                   className={
@@ -94,6 +92,7 @@ const BalanceWithBtn = () => {
                 </button>
               </div>
             </Form>
+            {currentBalance === null && <GreetingNotification />}
           </div>
         );
       }}
