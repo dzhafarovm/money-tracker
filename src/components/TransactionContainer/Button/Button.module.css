@@ -10,7 +10,7 @@
     width: 50%;
     height: 53px;
     text-decoration: none;
-    background-color: var(--secondary-bcg-color);
+    background-color: #fafbfd;
     color: var(--black-color);
   }
 
@@ -34,7 +34,7 @@
     width: 138px;
     height: 40px;
     text-decoration: none;
-    background-color: var(--secondary-bcg-color);
+    background-color: #fafbfd;
     color: var(--black-color);
     border-radius: 20px 20px 0 0;
   }
