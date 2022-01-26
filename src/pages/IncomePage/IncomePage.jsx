@@ -1,6 +1,5 @@
 import { useBreakpoint } from 'react-use-size';
-
-// import TransactionContainer from 'components/TransactionContainer';
+import TransactionContainer from 'components/TransactionContainer';
 import TransitionForm from 'components/TransitionForm';
 import Button from 'components/TransactionContainer/Button';
 import Summary from 'components/Summary';
@@ -26,31 +25,35 @@ const IncomePage = () => {
           {/* <TransitionForm /> */}
           <MobileTransactionTable />
 
-          <div className={style.buttonContainer}>
+          <div className={styleBtn.container}>
             <Button
               title="Расход"
               route={routes.expenses}
-              // style={styleBtn.buttonActiveTitle}
+              styleActive={styleBtn.buttonActiveTitle}
+              styleInActive={styleBtn.buttonTitle}
             />
             <Button
               title="Доход"
               route={routes.income}
-              // style={styleBtn.buttonTitle}
+              styleActive={styleBtn.buttonActiveTitle}
+              styleInActive={styleBtn.buttonTitle}
             />
           </div>
         </div>
       ) : (
         <div>
-          <div className={style.buttonContainer}>
+          <div className={styleBtn.container}>
             <Button
               title="Расход"
               route={routes.expenses}
-              style={styleBtn.buttonActiveTitle}
+              styleActive={styleBtn.buttonActiveTitle}
+              styleInActive={styleBtn.buttonTitle}
             />
             <Button
               title="Доход"
               route={routes.income}
-              style={styleBtn.buttonTitle}
+              styleActive={styleBtn.buttonActiveTitle}
+              styleInActive={styleBtn.buttonTitle}
             />
           </div>
 

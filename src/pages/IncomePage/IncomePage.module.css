@@ -7,18 +7,13 @@
     bottom: 0;
     left: 0;
     right: 0;
-
     text-decoration: none;
-
     font-weight: 700;
     font-size: 12px;
-
     text-transform: uppercase;
     padding: 0;
     line-height: 1.2;
-
     justify-content: space-between;
-    position: absolute;
     z-index: 100;
     bottom: 0;
     left: 0;
@@ -26,7 +21,7 @@
   }
 }
 
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .buttonContainer {
     justify-content: flex-start;
     position: static;
@@ -35,7 +30,7 @@
   .wrapper {
     margin-top: 48px;
   }
-} */
+}
 
 @media screen and (min-width: 768px) {
   .transactionSummaryContainer {
@@ -48,10 +43,10 @@
 
 @media screen and (min-width: 1280px) {
   .transactionSummaryContainer {
-    /* display: block; */
-    /* background-color: var(--white-color);
+    display: block;
+    background-color: var(--white-color);
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    border-radius: 0px 30px 30px 30px; */
+    border-radius: 0px 30px 30px 30px;
   }
 
   .tableSummaryContainer {
@@ -59,10 +54,10 @@
     margin-top: 59px;
   }
 
-  /* .wrapper {
+  .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 59px;
-  } */
+  }
 }

@@ -1,13 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import style from './Button.module.css';
-const Button = ({ title, route }) => {
+import styles from './Button.module.css';
+const Button = ({ title, route, styleActive, styleInActive }) => {
   return (
     <NavLink
       to={route}
-      className={({ isActive }) =>
-        `${isActive ? style.active : style.inactive}`
-      }
+      // className={navData => (navData.isActive ? styleActive : styleInActive)}
+      className={({ isActive }) => `${isActive ? styleActive : styleInActive}`}
     >
       {title}
     </NavLink>
