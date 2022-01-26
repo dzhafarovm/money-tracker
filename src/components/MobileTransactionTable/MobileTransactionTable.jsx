@@ -11,7 +11,7 @@ import MobileTransactionItem from 'components/MobileTransactionTable/MobileTrans
 // import sprite from 'components/images/sprite.svg';
 
 const MobileTransactionTable = () => {
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -44,6 +44,7 @@ const MobileTransactionTable = () => {
               category={transaction.category}
               sum={transaction.sum}
               onClick={() => onDeleteTransaction(transaction._id)}
+              type={pathname}
             />
           </li>
         ))}

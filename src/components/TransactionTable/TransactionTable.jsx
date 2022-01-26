@@ -41,7 +41,6 @@ const TransactionTable = () => {
       <ul className={style.transactionList}>
         {result &&
           result.map(transaction => (
-            
             <li className={style.transactionData} key={transaction._id}>
               <h3 className={style.dataColumn}>
                 {transaction.day}.{transaction.month}.{transaction.year}
@@ -50,17 +49,19 @@ const TransactionTable = () => {
                 {transaction.description}
               </h3>
               <h3 className={style.categoryColumn}>{transaction.category}</h3>
-              <h3 className={style.sumColumn}>{transaction.sum}</h3>
+              <h3 className={style.sumColumn}>
+                {pathname === '/expenses' ? '-' : null}
+                {transaction.sum}
+              </h3>
               <div
                 className={style.deleteIcon}
-                onClick={() =>
-                  onDeleteTransaction(transaction._id)}>
+                onClick={() => onDeleteTransaction(transaction._id)}
+              >
                 <svg className={style.deleteleIcon} width="18" height="18">
                   <use href={`${sprite}#delete`}></use>
                 </svg>
               </div>
-              </li>
-              
+            </li>
           ))}
       </ul>
     </div>

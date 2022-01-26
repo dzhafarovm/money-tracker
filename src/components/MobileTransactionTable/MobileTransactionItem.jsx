@@ -9,6 +9,7 @@ const MobileTransactionItem = ({
   category,
   sum,
   onClick,
+  type,
 }) => {
   return (
     <>
@@ -21,7 +22,14 @@ const MobileTransactionItem = ({
           <h4 className={style.category}>{category}</h4>
         </div>
       </div>
-      <h3 className={style.sum}>{sum}</h3>
+      <h3
+        className={
+          type === '/expenses' ? `${style.sum}` : `${style.sum} ${style.green}`
+        }
+      >
+        {type === '/expenses' ? '-' : null}
+        {sum}
+      </h3>
       <div className={style.deleteIcon} onClick={onClick}>
         <svg className={style.deleteleIcon} width="18" height="18">
           <use href={`${sprite}#delete`}></use>
