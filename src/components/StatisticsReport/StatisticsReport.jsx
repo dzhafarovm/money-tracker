@@ -134,6 +134,7 @@ const StatisticsReport = ({ categoryName, page }) => {
             <YAxis
               dataKey={''}
               type={mobile ? 'category' : 'number'}
+              padding={{ left: 0 }}
               tickCount={mobile ? 0 : 9}
               tickLine={false}
               axisLine={false}
@@ -143,7 +144,7 @@ const StatisticsReport = ({ categoryName, page }) => {
               dataKey="uv"
               minBarSize={mobile ? 20 : 5}
               barCategoryGap={5}
-              // minPointSize={70}
+              minPointSize={70}
               radius={mobile ? [0, 10, 10, 0] : [10, 10, 0, 0]}
               label={
                 mobile
@@ -162,7 +163,6 @@ const StatisticsReport = ({ categoryName, page }) => {
         <LabelList
                   dataKey="name"
                   position="insideTopLeft"
-                  offset={-9}
                   style={{ fill: '#52555F' }}
         />
         )}
