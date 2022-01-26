@@ -47,38 +47,44 @@ const BalanceWithBtn = () => {
         className={pathname === '/report' ? style.wrapperReport : style.wrapper}
       >
         <span className={style.balanceTitle}>Баланс:</span>
-        <label htmlFor={balance}>
-          <input
-            className={
-              pathname === '/report'
-                ? style.inputBalanceReport
-                : style.inputBalance
-            }
-            type="text"
-            name="balance"
-            placeholder={balance === null ? '00.00' : balance}
-            // value={balance === null ? '00.00' : balance}
-            id={balance}
-            pattern="^\d*(\.\d{0,2})?$"
-            title="Введите положительное число"
-            required
-          />
-        </label>
-
-        <span
-          className={pathname === '/report' ? style.spanReport : style.span}
-        >
-          UAH
-        </span>
-
-        <button
-          type="submit"
+        <div
           className={
-            pathname === '/report' ? style.submitBtnReport : style.submitBtn
+            pathname === '/report' ? style.inputAndBtnReport : style.inputAndBtn
           }
         >
-          Подтвердить
-        </button>
+          <label htmlFor={balance}>
+            <input
+              className={
+                pathname === '/report'
+                  ? style.inputBalanceReport
+                  : style.inputBalance
+              }
+              type="text"
+              name="balance"
+              placeholder={balance === null ? '00.00' : balance}
+              // value={balance === null ? '00.00' : balance}
+              id={balance}
+              pattern="^\d*(\.\d{0,2})?$"
+              title="Введите положительное число"
+              required
+            />
+          </label>
+
+          <span
+            className={pathname === '/report' ? style.spanReport : style.span}
+          >
+            UAH
+          </span>
+
+          <button
+            type="submit"
+            className={
+              pathname === '/report' ? style.submitBtnReport : style.submitBtn
+            }
+          >
+            Подтвердить
+          </button>
+        </div>
       </form>
       {balance === null ? <GreetingNotification /> : null}
     </div>

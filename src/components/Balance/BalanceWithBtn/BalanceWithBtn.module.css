@@ -114,6 +114,12 @@
   display: none;
 }
 .inputAndBtnReport {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 44px;
   padding: 0;
 }
 
@@ -122,6 +128,9 @@
     transform: translate(-30px, 1px);
   }
 
+  .inputAndBtnReport {
+    margin-left: 22px;
+  }
   .balanceTitle {
     margin-bottom: 6px;
   }
@@ -130,7 +139,7 @@
   }
 
   .spanReport {
-    transform: translate(-37px, 4px);
+    transform: translate(-35px, 4px);
     font-family: Roboto;
     font-style: normal;
     font-weight: 600;
@@ -142,18 +151,21 @@
 
   .inputBalanceReport {
     width: 137px;
-    margin-top: 6px;
   }
 
   .balanceTitle {
     text-align: center;
     justify-content: center;
     align-items: center;
+    display: flex;
     margin-bottom: 6px;
   }
 
   .submitBtn {
     border-radius: 0px 16px 16px 0px;
+    padding-left: 21px;
+    padding-right: 21px;
+    margin-left: -26px;
   }
 
   .inputBalance {
@@ -175,6 +187,7 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
   }
+
   .inputBalance {
     border-radius: 16px;
   }
@@ -192,7 +205,7 @@
     width: 369px;
     margin-left: 110px;
     justify-content: flex-end;
-    margin-top: -70.5px;
+    margin-top: -71.5px;
   }
 
   .balanceTitle {
@@ -204,6 +217,8 @@
     justify-content: center;
     /* margin-left: 15px; */
     border-radius: 16px;
+    padding: 0;
+    margin: 0;
   }
 }
 
