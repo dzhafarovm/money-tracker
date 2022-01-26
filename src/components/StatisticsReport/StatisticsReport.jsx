@@ -10,7 +10,7 @@ import {
   CartesianGrid,
   Cell,
   ResponsiveContainer,
-  // LabelList,
+  LabelList,
 } from 'recharts';
 
 import transOperations from 'redux/transaction/transactions-operation.jsx';
@@ -132,23 +132,24 @@ const StatisticsReport = ({ categoryName, page }) => {
               hide={mobile ? true : false}
             />
             <YAxis
-              dataKey={mobile ? 'name' : ''}
+              dataKey={''}
               type={mobile ? 'category' : 'number'}
+              padding={{ left: 0 }}
               tickCount={mobile ? 0 : 9}
               tickLine={false}
               axisLine={false}
-              hide={mobile ? false : true}
+              hide
             />
             <Bar
               dataKey="uv"
               minBarSize={mobile ? 20 : 5}
-              barCategoryGap={50}
+              barCategoryGap={5}
               minPointSize={70}
               radius={mobile ? [0, 10, 10, 0] : [10, 10, 0, 0]}
               label={
                 mobile
                   ? {
-                      position: 'right',
+                      position: 'insideRight',
                       fill: '#52555F',
                       fontSize: 12,
                     }
@@ -158,6 +159,13 @@ const StatisticsReport = ({ categoryName, page }) => {
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={barColors[index % 3]} />
               ))}
+              {mobile && (
+        <LabelList
+                  dataKey="name"
+                  position="insideTopLeft"
+                  style={{ fill: '#52555F' }}
+        />
+        )}
             </Bar>
           </ComposedChart>
         </ResponsiveContainer>

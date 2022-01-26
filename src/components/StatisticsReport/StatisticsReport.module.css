@@ -1,6 +1,11 @@
 @media screen and (max-width: 767px) {
   .wrapper {
     padding: 34px 0px 51px 0px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .section {
+    height: 422px;
   }
 }
 
@@ -9,6 +14,8 @@
     padding: 65px 50px 19px 50px;
     margin-top: 32px;
     margin-bottom: 75px;
+    margin-right: 20px;
+    margin-left: 20px;
     border-radius: 30px;
     background-color: var(--white-color);
     box-shadow: var(--box-shadow);
@@ -25,7 +32,6 @@
     padding: 65px 150px 19px 150px;
   }
   .section {
-    margin: auto;
     height: 422px;
   }
 }
