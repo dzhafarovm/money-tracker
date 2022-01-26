@@ -46,6 +46,10 @@
     border-radius: 0px 30px 30px 30px;
     overflow: hidden;
   }
+
+  .tableSummaryContainer {
+    margin-top: 48px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
