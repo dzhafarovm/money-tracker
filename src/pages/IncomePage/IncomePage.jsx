@@ -22,7 +22,7 @@ const IncomePage = () => {
 
       {mobile ? (
         <div>
-          <AddTransactionButton/>
+          <AddTransactionButton />
           {/* <TransitionForm /> */}
           <MobileTransactionTable />
 
@@ -53,17 +53,15 @@ const IncomePage = () => {
               style={styleBtn.buttonTitle}
             />
           </div>
-           
-            <div className={style.transactionSummaryContainer}>
-             
-              <TransitionForm />
-                <div className={style.tableSummaryContainer}>
-                <TransactionTable />
-             
-                 <Summary />
-              </div>
+
+          <div className={style.transactionSummaryContainer}>
+            <TransitionForm />
+            <div className={style.tableSummaryContainer}>
+              <TransactionTable />
+
+              <Summary />
             </div>
-          
+          </div>
         </div>
       )}
     </>
