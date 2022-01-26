@@ -1,11 +1,11 @@
-.buttonTitle {
+/* .buttonTitle {
   display: flex;
   padding: 5px;
   align-items: center;
   justify-content: center;
   text-decoration: none;
 
-  font-weight: bold;
+  font-weight: 700;
   font-size: 12px;
   text-transform: uppercase;
   padding: 0;
@@ -21,47 +21,92 @@
 
   cursor: pointer;
   /* transition: all 0.2s ease; */
-  transition: var(--time) var(--timing);
-}
+  /* transition: var(--time) var(--timing);
+} */
 
-.buttonTitle:hover,
+/* .buttonTitle:hover,
 .buttonTitle:focus {
   background: var(--accent-color);
   color: var(--white-color);
-}
+} */ 
 
-.buttonActiveTitle {
-  display: flex;
-  padding: 5px;
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+.inactive {
+ display: flex;
+  /* padding: 5px; */
   align-items: center;
   justify-content: center;
   text-decoration: none;
 
-  font-weight: bold;
+  font-weight: 700;
   font-size: 12px;
+  
   text-transform: uppercase;
+  align-items: center;
+  text-align: center;
   padding: 0;
+  line-height: 1.2;
+  width: 159px;
+  /* width: 100%; */
 
-  min-width: 149px;
-  width: 100%;
+  height: 53px;
+  margin-right: 2px;
+  border: 0;
 
-  min-height: 53px;
+  background: var(--secondary-bcg-color);
+  color: var(--black-color);
+}
+
+.active {
+  display: flex;
+  /* padding: 5px; */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  font-weight: 700;
+  font-size: 12px;
+  
+  text-transform: uppercase;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  line-height: 1.2;
+  width: 159px;
+  /* width: 100%; */
+
+  height: 53px;
   margin-right: 2px;
   border: 0;
 
   background: var(--accent-color);
   color: var(--white-color);
 
-  cursor: pointer;
+  /* cursor: pointer; */
   /* transition: all 0.2s ease; */
-  transition: var(--time) var(--timing);
+  /* transition: var(--time) var(--timing); */
 }
-
-.link {
-  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
+  .inactive {
+position: absolute;
+width: 138px;
+height: 40px;
+left: 51px;
+top: 198px;
+
+background: #FEFEFE;
+border-radius: 20px;
+  }
+}
+
+/* .link {
+  text-decoration: none;
+} */
+
+/* @media screen and (min-width: 320px) and (max-width: 767px) {
   .buttonTitle {
     width: 139px;
     min-height: 40px;
@@ -87,4 +132,4 @@
     background: #fefefe;
     color: var(--accent-color);
   }
-}
+}  */

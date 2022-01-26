@@ -1,14 +1,31 @@
+@media screen and (min-width: 320px) {
 .buttonContainer {
-  display: flex;
+display: flex;
+position: absolute;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+text-decoration: none;
+
+  font-weight: 700;
+  font-size: 12px;
+  
+  text-transform: uppercase;
+  padding: 0;
+  line-height: 1.2;
+  
   justify-content: space-between;
   position: absolute;
   z-index: 100;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; 
+}
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .buttonContainer {
     justify-content: flex-start;
     position: static;
@@ -17,7 +34,7 @@
   .wrapper {
     margin-top: 48px;
   }
-}
+} */
 
 @media screen and (min-width: 768px) {
   
