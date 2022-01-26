@@ -7,11 +7,7 @@ const Balance = () => {
   const { pathname } = useLocation();
 
   return (
-    <div
-      className={
-        pathname !== '/expenses' ? s.formComponentAuth : s.formComponent
-      }
-    >
+    <div>
       <div
         className={
           pathname === '/report' ? s.balanceWrapperReport : s.balanceWrapper

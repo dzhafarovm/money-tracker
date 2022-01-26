@@ -24,7 +24,7 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 45px;
+  left: 69px;
   width: 0;
   height: 0;
   border: 15px solid transparent;
@@ -78,7 +78,7 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 45px;
+  left: 69px;
   width: 0;
   height: 0;
   border: 15px solid transparent;
@@ -88,22 +88,29 @@
 }
 
 @media screen and (max-width: 768px) {
+  .notification {
+    transform: translate(-49px, -42px);
+  }
   .notificationReport {
-    transform: translate(-5px, -62px);
+    transform: translate(-41px, -59px);
   }
 }
 
 @media screen and (min-width: 768px) {
   .notification {
-    transform: translate(-5px, -62px);
+    transform: translate(-26px, -62px);
   }
   .notificationReport {
-    transform: translate(260px, -58px);
+    transform: translate(237px, -58px);
   }
 }
 
 @media screen and (min-width: 1280px) {
   .notificationReport {
-    transform: translate(342px, -60px);
+    transform: translate(315px, -60px);
+  }
+
+  .notification {
+    transform: translate(-26px, -62px);
   }
 }
