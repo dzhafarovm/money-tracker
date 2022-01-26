@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import authSelectors from 'redux/auth/auth-selectors';
 import UserMenu from './UserMenu';
 
@@ -11,9 +12,12 @@ const Header = () => {
   return (
     <header className={style.header}>
       <div className={style.navConteiner}>
-        <svg width="90" height="31">
-          <use href={`${sprite}#logo`}></use>
-        </svg>
+        <NavLink to="/">
+          <svg width="90" height="31">
+            <use href={`${sprite}#logo`}></use>
+          </svg>
+        </NavLink>
+
         {isLoggedIn ? <UserMenu /> : null}
       </div>
     </header>
