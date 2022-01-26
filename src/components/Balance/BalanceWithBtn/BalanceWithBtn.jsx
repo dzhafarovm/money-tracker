@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 // import * as Yup from 'yup';
 
-// import GreetingNotification from 'components/Balance/GreetingNotification';
+import GreetingNotification from 'components/Balance/GreetingNotification';
 import balanceOperations from 'redux/balance/balance-operations';
 import balanceSelectors from 'redux/balance/balance-selectors';
 import style from './BalanceWithBtn.module.css';
@@ -80,6 +80,7 @@ const BalanceWithBtn = () => {
           Подтвердить
         </button>
       </form>
+      {balance === null ? <GreetingNotification /> : null}
     </div>
   );
 };
