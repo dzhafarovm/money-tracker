@@ -57,7 +57,7 @@ const monthNames = [
 
 const modalRoot = document.querySelector('#modal-root');
 
-const TransitionFormModal = () => { 
+const TransitionFormModal = ({ onClose}) => { 
 
     const [selectedDate, setSelectedDate] = useState(new Date());
   const [open, setOpen] = useState(false);
@@ -101,7 +101,8 @@ const TransitionFormModal = () => {
     };
   }, [open]);
 
-  const onSubmit = async data => {
+    const onSubmit = async data => {
+        onClose();
     const { date, name, value, categories } = data;
     const categoryEng = options.filter(data => data.label === categories);
 

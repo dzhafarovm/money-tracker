@@ -18,7 +18,7 @@ const [modal, setModal] = useState(false);
         >   Добавить транзакцию
           </button>
           {modal && (
-        <TransitionFormModal />
+        <TransitionFormModal onClose={showModal }/>
       )}
     </>
   );

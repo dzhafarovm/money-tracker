@@ -89,6 +89,19 @@
 }
 }
 
+@media screen and (min-width: 768px) {
+  .inactive {
+position: absolute;
+width: 138px;
+height: 40px;
+left: 51px;
+top: 198px;
+
+background: #FEFEFE;
+border-radius: 20px;
+  }
+}
+
 /* .link {
   text-decoration: none;
 } */
