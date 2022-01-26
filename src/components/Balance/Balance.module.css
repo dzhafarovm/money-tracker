@@ -11,7 +11,7 @@
 
 @media screen and (max-width: 768px) {
   .formComponent {
-    display: none;
+    /* display: none; */
   }
 
   .formComponentAuth {

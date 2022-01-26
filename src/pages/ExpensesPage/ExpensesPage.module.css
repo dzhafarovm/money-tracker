@@ -1,6 +1,7 @@
 @media screen and (min-width: 320px) {
 .buttonContainer {
 display: flex;
+justify-content: space-around;
 position: absolute;
   z-index: 100;
   bottom: 0;

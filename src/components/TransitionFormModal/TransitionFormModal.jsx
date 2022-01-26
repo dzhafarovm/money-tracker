@@ -145,10 +145,29 @@ const TransitionFormModal = ({ onClose}) => {
   useEffect(() => {
     setValue('categories', placeholderCategories.label);
   }, [placeholderCategories, setValue]);
+    
+     useEffect(() => {
+    window.addEventListener('keydown', handleCloseByKey);
+    return () => {
+      window.removeEventListener('keydown', handleCloseByKey);
+    };
+  });
+
+  const handleCloseByKey = e => {
+    if (e.code === 'Escape') {
+      onClose();
+    }
+  };
+
+  const handleCloseByBackdrop = e => {
+    if (e.currentTarget === e.target) {
+      onClose();
+    }
+  };
 
     return createPortal(
         <div className={style.overlay}
-            // onClick={handleCloseByBackdrop}
+            onClick={handleCloseByBackdrop}
         >
             <div className={style.modal}>
     <div className={style.allContainer}>

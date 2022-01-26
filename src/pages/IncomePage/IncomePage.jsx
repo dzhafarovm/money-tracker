@@ -9,6 +9,7 @@ import MobileTransactionTable from 'components/MobileTransactionTable';
 import Balance from 'components/Balance';
 import routes from 'routes/routes';
 
+import AddTransactionButton from 'components/TransitionFormModal/AddTransactionButton.jsx';
 import style from './IncomePage.module.css';
 import styleBtn from 'components/TransactionContainer/Button/Button.module.css';
 
@@ -21,19 +22,20 @@ const IncomePage = () => {
 
       {mobile ? (
         <div>
-          <TransitionForm />
+          <AddTransactionButton/>
+          {/* <TransitionForm /> */}
           <MobileTransactionTable />
 
           <div className={style.buttonContainer}>
             <Button
               title="Расход"
               route={routes.expenses}
-              style={styleBtn.buttonActiveTitle}
+              // style={styleBtn.buttonActiveTitle}
             />
             <Button
               title="Доход"
               route={routes.income}
-              style={styleBtn.buttonTitle}
+              // style={styleBtn.buttonTitle}
             />
           </div>
         </div>
@@ -51,12 +53,17 @@ const IncomePage = () => {
               style={styleBtn.buttonTitle}
             />
           </div>
-
-          <TransitionForm />
-
-          <TransactionTable />
-
-          <Summary />
+           
+            <div className={style.transactionSummaryContainer}>
+             
+              <TransitionForm />
+                <div className={style.tableSummaryContainer}>
+                <TransactionTable />
+             
+                 <Summary />
+              </div>
+            </div>
+          
         </div>
       )}
     </>
