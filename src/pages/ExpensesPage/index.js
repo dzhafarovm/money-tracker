@@ -1,1 +1,1 @@
-export { default } from './ExpensesPage';
+export { default } from './ExpensesPage.jsx';

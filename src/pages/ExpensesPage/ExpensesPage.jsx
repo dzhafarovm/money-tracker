@@ -9,7 +9,7 @@ import MobileTransactionTable from 'components/MobileTransactionTable';
 import Balance from 'components/Balance';
 import routes from 'routes/routes';
 
-import AddTransactionButton from 'components/TransitionFormModal/AddTransactionButton.jsx';
+import AddTransactionButton from 'components/TransitionFormModal/AddTransactionButton';
 import style from './ExpensesPage.module.css';
 import styleBtn from 'components/TransactionContainer/Button/Button.module.css';
 
