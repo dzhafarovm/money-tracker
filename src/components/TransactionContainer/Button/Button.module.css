@@ -1,10 +1,13 @@
 .container {
   display: flex;
+  position: relative;
 }
 
 @media screen and (max-width: 767px) {
   .buttonTitle {
     display: flex;
+    position: sticky;
+    bottom: 0;
     align-items: center;
     justify-content: center;
     width: 50%;
@@ -16,6 +19,9 @@
 
   .buttonActiveTitle {
     display: flex;
+    position: sticky;
+    bottom: 0;
+    right: 0;
     align-items: center;
     justify-content: center;
     width: 50%;
