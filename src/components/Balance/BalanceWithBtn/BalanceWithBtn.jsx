@@ -1,17 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-// import * as Yup from 'yup';
 
 import GreetingNotification from 'components/Balance/GreetingNotification';
 import balanceOperations from 'redux/balance/balance-operations';
 import balanceSelectors from 'redux/balance/balance-selectors';
 import style from './BalanceWithBtn.module.css';
-
-// const FormSchema = Yup.object().shape({
-//   balance: Yup.number().required('Введите баланс'),
-// });
 
 const BalanceWithBtn = () => {
   const dispatch = useDispatch();
@@ -27,7 +21,7 @@ const BalanceWithBtn = () => {
   useEffect(() => {
     if (currentBalance !== null) {
       setBalance(currentBalance);
-    }
+    } else setBalance(null);
   }, [currentBalance]);
 
   const handleSubmit = e => {

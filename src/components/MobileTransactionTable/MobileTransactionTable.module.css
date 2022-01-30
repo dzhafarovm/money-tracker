@@ -77,25 +77,17 @@
   }
 
   .sum {
+    height: 20px;
+    width: 84px;
     font-size: 12px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.04em;
     text-align: right;
-
     color: var(--table-red-color);
-    height: 20px;
-    width: 84px;
   }
 
   .green {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.04em;
-    text-align: right;
-    height: 20px;
-    width: 84px;
     color: var(--green-color);
   }
 
@@ -106,9 +98,3 @@
     margin-left: 20px;
   }
 }
-
-/* @media screen and (min-width: 480px) {
-  .transactionList {
-    display: none;
-  }
-} */

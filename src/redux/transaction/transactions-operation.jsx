@@ -40,8 +40,7 @@ const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
   async function (_id, { dispatch }) {
     try {
-      const data = await axios.delete(`api/transactions/${_id}`);
-      console.log(data);
+      await axios.delete(`api/transactions/${_id}`);
 
       toast.success('Ваша транзакция удалена');
 

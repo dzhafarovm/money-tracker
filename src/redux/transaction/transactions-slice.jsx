@@ -17,8 +17,7 @@ const transactionsSlice = createSlice({
 
     [transactionsOperations.addTransaction.fulfilled](state, action) {
       state.addTransaction = action.payload;
-      state.getAll.unshift(action.payload);
-        // .sort(action.payload.sum);
+      state.getAll.push(action.payload);
     },
     [transactionsOperations.getAll.fulfilled](state, action) {
       state.getAll = action.payload.result;

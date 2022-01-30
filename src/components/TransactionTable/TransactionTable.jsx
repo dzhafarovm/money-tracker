@@ -23,6 +23,19 @@ const TransactionTable = () => {
 
   const result = useSelector(transactionsSelectors.getAll);
 
+  const resultWithDate = result.map(el => ({
+    _id: el._id,
+    category: el.category,
+    day: el.day,
+    month: el.month,
+    year: el.year,
+    date: Date.parse(new Date(`${el.year}`, `${el.month}`, `${el.day}`)),
+    description: el.description,
+    sum: el.sum,
+  }));
+
+  const sortArr = resultWithDate.sort((a, b) => a.date - b.date).reverse();
+
   const onDeleteTransaction = _id => {
     dispatch(transOperations.deleteTransaction(_id));
     dispatch(balanceOperations.getCurrentUserBalance());
@@ -31,28 +44,34 @@ const TransactionTable = () => {
   return (
     <div className={style.tableWrapper}>
       <div className={style.columnTitles}>
-        <h3 className={style.dataColumn}>Дата</h3>
-        <h3 className={style.descriptionColumn}>Описание</h3>
-        <h3 className={style.categoryColumn}>Категория</h3>
-        <h3 className={style.sumColumn}>Сумма</h3>
+        <p className={style.dataColumn}>Дата</p>
+        <p className={style.descriptionColumn}>Описание</p>
+        <p className={style.categoryColumn}>Категория</p>
+        <p className={style.sumColumn}>Сумма</p>
         <div className={style.deleteColumn}></div>
       </div>
 
       <ul className={style.transactionList}>
-        {result &&
-          result.map(transaction => (
+        {sortArr &&
+          sortArr.map(transaction => (
             <li className={style.transactionData} key={transaction._id}>
-              <h3 className={style.dataColumn}>
+              <p className={style.dataColumn}>
                 {transaction.day}.{transaction.month}.{transaction.year}
-              </h3>
-              <h3 className={style.descriptionColumn}>
+              </p>
+              <p className={style.descriptionColumn}>
                 {transaction.description}
-              </h3>
-              <h3 className={style.categoryColumn}>{transaction.category}</h3>
-              <h3 className={style.sumColumn}>
+              </p>
+              <p className={style.categoryColumn}>{transaction.category}</p>
+              <p
+                className={
+                  pathname === '/expenses'
+                    ? `${style.sumColumn}`
+                    : `${style.sumColumn} ${style.green}`
+                }
+              >
                 {pathname === '/expenses' ? '-' : null}
-                {transaction.sum}
-              </h3>
+                {transaction.sum} грн.
+              </p>
               <div
                 className={style.deleteIcon}
                 onClick={() => onDeleteTransaction(transaction._id)}

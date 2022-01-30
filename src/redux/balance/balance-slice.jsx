@@ -14,7 +14,7 @@ const balanceSlice = createSlice({
     },
 
     [balanceOperations.updateBalance.fulfilled](state, action) {
-      state.currentUserBalance = action.payload;
+      state.currentUserBalance = action.payload.balance;
     },
   },
 });

@@ -14,6 +14,7 @@
     height: 38px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    text-transform: uppercase;
   }
 
   .transactionList {
@@ -23,8 +24,7 @@
     height: 490px;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    
-     }
+  }
 
   .transactionList::-webkit-scrollbar {
     background-color: var(--secondary-bcg-color);
@@ -37,14 +37,6 @@
     height: 130px;
     width: 6px;
   }
-
-
-
-  /* .transactionList::-webkit-scrollbar {
-    height: 130px;
-    width: 6px;
-    color: var(--accent-color);
-  } */
 
   .transactionData {
     text-decoration: none;
@@ -79,17 +71,16 @@
 
   .sumColumn {
     width: 104px;
+    color: var(--table-red-color);
+  }
+
+  .green {
+    color: var(--green-color);
   }
 
   .deleteleIcon {
     margin: 12px 22px 8px 41px;
   }
-
-  /* .tableWrapper {
-    width: 760px;
-    height: 437px;
-    display: block;
-  } */
 }
 
 @media screen and (min-width: 1280px) {
@@ -101,12 +92,6 @@
     overflow-y: scroll;
   }
 
-  /* .transactionList::-webkit-scrollbar {
-    height: 500px;
-    width: 6px;
-    color: var(--accent-color);
-  } */
-
   .tableWrapper {
     width: 760px;
     height: 437px;
@@ -116,7 +101,6 @@
 
   .tableWrapper::-webkit-scrollbar-thumb {
     background-color: (--accent-color);
-    /* height: 130px; */
     width: 20px;
   }
 
@@ -139,9 +123,14 @@
     width: 116px;
     margin-right: 48px;
   }
+
   .sumColumn {
     width: 104px;
     text-align: right;
+    color: var(--table-red-color);
+  }
+  .green {
+    color: var(--green-color);
   }
 
   .deleteleIcon {
