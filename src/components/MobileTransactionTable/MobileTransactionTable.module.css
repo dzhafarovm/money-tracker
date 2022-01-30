@@ -89,6 +89,13 @@
   }
 
   .green {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    text-align: right;
+    height: 20px;
+    width: 84px;
     color: var(--green-color);
   }
 

@@ -31,7 +31,7 @@ const TransactionTable = () => {
   return (
     <div className={style.tableWrapper}>
       <div className={style.columnTitles}>
-        <h3 className={style.dataColumn}>ДАТА</h3>
+        <h3 className={style.dataColumn}>Дата</h3>
         <h3 className={style.descriptionColumn}>Описание</h3>
         <h3 className={style.categoryColumn}>Категория</h3>
         <h3 className={style.sumColumn}>Сумма</h3>
