@@ -62,7 +62,6 @@ const TransactionTable = () => {
                 {transaction.description}
               </p>
               <p className={style.categoryColumn}>{transaction.category}</p>
-<<<<<<< Updated upstream
               <p
                 className={
                   pathname === '/expenses'
@@ -72,11 +71,6 @@ const TransactionTable = () => {
               >
                 {pathname === '/expenses' ? '-' : null}
                 {transaction.sum} грн.
-=======
-              <p className={style.sumColumn}>
-                {pathname === '/expenses' ? '-' : null}
-                {transaction.sum}
->>>>>>> Stashed changes
               </p>
               <div
                 className={style.deleteIcon}
