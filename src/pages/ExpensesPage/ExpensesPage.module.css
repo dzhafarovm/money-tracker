@@ -55,10 +55,8 @@
 @media screen and (min-width: 1280px) {
   .transactionSummaryContainer {
     padding: 30px 20px 40px 20px;
-    /* display: block; */
-    /* background-color: var(--white-color);
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    border-radius: 0px 30px 30px 30px; */
+    display: block; 
+    height: 640px;
   }
 
   .tableSummaryContainer {
