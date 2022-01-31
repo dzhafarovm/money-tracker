@@ -47,7 +47,7 @@ const TransactionTable = () => {
         <p className={style.dataColumn}>Дата</p>
         <p className={style.descriptionColumn}>Описание</p>
         <p className={style.categoryColumn}>Категория</p>
-        <p className={style.sumColumn}>Сумма</p>
+        <p className={style.sumColumnTitle}>Сумма</p>
         <div className={style.deleteColumn}></div>
       </div>
 
