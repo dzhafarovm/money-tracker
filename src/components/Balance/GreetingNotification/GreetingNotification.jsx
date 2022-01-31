@@ -1,7 +1,10 @@
-import s from './GreetingNotification.module.css';
 import { useLocation } from 'react-router-dom';
+
+import s from './GreetingNotification.module.css';
+
 const GreetingNotification = ({ onNotifyClick }) => {
   const { pathname } = useLocation();
+
   return (
     <div className={s.container} onClick={() => onNotifyClick(false)}>
       <div
@@ -19,4 +22,5 @@ const GreetingNotification = ({ onNotifyClick }) => {
     </div>
   );
 };
+
 export default GreetingNotification;

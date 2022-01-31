@@ -2,25 +2,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import currentDateOperations from 'redux/currentDate/currentDate-operations';
+import Constants from 'Constants/';
+
 import style from './NavigationReport.module.css';
 import sprite from 'components/images/sprite.svg';
-
-import currentDateOperations from 'redux/currentDate/currentDate-operations';
-
-const arrMonthName = [
-  { id: '1', name: 'январь', engName: 'January' },
-  { id: '2', name: 'февраль', engName: 'February' },
-  { id: '3', name: 'март', engName: 'March' },
-  { id: '4', name: 'апрель', engName: 'April' },
-  { id: '5', name: 'май', engName: 'May' },
-  { id: '6', name: 'июнь', engName: 'June' },
-  { id: '7', name: 'июль', engName: 'July' },
-  { id: '8', name: 'август', engName: 'August' },
-  { id: '9', name: 'сентябрь', engName: 'September' },
-  { id: '10', name: 'октябрь', engName: 'October' },
-  { id: '11', name: 'ноябрь', engName: 'November' },
-  { id: '12', name: 'декабрь', engName: 'December' },
-];
 
 const NavigationReport = () => {
   const dispatch = useDispatch();
@@ -47,26 +33,11 @@ const NavigationReport = () => {
     }
   };
 
-  const getMonth = arrMonthName.filter(el => el.id === String(month));
-
-  const monthArr = [
-    { id: '1', month: '01' },
-    { id: '2', month: '02' },
-    { id: '3', month: '03' },
-    { id: '4', month: '04' },
-    { id: '5', month: '05' },
-    { id: '6', month: '06' },
-    { id: '7', month: '07' },
-    { id: '8', month: '08' },
-    { id: '9', month: '09' },
-    { id: '10', month: '10' },
-    { id: '11', month: '11' },
-    { id: '12', month: '12' },
-  ];
+  const getMonth = Constants.arrMonthName.filter(el => el.id === String(month));
 
   let newMonth = [];
 
-  newMonth = monthArr.filter(el => el.id === getMonth[0].id);
+  newMonth = Constants.monthArr.filter(el => el.id === getMonth[0].id);
 
   const time = {
     month: newMonth[0].month,
@@ -87,8 +58,6 @@ const NavigationReport = () => {
         </svg>
         <p className={style.title}>Вернуться на главную</p>
       </button>
-
-      {/* <p className={style.title}>Баланс:</p> */}
 
       <span>
         <p className={style.currentDate}>Текущий период:</p>

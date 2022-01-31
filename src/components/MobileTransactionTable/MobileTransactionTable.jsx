@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-// import toast from 'react-hot-toast';
 
-import style from './MobileTransactionTable.module.css';
 import balanceOperations from 'redux/balance/balance-operations';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import transOperations from 'redux/transaction/transactions-operation';
 import MobileTransactionItem from 'components/MobileTransactionTable/MobileTransactionItem';
-// import sprite from 'components/images/sprite.svg';
+
+import style from './MobileTransactionTable.module.css';
 
 const MobileTransactionTable = () => {
   const dispatch = useDispatch();
@@ -28,8 +27,6 @@ const MobileTransactionTable = () => {
     dispatch(transOperations.deleteTransaction(_id));
     dispatch(balanceOperations.getCurrentUserBalance());
   };
-
-  console.log('transactions', result);
 
   return (
     <ul className={style.transactionList}>

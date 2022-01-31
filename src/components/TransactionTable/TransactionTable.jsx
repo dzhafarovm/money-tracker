@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import sprite from 'components/images/sprite.svg';
 
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import transOperations from 'redux/transaction/transactions-operation';
 import balanceOperations from 'redux/balance/balance-operations';
+import sprite from 'components/images/sprite.svg';
 
 import style from './TransactionTable.module.css';
 

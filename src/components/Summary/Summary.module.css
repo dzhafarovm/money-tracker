@@ -1,8 +1,6 @@
 .table {
   width: 230px;
-
   background-color: #f5f6fb;
-
   border-collapse: collapse;
   border-radius: 20px 20px 20px 0px;
   overflow: hidden;
@@ -28,9 +26,9 @@
 .table th {
   height: 38px;
   background-color: var(--secondary-bcg-color);
-
   border-bottom: 2px solid var(--white-color);
 }
+
 th {
   font-weight: 400;
 }

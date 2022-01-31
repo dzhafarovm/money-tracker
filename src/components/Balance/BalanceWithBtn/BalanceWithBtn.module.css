@@ -44,6 +44,7 @@
   border: 2px solid var(--white-color);
   cursor: pointer;
 }
+
 .inputBalance::placeholder {
   color: var(--black-color);
 }
@@ -67,6 +68,7 @@
   border: 2px solid var(--white-color);
   cursor: pointer;
 }
+
 .submitBtn:hover {
   background-color: var(--accent-color);
   color: var(--white-color);
@@ -106,13 +108,16 @@
   border-radius: 16px;
   margin-top: 6px;
 }
+
 .inputBalanceReport::placeholder {
   color: var(--black-color);
 }
+
 .submitBtnReport {
   width: 1px;
   display: none;
 }
+
 .inputAndBtnReport {
   display: flex;
   position: relative;
@@ -131,9 +136,11 @@
   .inputAndBtnReport {
     margin-left: 22px;
   }
+
   .balanceTitle {
     margin-bottom: 6px;
   }
+
   .wrapperReport {
     text-align: center;
   }
@@ -177,6 +184,7 @@
   .span {
     transform: translate(-30px, 1px);
   }
+
   .spanReport {
     transform: translate(-35px, 4px);
     font-family: Roboto;
@@ -215,7 +223,6 @@
 
   .submitBtn {
     justify-content: center;
-    /* margin-left: 15px; */
     border-radius: 16px;
     padding: 0;
     margin: 0;
@@ -227,12 +234,13 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-
     margin-right: 190px;
   }
+
   .span {
     transform: translate(-30px, 0px);
   }
+
   .submitBtnReport {
     display: flex;
     justify-content: center;
@@ -255,9 +263,11 @@
     margin-left: 15px;
     text-align: center;
   }
+
   .spanReport {
     transform: translate(-35px, 0px);
   }
+
   .wrapperReport {
     margin-left: 330px;
   }
@@ -274,7 +284,6 @@
   font-weight: 400;
   font-size: 10px;
   line-height: 1.2;
-  /* text-align: left; */
   letter-spacing: 0.02em;
   border: 1px solid red;
   padding: 1px;

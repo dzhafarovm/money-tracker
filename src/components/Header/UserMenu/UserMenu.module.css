@@ -34,6 +34,7 @@
 .logoutButtonIcon {
   fill: #cbccd0;
 }
+
 .logoutButtonIcon:hover,
 .logoutButtonIcon:focus {
   fill: var(--accent-color);
@@ -46,6 +47,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
 .userEmail:hover,
 .userEmail:focus {
   text-decoration: underline;
@@ -77,6 +79,7 @@
   .user {
     border-right: 0;
   }
+
   .userIcon:hover,
   .userIcon:focus {
     background-color: var(--accent-color);
@@ -89,6 +92,7 @@
   .userIcon {
     margin-right: 0px;
   }
+  
   .userIcon:hover,
   .userIcon:focus {
     color: var(--white-color);

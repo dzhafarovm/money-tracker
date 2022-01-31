@@ -4,6 +4,7 @@
   background-color: transparent;
   cursor: pointer;
 }
+
 @media screen and (max-width: 767px) {
   .slider {
     justify-content: center;
@@ -52,7 +53,6 @@
     width: 664px;
     display: flex;
     justify-content: space-between;
-    /* margin-top: 40px; */
   }
 
   .title {

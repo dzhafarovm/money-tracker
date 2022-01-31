@@ -1,12 +1,12 @@
 import React from 'react';
-
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-import sprite from 'components/images/sprite.svg';
-import { useDispatch } from 'react-redux';
-
 import authOperations from 'redux/auth/auth-operations';
+import Constants from 'Constants/';
+import sprite from 'components/images/sprite.svg';
+
 import style from './AuthForm.module.css';
 
 const FormSchema = Yup.object().shape({
@@ -20,8 +20,6 @@ const initialValues = {
   email: '',
   password: '',
 };
-
-const URL = 'https://teamproj-money-tracker.herokuapp.com/api/auth/google';
 
 const AuthForm = () => {
   const dispatch = useDispatch();
@@ -57,7 +55,10 @@ const AuthForm = () => {
               Вы можете авторизоваться с помощью <br /> Google Account:
             </h4>
 
-            <a href={`${URL}`} className={style.googleAuthButton}>
+            <a
+              href={`${Constants.googleAuthURL}`}
+              className={style.googleAuthButton}
+            >
               <svg className={style.googleIcon} width="18" height="18">
                 <use href={`${sprite}#google`}></use>
               </svg>
@@ -141,4 +142,5 @@ const AuthForm = () => {
     </Formik>
   );
 };
+
 export default AuthForm;

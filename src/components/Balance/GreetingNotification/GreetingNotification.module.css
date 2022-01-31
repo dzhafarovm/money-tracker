@@ -54,7 +54,6 @@
   font-size: 12px;
   line-height: 16px;
   margin: 0;
-
   color: var(--white-color);
 }
 
@@ -91,6 +90,7 @@
   .notification {
     transform: translate(-49px, -42px);
   }
+
   .notificationReport {
     transform: translate(-41px, -59px);
   }
@@ -100,6 +100,7 @@
   .notification {
     transform: translate(-26px, -62px);
   }
+
   .notificationReport {
     transform: translate(237px, -58px);
   }

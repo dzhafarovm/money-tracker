@@ -1,13 +1,11 @@
 @media screen and (min-width: 768px) {
   .columnTitles {
     display: flex;
-
     font-size: 12px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.02em;
     text-align: left;
-
     color: var(--black-color);
     background-color: var(--secondary-bcg-color);
     width: 605px;
@@ -47,10 +45,8 @@
     letter-spacing: 0.04em;
     text-align: left;
     padding-left: 0px;
-
     color: var(--primary-text-color);
     border: 2px solid var(--secondary-bcg-color);
-
     width: 601px;
     height: 40px;
   }

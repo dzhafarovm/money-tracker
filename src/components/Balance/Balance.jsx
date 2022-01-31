@@ -1,8 +1,11 @@
-import GoToReport from './GoToReport';
 import { useLocation } from 'react-router-dom';
-import s from './Balance.module.css';
+
+import GoToReport from './GoToReport';
 import BalanceWithBtn from 'components/Balance/BalanceWithBtn';
 import routes from '../../routes/routes';
+
+import s from './Balance.module.css';
+
 const Balance = () => {
   const { pathname } = useLocation();
 

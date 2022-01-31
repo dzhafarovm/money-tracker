@@ -81,10 +81,8 @@
   border: 2px solid var(--secondary-bcg-color);
   background-color: var(--white-color);
   cursor: pointer;
-
   transition: background-color var(--time) var(--timing),
     color var(--time) var(--timing);
-
   font-family: Roboto;
   font-size: 12px;
   line-height: 1.17;

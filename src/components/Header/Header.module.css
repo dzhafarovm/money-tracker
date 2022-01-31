@@ -3,27 +3,24 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--white-color);
-  /* outline: 1px solid tomato; это временно */
   height: 56px;
 }
 
 .navConteiner {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 19px;
-  padding-right: 19px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 19px;
+  padding-right: 19px;
 }
 
 @media screen and (max-width: 767px) {
   .navConteiner {
     margin-left: auto;
     margin-right: auto;
-
     width: 282px;
   }
 }
@@ -38,7 +35,6 @@
   .navConteiner {
     margin-left: auto;
     margin-right: auto;
-
     width: 1280px;
   }
 }

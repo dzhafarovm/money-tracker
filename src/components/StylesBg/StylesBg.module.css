@@ -33,7 +33,6 @@
     background-position-y: 28px;
     background-position-x: center;
     border-bottom-left-radius: 120px;
-    /* background-size: contain; */
   }
 
   .bottomFon {
@@ -60,7 +59,6 @@
     background-position-y: 28px;
     background-position-x: center;
     border-bottom-left-radius: 120px;
-    /* background-size: cover; */
   }
 
   .bottomFon {
@@ -69,6 +67,5 @@
     background-repeat: no-repeat;
     background-position-y: 100%;
     background-position-x: center;
-    /* background-size: contain; */
   }
 }

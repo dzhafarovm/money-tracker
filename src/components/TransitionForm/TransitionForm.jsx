@@ -6,12 +6,14 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import ru from 'date-fns/locale/ru';
 
 import transOperations from 'redux/transaction/transactions-operation.jsx';
 import DropDownList from './DropDownList';
 import style from './TransitionForm.module.css';
 import sprite from 'components/images/sprite.svg';
-import ru from 'date-fns/locale/ru';
+import Constants from 'Constants/';
+
 registerLocale('ru', ru);
 
 const FormSchema = Yup.object().shape({
@@ -19,40 +21,6 @@ const FormSchema = Yup.object().shape({
   name: Yup.string().required('Required'),
   categories: Yup.string().required('Required'),
 });
-
-const expenses = [
-  { value: 'transport', label: 'Транспорт' },
-  { value: 'products', label: 'Продукты' },
-  { value: 'alcohol', label: 'Алкоголь' },
-  { value: 'health', label: 'Здоровье' },
-  { value: 'fun', label: 'Развлечения' },
-  { value: 'home', label: 'Всё для дома' },
-  { value: 'technic', label: 'Техника' },
-  { value: 'utility and phone', label: 'Коммуналка, связь' },
-  { value: 'sport and hobby', label: 'Спорт, хобби' },
-  { value: 'education', label: 'Образование' },
-  { value: 'other', label: 'Прочее' },
-];
-
-const income = [
-  { value: 'salary', label: 'ЗП' },
-  { value: 'other income', label: 'Доп. доход' },
-];
-
-const monthNames = [
-  { monthId: '01', label: 'January' },
-  { monthId: '02', label: 'February' },
-  { monthId: '03', label: 'March' },
-  { monthId: '04', label: 'April' },
-  { monthId: '05', label: 'May' },
-  { monthId: '06', label: 'June' },
-  { monthId: '07', label: 'July' },
-  { monthId: '08', label: 'August' },
-  { monthId: '09', label: 'September' },
-  { monthId: '10', label: 'October' },
-  { monthId: '11', label: 'November' },
-  { monthId: '12', label: 'December' },
-];
 
 const TransitionForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -63,7 +31,7 @@ const TransitionForm = () => {
   const nameUrl = location.pathname;
   const typeForm = nameUrl.includes('expenses');
   const type = typeForm ? 'costs' : 'income';
-  const options = typeForm ? expenses : income;
+  const options = typeForm ? Constants.expenses : Constants.income;
 
   const {
     register,
@@ -103,7 +71,9 @@ const TransitionForm = () => {
 
     const arr = date.toLocaleDateString().split('.');
 
-    const searchMonthArr = monthNames.filter(el => el.monthId === arr[1]);
+    const searchMonthArr = Constants.monthNames.filter(
+      el => el.monthId === arr[1],
+    );
 
     const newData = {
       type,

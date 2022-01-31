@@ -44,6 +44,7 @@
   .plus {
     color: var(--green-color);
   }
+
   .minus {
     color: var(--costs-color);
   }
@@ -99,6 +100,7 @@
   .plus {
     color: var(--green-color);
   }
+
   .minus {
     color: var(--costs-color);
   }

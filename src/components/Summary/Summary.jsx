@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 
 import transOperations from 'redux/transaction/transactions-operation';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
+import Constants from 'Constants/';
+
 import style from './Summary.module.css';
 
 const Summary = () => {
@@ -50,26 +52,11 @@ const Summary = () => {
     }, 0);
   }
 
-  const monthName = [
-    { month: 'Январь', id: '01' },
-    { month: 'Февраль', id: '02' },
-    { month: 'Март', id: '03' },
-    { month: 'Апрель', id: '04' },
-    { month: 'Май', id: '05' },
-    { month: 'Июнь', id: '06' },
-    { month: 'Июль', id: '07' },
-    { month: 'Август', id: '08' },
-    { month: 'Сентябрь', id: '09' },
-    { month: 'Октябрь', id: '10' },
-    { month: 'Ноябрь', id: '11' },
-    { month: 'Декабрь', id: '12' },
-  ];
-
   let transactionArrWithMonthName = [];
 
   if (calcAmountTransaction !== 0) {
     transactionArrWithMonthName = calcAmountTransaction.map(el => {
-      const arr = monthName.filter(mon => el.month === mon.id);
+      const arr = Constants.monthRusName.filter(mon => el.month === mon.id);
       return { month: arr[0].month, year: el.year, sum: el.sum };
     });
   }

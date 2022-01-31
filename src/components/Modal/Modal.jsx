@@ -3,17 +3,11 @@ import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 
 import authOperations from 'redux/auth/auth-operations';
+
 import style from './Modal.module.css';
 import sprite from '../images/sprite.svg';
 
 const modalRoot = document.querySelector('#modal-root');
-
-// Добавить в необходимый компонент
-// - рендер модалки
-// { modal && <Modal onClose={message, onClose} /> }
-// - message - если нажать на кнопку "выйти" передать текст "Вы действительно хотите выйти?"
-//           - если добавить транзакцию передать текст "Вы уверенны?"
-// - onClose - const showModal = () => setModal(prev => !prev);
 
 const Modal = ({ message, onClose }) => {
   useEffect(() => {
@@ -38,7 +32,7 @@ const Modal = ({ message, onClose }) => {
   const dispatch = useDispatch();
   const closeModalAndFetch = () => {
     if (message === 'Вы действительно хотите выйти?') {
-       dispatch(authOperations.logOut());
+      dispatch(authOperations.logOut());
     }
 
     if (message === 'Вы уверены?') {
