@@ -15,6 +15,11 @@
     text-transform: uppercase;
   }
 
+  .sumColumnTitle {
+   text-align: right;
+     width: 104px;
+  }
+
   .transactionList {
     padding-left: 0px;
     margin: 0px;
