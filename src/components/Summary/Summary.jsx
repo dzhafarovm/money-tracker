@@ -15,117 +15,73 @@ const Summary = () => {
     dispatch(transOperations.getAll(type));
   }, [dispatch, type]);
 
-  const result = useSelector(transactionsSelectors.getAll);
+  const getAllTransaction = useSelector(transactionsSelectors.getAll);
 
-  let arrTransaction = [];
+  const addParseDateToTansaction = getAllTransaction.map(el => ({
+    _id: el._id,
+    category: el.category,
+    day: el.day,
+    month: el.month,
+    year: el.year,
+    date: Date.parse(new Date(`${el.year}`, `${el.month}`, `${el.day}`)),
+    description: el.description,
+    sum: el.sum,
+  }));
 
-  if (result.length > 0) {
-    arrTransaction = result;
+  const sortArrBydate = addParseDateToTansaction
+    .sort((a, b) => a.date - b.date)
+    .reverse();
+
+  let calcAmountTransaction = [];
+
+  if (sortArrBydate !== []) {
+    let massiv = [];
+    calcAmountTransaction = sortArrBydate.reduce((acc, el, idx, arr) => {
+      const newFilter = arr.filter(
+        trans => (el.month === trans.month) & (el.year === trans.year),
+      );
+
+      const sum = newFilter.reduce((acc, trans) => {
+        return acc + trans.sum;
+      }, 0);
+
+      massiv.push({ month: el.month, year: el.year, sum });
+      return massiv;
+    }, 0);
   }
 
-  let janArr = arrTransaction.filter(el => el.month === '01');
-  let febArr = arrTransaction.filter(el => el.month === '02');
-  let marArr = arrTransaction.filter(el => el.month === '03');
-  let aprArr = arrTransaction.filter(el => el.month === '04');
-  let mayArr = arrTransaction.filter(el => el.month === '05');
-  let junArr = arrTransaction.filter(el => el.month === '06');
-  let julArr = arrTransaction.filter(el => el.month === '07');
-  let augArr = arrTransaction.filter(el => el.month === '08');
-  let sepArr = arrTransaction.filter(el => el.month === '09');
-  let octArr = arrTransaction.filter(el => el.month === '10');
-  let novArr = arrTransaction.filter(el => el.month === '11');
-  let decArr = arrTransaction.filter(el => el.month === '12');
-
-  const sumAll = [
-    { month: 'Январь', sum: 0 },
-    { month: 'Декабрь', sum: 0 },
-    { month: 'Ноябрь', sum: 0 },
-    { month: 'Октябрь', sum: 0 },
-    { month: 'Сентябрь', sum: 0 },
-    { month: 'Август', sum: 0 },
-    { month: 'Июль', sum: 0 },
-    { month: 'Июнь', sum: 0 },
-    { month: 'Май', sum: 0 },
-    { month: 'Апрель', sum: 0 },
-    { month: 'Март', sum: 0 },
-    { month: 'Февраль', sum: 0 },
+  const monthName = [
+    { month: 'Январь', id: '01' },
+    { month: 'Февраль', id: '02' },
+    { month: 'Март', id: '03' },
+    { month: 'Апрель', id: '04' },
+    { month: 'Май', id: '05' },
+    { month: 'Июнь', id: '06' },
+    { month: 'Июль', id: '07' },
+    { month: 'Август', id: '08' },
+    { month: 'Сентябрь', id: '09' },
+    { month: 'Октябрь', id: '10' },
+    { month: 'Ноябрь', id: '11' },
+    { month: 'Декабрь', id: '12' },
   ];
 
-  if (febArr !== []) {
-    sumAll[11].sum = febArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
+  let transactionArrWithMonthName = [];
+
+  if (calcAmountTransaction !== 0) {
+    transactionArrWithMonthName = calcAmountTransaction.map(el => {
+      const arr = monthName.filter(mon => el.month === mon.id);
+      return { month: arr[0].month, year: el.year, sum: el.sum };
+    });
   }
 
-  if (marArr !== []) {
-    sumAll[10].sum = marArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
+  const uniqLastMonthAndYear = Object.values(
+    transactionArrWithMonthName.reduce((a, b) => {
+      if (!a[b.month] & !a[b.year]) a[b.month] = b;
+      return a;
+    }, {}),
+  );
 
-  if (aprArr !== []) {
-    sumAll[9].sum = aprArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (mayArr !== []) {
-    sumAll[8].sum = mayArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (junArr !== []) {
-    sumAll[7].sum = junArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (julArr !== []) {
-    sumAll[6].sum = julArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (augArr !== []) {
-    sumAll[5].sum = augArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (sepArr !== []) {
-    sumAll[4].sum = sepArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (octArr !== []) {
-    sumAll[3].sum = octArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (novArr !== []) {
-    sumAll[2].sum = novArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (decArr !== []) {
-    sumAll[1].sum = decArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  if (janArr !== []) {
-    sumAll[0].sum = janArr.reduce((acc, trans) => {
-      return acc + trans.sum;
-    }, 0);
-  }
-
-  const selectSum = sumAll.filter(el => el.sum !== 0);
-
-  const searchSixMonth = selectSum.slice(0, 6);
+  const searchSixMonth = uniqLastMonthAndYear.slice(0, 6);
 
   return (
     <div>
