@@ -66,24 +66,34 @@ const IncomeReport = ({ dataArr }) => {
     dataArr(category, 'income');
   };
 
+  const startCategory = income.find(el => el.sum !== 0);
+
+  if (startCategory) {
+    dataArr(startCategory.value, 'income');
+  }
+
   return (
     <div className={style.section}>
       <div className={style.box}>
         <ul className={style.list}>
           {income.map(obj => (
-            <li key={obj.value} className={style.listItem}>
-              <button
-                type="button"
-                className={style.category}
-                onClick={btnClick}
-                id={obj.value}
-              >
-                <p className={style.title}>{obj.sum}</p>
-                <svg width="56" height="56" className={style.iconBox}>
-                  <use href={`${sprite}${obj.svg}`}></use>
-                </svg>
-                <p className={style.title}>{obj.label}</p>
-              </button>
+            <li key={obj.value}>
+              {obj.sum !== 0 ? (
+                <div className={style.listItem}>
+                  <button
+                    type="button"
+                    className={style.category}
+                    onClick={btnClick}
+                    id={obj.value}
+                  >
+                    <p className={style.title}>{obj.sum}</p>
+                    <svg width="56" height="56" className={style.iconBox}>
+                      <use href={`${sprite}${obj.svg}`}></use>
+                    </svg>
+                    <p className={style.title}>{obj.label}</p>
+                  </button>
+                </div>
+              ) : null}
             </li>
           ))}
         </ul>
