@@ -149,6 +149,10 @@
     cursor: pointer;
   }
 
+  .active {
+    fill: var(--accent-color);
+  }
+
   .title {
     margin: 0;
     font-size: 12px;

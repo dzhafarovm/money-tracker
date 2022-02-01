@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import transOperations from 'redux/transaction/transactions-operation';
@@ -61,16 +61,21 @@ const IncomeReport = ({ dataArr }) => {
     },
   ];
 
-  const btnClick = e => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const firstSelectedObj = income.find(el => el.sum !== 0);
+
+    if (firstSelectedObj) {
+      dataArr(firstSelectedObj.value, 'income');
+    }
+  }, []);
+
+  const btnClick = (e, index) => {
+    setActiveIndex(index);
     const category = e.currentTarget.id;
     dataArr(category, 'income');
   };
-
-  const firstSelectedObj = income.find(el => el.sum !== 0);
-
-  if (firstSelectedObj) {
-    dataArr(firstSelectedObj.value, 'income');
-  }
 
   return (
     <div className={style.section}>
@@ -78,12 +83,16 @@ const IncomeReport = ({ dataArr }) => {
         <ul className={style.list}>
           {income
             .filter(el => el.sum !== 0)
-            .map(obj => (
+            .map((obj, index) => (
               <li key={obj.value} className={style.listItem}>
                 <button
                   type="button"
-                  className={style.category}
-                  onClick={btnClick}
+                  className={
+                    activeIndex === index
+                      ? `${style.category} ${style.active}`
+                      : `${style.category}`
+                  }
+                  onClick={e => btnClick(e, index)}
                   id={obj.value}
                 >
                   <p className={style.title}>{obj.sum}</p>

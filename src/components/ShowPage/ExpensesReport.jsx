@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import transOperations from 'redux/transaction/transactions-operation';
@@ -156,16 +156,21 @@ const ExpensesReport = ({ dataArr }) => {
     { value: 'other', label: 'Прочее', svg: '#ufo', sum: otherSum },
   ];
 
-  const btnClick = e => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const firstSelectedObj = expenses.find(el => el.sum !== 0);
+
+    if (firstSelectedObj) {
+      dataArr(firstSelectedObj.value, 'expenses');
+    }
+  }, []);
+
+  const btnClick = (e, index) => {
+    setActiveIndex(index);
     const category = e.currentTarget.id;
     dataArr(category, 'expenses');
   };
-
-  const firstSelectedObj = expenses.find(el => el.sum !== 0);
-
-  if (firstSelectedObj) {
-    dataArr(firstSelectedObj.value, 'expenses');
-  }
 
   return (
     <div className={style.section}>
@@ -173,12 +178,16 @@ const ExpensesReport = ({ dataArr }) => {
         <ul className={style.list}>
           {expenses
             .filter(el => el.sum !== 0)
-            .map(obj => (
+            .map((obj, index) => (
               <li key={obj.value} className={style.listItem}>
                 <button
                   type="button"
-                  className={style.category}
-                  onClick={btnClick}
+                  className={
+                    activeIndex === index
+                      ? `${style.category} ${style.active}`
+                      : `${style.category}`
+                  }
+                  onClick={e => btnClick(e, index)}
                   id={obj.value}
                 >
                   <p className={style.title}>{obj.sum}</p>
