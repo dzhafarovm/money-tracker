@@ -161,36 +161,34 @@ const ExpensesReport = ({ dataArr }) => {
     dataArr(category, 'expenses');
   };
 
-  const startCategory = expenses.find(el => el.sum !== 0);
+  const firstSelectedObj = expenses.find(el => el.sum !== 0);
 
-  if (startCategory) {
-    dataArr(startCategory.value, 'expenses');
+  if (firstSelectedObj) {
+    dataArr(firstSelectedObj.value, 'expenses');
   }
 
   return (
     <div className={style.section}>
       <div className={style.box}>
         <ul className={style.list}>
-          {expenses.map(obj => (
-            <li key={obj.value}>
-              {obj.sum !== 0 ? (
-                <div className={style.listItem}>
-                  <button
-                    type="button"
-                    className={style.category}
-                    onClick={btnClick}
-                    id={obj.value}
-                  >
-                    <p className={style.title}>{obj.sum}</p>
-                    <svg width="56" height="56" className={style.iconBox}>
-                      <use href={`${sprite}${obj.svg}`}></use>
-                    </svg>
-                    <p className={style.title}>{obj.label}</p>
-                  </button>
-                </div>
-              ) : null}
-            </li>
-          ))}
+          {expenses
+            .filter(el => el.sum !== 0)
+            .map(obj => (
+              <li key={obj.value} className={style.listItem}>
+                <button
+                  type="button"
+                  className={style.category}
+                  onClick={btnClick}
+                  id={obj.value}
+                >
+                  <p className={style.title}>{obj.sum}</p>
+                  <svg width="56" height="56" className={style.iconBox}>
+                    <use href={`${sprite}${obj.svg}`}></use>
+                  </svg>
+                  <p className={style.title}>{obj.label}</p>
+                </button>
+              </li>
+            ))}
         </ul>
       </div>
     </div>
