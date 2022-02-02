@@ -44,7 +44,7 @@
 
 .modal {
   position: absolute;
-  top: 360px;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   min-height: 194px;
