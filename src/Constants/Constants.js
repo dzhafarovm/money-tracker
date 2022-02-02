@@ -65,6 +65,22 @@ const income = [
   { value: 'other income', label: 'Доп. доход' },
 ];
 
+const categoryName = [
+  { value: 'transport', label: 'Транспорт' },
+  { value: 'products', label: 'Продукты' },
+  { value: 'alcohol', label: 'Алкоголь' },
+  { value: 'health', label: 'Здоровье' },
+  { value: 'fun', label: 'Развлечения' },
+  { value: 'home', label: 'Всё для дома' },
+  { value: 'technic', label: 'Техника' },
+  { value: 'utility and phone', label: 'Коммуналка, связь' },
+  { value: 'sport and hobby', label: 'Спорт, хобби' },
+  { value: 'education', label: 'Образование' },
+  { value: 'other', label: 'Прочее' },
+  { value: 'salary', label: 'ЗП' },
+  { value: 'other income', label: 'Доп. доход' },
+];
+
 const monthNames = [
   { monthId: '01', label: 'January' },
   { monthId: '02', label: 'February' },
@@ -88,6 +104,7 @@ const Constants = {
   expenses,
   income,
   monthNames,
+  categoryName,
 };
 
 export default Constants;

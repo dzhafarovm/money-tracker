@@ -1,7 +1,7 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .container {
     display: flex;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     bottom: 0;
     left: 0;
@@ -30,7 +30,7 @@
   }
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   .container {
     display: flex;
     position: static;

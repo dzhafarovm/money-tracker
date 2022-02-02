@@ -6,7 +6,7 @@ import balanceOperations from 'redux/balance/balance-operations';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import transOperations from 'redux/transaction/transactions-operation';
 import MobileTransactionItem from 'components/MobileTransactionTable/MobileTransactionItem';
-
+import Constants from 'Constants/';
 import style from './MobileTransactionTable.module.css';
 
 const MobileTransactionTable = () => {
@@ -23,16 +23,19 @@ const MobileTransactionTable = () => {
 
   const result = useSelector(transactionsSelectors.getAll);
 
-  const resultWithDate = result.map(el => ({
-    _id: el._id,
-    category: el.category,
-    day: el.day,
-    month: el.month,
-    year: el.year,
-    date: Date.parse(new Date(`${el.year}`, `${el.month}` - 1, `${el.day}`)),
-    description: el.description,
-    sum: el.sum,
-  }));
+  const resultWithDate = result.map(el => {
+    const arr = Constants.categoryName.filter(e => el.category === e.value);
+    return {
+      _id: el._id,
+      category: arr[0].label,
+      day: el.day,
+      month: el.month,
+      year: el.year,
+      date: Date.parse(new Date(`${el.year}`, `${el.month}` - 1, `${el.day}`)),
+      description: el.description,
+      sum: el.sum,
+    };
+  });
 
   const sortArr = resultWithDate.sort((a, b) => a.date - b.date).reverse();
 

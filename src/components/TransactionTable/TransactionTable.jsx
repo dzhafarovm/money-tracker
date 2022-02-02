@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import transOperations from 'redux/transaction/transactions-operation';
 import balanceOperations from 'redux/balance/balance-operations';
+import Constants from 'Constants/';
 import sprite from 'components/images/sprite.svg';
 
 import style from './TransactionTable.module.css';
@@ -23,16 +24,19 @@ const TransactionTable = () => {
 
   const result = useSelector(transactionsSelectors.getAll);
 
-  const resultWithDate = result.map(el => ({
-    _id: el._id,
-    category: el.category,
-    day: el.day,
-    month: el.month,
-    year: el.year,
-    date: Date.parse(new Date(`${el.year}`, `${el.month}` - 1, `${el.day}`)),
-    description: el.description,
-    sum: el.sum,
-  }));
+  const resultWithDate = result.map(el => {
+    const arr = Constants.categoryName.filter(e => el.category === e.value);
+    return {
+      _id: el._id,
+      category: arr[0].label,
+      day: el.day,
+      month: el.month,
+      year: el.year,
+      date: Date.parse(new Date(`${el.year}`, `${el.month}` - 1, `${el.day}`)),
+      description: el.description,
+      sum: el.sum,
+    };
+  });
 
   const sortArr = resultWithDate.sort((a, b) => a.date - b.date).reverse();
 
