@@ -25,7 +25,7 @@ const Summary = () => {
     day: el.day,
     month: el.month,
     year: el.year,
-    date: Date.parse(new Date(`${el.year}`, `${el.month}`, `${el.day}`)),
+    date: Date.parse(new Date(`${el.year}`, `${el.month}` - 1, `${el.day}`)),
     description: el.description,
     sum: el.sum,
   }));
@@ -82,7 +82,7 @@ const Summary = () => {
 
           {searchSixMonth.map(el => (
             <tr key={el.month}>
-              <th className={style.month}>{el.month}</th>
+              <th className={style.month}>{`${el.year} ${el.month}`}</th>
               <th className={style.sum}>{el.sum}</th>
             </tr>
           ))}
