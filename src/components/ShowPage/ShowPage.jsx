@@ -5,7 +5,7 @@ import IncomeReport from './IncomeReport';
 import style from './ExpensesReport.module.css';
 import sprite from 'components/images/sprite.svg';
 
-const ShowPage = ({ dataArr }) => {
+const ShowPage = ({ dataArr, act, setAct, activeIndex, setActiveIndex }) => {
   const [page, setPage] = useState(true);
 
   const btnClick = () => {
@@ -41,9 +41,21 @@ const ShowPage = ({ dataArr }) => {
         </button>
       </div>
       {page ? (
-        <ExpensesReport dataArr={dataArr} />
+        <ExpensesReport
+          dataArr={dataArr}
+          act={act}
+          setAct={setAct}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
       ) : (
-        <IncomeReport dataArr={dataArr} />
+        <IncomeReport
+          dataArr={dataArr}
+          act={act}
+          setAct={setAct}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
       )}
     </>
   );

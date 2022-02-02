@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import transOperations from 'redux/transaction/transactions-operation';
@@ -8,7 +8,13 @@ import currentDateSelectors from 'redux/currentDate/currentDate-selectors';
 import style from './ExpensesReport.module.css';
 import sprite from 'components/images/sprite.svg';
 
-const ExpensesReport = ({ dataArr }) => {
+const ExpensesReport = ({
+  dataArr,
+  act,
+  setAct,
+  activeIndex,
+  setActiveIndex,
+}) => {
   const dispatch = useDispatch();
 
   const currentDate = useSelector(currentDateSelectors.getcurrentDate);
@@ -155,10 +161,6 @@ const ExpensesReport = ({ dataArr }) => {
     },
     { value: 'other', label: 'Прочее', svg: '#ufo', sum: otherSum },
   ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const [act, setAct] = useState(true);
 
   if (act) {
     const firstSelectedObj = expenses.find(el => el.sum !== 0);

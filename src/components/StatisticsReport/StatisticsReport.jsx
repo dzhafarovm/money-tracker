@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useBreakpoint } from 'react-use-size';
 import {
@@ -21,8 +20,6 @@ import style from './StatisticsReport.module.css';
 
 const StatisticsReport = ({ categoryName, page }) => {
   const dispatch = useDispatch();
-  const location = useLocation();
-  const nameUrl = location.pathname;
   const currentDate = useSelector(currentDateSelectors.getcurrentDate);
   const month = currentDate.month;
   const year = currentDate.year;

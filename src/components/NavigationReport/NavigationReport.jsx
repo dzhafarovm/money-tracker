@@ -8,7 +8,7 @@ import Constants from 'Constants/';
 import style from './NavigationReport.module.css';
 import sprite from 'components/images/sprite.svg';
 
-const NavigationReport = () => {
+const NavigationReport = ({ setAct, setActiveIndex }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -17,6 +17,9 @@ const NavigationReport = () => {
   const [year, setYear] = useState(nowDate.getFullYear());
 
   const handlePrevMonth = () => {
+    setAct(true);
+    setActiveIndex(0);
+
     if (month <= 1) {
       setMonth(12);
       setYear(prev => (prev -= 1));
@@ -25,6 +28,9 @@ const NavigationReport = () => {
     }
   };
   const handleNextMonth = () => {
+    setAct(true);
+    setActiveIndex(0);
+
     if (month < 12) {
       setMonth(prev => (prev += 1));
     } else {
