@@ -63,16 +63,18 @@ const IncomeReport = ({ dataArr }) => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const firstSelectedObj = income.find(el => el.sum !== 0);
+  const [act, setAct] = useState(true);
 
+  if (act) {
+    const firstSelectedObj = income.find(el => el.sum !== 0);
     if (firstSelectedObj) {
       dataArr(firstSelectedObj.value, 'income');
     }
-  }, []);
+  }
 
   const btnClick = (e, index) => {
     setActiveIndex(index);
+    setAct(false);
     const category = e.currentTarget.id;
     dataArr(category, 'income');
   };

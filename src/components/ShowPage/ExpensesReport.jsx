@@ -158,16 +158,18 @@ const ExpensesReport = ({ dataArr }) => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const firstSelectedObj = expenses.find(el => el.sum !== 0);
+  const [act, setAct] = useState(true);
 
+  if (act) {
+    const firstSelectedObj = expenses.find(el => el.sum !== 0);
     if (firstSelectedObj) {
       dataArr(firstSelectedObj.value, 'expenses');
     }
-  }, []);
+  }
 
   const btnClick = (e, index) => {
     setActiveIndex(index);
+    setAct(false);
     const category = e.currentTarget.id;
     dataArr(category, 'expenses');
   };
