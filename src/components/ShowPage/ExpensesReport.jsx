@@ -106,6 +106,7 @@ const ExpensesReport = ({
         return acc + trans.sum;
       }, 0);
     }
+
     const sport = costsArr.filter(el => el.category === 'sport and hobby');
     if (sport !== []) {
       sportSum = sport.reduce((acc, trans) => {

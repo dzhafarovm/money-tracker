@@ -9,6 +9,8 @@ const ShowPage = ({ dataArr, act, setAct, activeIndex, setActiveIndex }) => {
   const [page, setPage] = useState(true);
 
   const btnClick = () => {
+    setAct(true);
+    setActiveIndex(0);
     setPage(!page);
   };
 
@@ -27,6 +29,7 @@ const ShowPage = ({ dataArr, act, setAct, activeIndex, setActiveIndex }) => {
             <use href={`${sprite}#arrow-left`}></use>
           </svg>
         </button>
+
         <p className={style.date}>{namePage}</p>
 
         <button type="button" className={style.arrowDate} onClick={btnClick}>
