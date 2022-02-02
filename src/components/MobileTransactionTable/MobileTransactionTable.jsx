@@ -23,6 +23,19 @@ const MobileTransactionTable = () => {
 
   const result = useSelector(transactionsSelectors.getAll);
 
+  const resultWithDate = result.map(el => ({
+    _id: el._id,
+    category: el.category,
+    day: el.day,
+    month: el.month,
+    year: el.year,
+    date: Date.parse(new Date(`${el.year}`, `${el.month}` - 1, `${el.day}`)),
+    description: el.description,
+    sum: el.sum,
+  }));
+
+  const sortArr = resultWithDate.sort((a, b) => a.date - b.date).reverse();
+
   const onDeleteTransaction = _id => {
     dispatch(transOperations.deleteTransaction(_id));
     dispatch(balanceOperations.getCurrentUserBalance());
@@ -30,8 +43,8 @@ const MobileTransactionTable = () => {
 
   return (
     <ul className={style.transactionList}>
-      {result &&
-        result.map(transaction => (
+      {sortArr &&
+        sortArr.map(transaction => (
           <li className={style.row} key={transaction._id}>
             <MobileTransactionItem
               day={transaction.day}

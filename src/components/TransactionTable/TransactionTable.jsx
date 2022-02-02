@@ -29,7 +29,7 @@ const TransactionTable = () => {
     day: el.day,
     month: el.month,
     year: el.year,
-    date: Date.parse(new Date(`${el.year}`, `${el.month}`, `${el.day}`)),
+    date: Date.parse(new Date(`${el.year}`, `${el.month}` - 1, `${el.day}`)),
     description: el.description,
     sum: el.sum,
   }));
