@@ -3,13 +3,15 @@ import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 
 import authOperations from 'redux/auth/auth-operations';
+import transOperations from 'redux/transaction/transactions-operation';
+import balanceOperations from 'redux/balance/balance-operations';
 
 import style from './Modal.module.css';
 import sprite from '../images/sprite.svg';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const Modal = ({ message, onClose }) => {
+const Modal = ({ message, onClose, id }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleCloseByKey);
     return () => {
@@ -30,13 +32,15 @@ const Modal = ({ message, onClose }) => {
   };
 
   const dispatch = useDispatch();
+
   const closeModalAndFetch = () => {
     if (message === 'Вы действительно хотите выйти?') {
       dispatch(authOperations.logOut());
     }
 
     if (message === 'Вы уверены?') {
-      // fetch для добавления транзакции
+      dispatch(transOperations.deleteTransaction(id));
+      dispatch(balanceOperations.getCurrentUserBalance());
     }
 
     onClose();

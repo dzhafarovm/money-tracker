@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import balanceOperations from 'redux/balance/balance-operations';
+import Modal from 'components/Modal';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import transOperations from 'redux/transaction/transactions-operation';
 import MobileTransactionItem from 'components/MobileTransactionTable/MobileTransactionItem';
@@ -12,6 +12,8 @@ import style from './MobileTransactionTable.module.css';
 const MobileTransactionTable = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  const [modal, setModal] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
     if (pathname === '/expenses') {
@@ -39,10 +41,12 @@ const MobileTransactionTable = () => {
 
   const sortArr = resultWithDate.sort((a, b) => a.date - b.date).reverse();
 
-  const onDeleteTransaction = _id => {
-    dispatch(transOperations.deleteTransaction(_id));
-    dispatch(balanceOperations.getCurrentUserBalance());
+  const onDeleteTransaction = id => {
+    setSelectedId(id);
+    showModal();
   };
+
+  const showModal = () => setModal(prev => !prev);
 
   return (
     <ul className={style.transactionList}>
@@ -61,6 +65,9 @@ const MobileTransactionTable = () => {
             />
           </li>
         ))}
+      {modal && (
+        <Modal message="Вы уверены?" onClose={showModal} id={selectedId} />
+      )}
     </ul>
   );
 };

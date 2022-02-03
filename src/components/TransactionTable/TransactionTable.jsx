@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
+import Modal from 'components/Modal';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import transOperations from 'redux/transaction/transactions-operation';
-import balanceOperations from 'redux/balance/balance-operations';
 import Constants from 'Constants/';
 import sprite from 'components/images/sprite.svg';
 
@@ -13,6 +13,8 @@ import style from './TransactionTable.module.css';
 const TransactionTable = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  const [modal, setModal] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
 
   useEffect(() => {
     if (pathname === '/expenses') {
@@ -40,10 +42,12 @@ const TransactionTable = () => {
 
   const sortArr = resultWithDate.sort((a, b) => a.date - b.date).reverse();
 
-  const onDeleteTransaction = _id => {
-    dispatch(transOperations.deleteTransaction(_id));
-    dispatch(balanceOperations.getCurrentUserBalance());
+  const onDeleteTransaction = id => {
+    setSelectedId(id);
+    showModal();
   };
+
+  const showModal = () => setModal(prev => !prev);
 
   return (
     <div className={style.tableWrapper}>
@@ -86,6 +90,9 @@ const TransactionTable = () => {
               </div>
             </li>
           ))}
+        {modal && (
+          <Modal message="Вы уверены?" onClose={showModal} id={selectedId} />
+        )}
       </ul>
     </div>
   );
