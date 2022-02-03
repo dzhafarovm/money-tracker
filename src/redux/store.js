@@ -10,7 +10,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage/session';
 
 import authReducer from './auth/auth-slice';
 import transactionsReduser from './transaction/transactions-slice.jsx';
