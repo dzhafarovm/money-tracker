@@ -56,7 +56,7 @@ const Summary = () => {
 
   if (calcAmountTransaction !== 0) {
     transactionArrWithMonthName = calcAmountTransaction.map(el => {
-      const arr = Constants.monthRusName.filter(mon => el.month === mon.id);
+      const arr = Constants.monthsArray.filter(mon => el.month === mon.month);
       return { month: arr[0].month, year: el.year, sum: el.sum };
     });
   }

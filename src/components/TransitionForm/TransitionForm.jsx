@@ -72,14 +72,14 @@ const TransitionForm = () => {
 
     const arr = date.toLocaleDateString().split('.');
 
-    const searchMonthArr = Constants.monthNames.filter(
-      el => el.monthId === arr[1],
+    const searchMonthArr = Constants.monthsArray.filter(
+      el => el.month === arr[1],
     );
 
     const newData = {
       type,
       day: arr[0],
-      month: searchMonthArr[0].monthId,
+      month: searchMonthArr[0].month,
       year: arr[2],
       description: name,
       category: categoryEng[0].value,
