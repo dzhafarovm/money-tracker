@@ -4,7 +4,7 @@ import GoToReport from './GoToReport';
 import BalanceWithBtn from 'components/Balance/BalanceWithBtn';
 import routes from '../../routes/routes';
 
-import s from './Balance.module.css';
+import style from './Balance.module.css';
 
 const Balance = () => {
   const { pathname } = useLocation();
@@ -13,7 +13,9 @@ const Balance = () => {
     <div>
       <div
         className={
-          pathname === '/report' ? s.balanceWrapperReport : s.balanceWrapper
+          pathname === '/report'
+            ? style.balanceWrapperReport
+            : style.balanceWrapper
         }
       >
         {pathname === routes.report ? null : <GoToReport />}

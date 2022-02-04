@@ -1,5 +1,6 @@
-import style from './MobileTransactionTable.module.css';
 import sprite from 'components/images/sprite.svg';
+
+import style from './MobileTransactionTable.module.css';
 
 const MobileTransactionItem = ({
   day,

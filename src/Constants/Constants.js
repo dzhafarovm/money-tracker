@@ -66,19 +66,19 @@ const income = [
 ];
 
 const categoryName = [
-  { value: 'transport', label: 'Транспорт' },
-  { value: 'products', label: 'Продукты' },
-  { value: 'alcohol', label: 'Алкоголь' },
-  { value: 'health', label: 'Здоровье' },
-  { value: 'fun', label: 'Развлечения' },
-  { value: 'home', label: 'Всё для дома' },
-  { value: 'technic', label: 'Техника' },
-  { value: 'utility and phone', label: 'Коммуналка, связь' },
-  { value: 'sport and hobby', label: 'Спорт, хобби' },
-  { value: 'education', label: 'Образование' },
-  { value: 'other', label: 'Прочее' },
-  { value: 'salary', label: 'ЗП' },
-  { value: 'other income', label: 'Доп. доход' },
+  { value: 'products', label: 'Продукты', svg: '#products' },
+  { value: 'alcohol', label: 'Алкоголь', svg: '#cocktail' },
+  { value: 'fun', label: 'Развлечения', svg: '#kite' },
+  { value: 'health', label: 'Здоровье', svg: '#health' },
+  { value: 'transport', label: 'Транспорт', svg: '#car' },
+  { value: 'home', label: 'Всё для дома', svg: '#couch' },
+  { value: 'technic', label: 'Техника', svg: '#tools' },
+  { value: 'utility and phone', label: 'Коммуналка, связь', svg: '#invoice' },
+  { value: 'sport and hobby', label: 'Спорт, хобби', svg: '#clay' },
+  { value: 'education', label: 'Образование', svg: '#book' },
+  { value: 'other', label: 'Прочее', svg: '#ufo' },
+  { value: 'salary', label: 'ЗП', svg: '#main-salary' },
+  { value: 'other income', label: 'Доп. доход', svg: '#add-salary' },
 ];
 
 const monthNames = [

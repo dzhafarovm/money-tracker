@@ -1,9 +1,10 @@
 import { useState } from 'react';
+
 import ExpensesReport from './ExpensesReport';
 import IncomeReport from './IncomeReport';
+import sprite from 'components/images/sprite.svg';
 
 import style from './ExpensesReport.module.css';
-import sprite from 'components/images/sprite.svg';
 
 const ShowPage = ({ dataArr, act, setAct, activeIndex, setActiveIndex }) => {
   const [page, setPage] = useState(true);

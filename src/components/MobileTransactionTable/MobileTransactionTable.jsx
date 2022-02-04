@@ -7,6 +7,7 @@ import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import transOperations from 'redux/transaction/transactions-operation';
 import MobileTransactionItem from 'components/MobileTransactionTable/MobileTransactionItem';
 import Constants from 'Constants/';
+
 import style from './MobileTransactionTable.module.css';
 
 const MobileTransactionTable = () => {

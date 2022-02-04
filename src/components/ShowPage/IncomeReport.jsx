@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import transOperations from 'redux/transaction/transactions-operation';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import currentDateSelectors from 'redux/currentDate/currentDate-selectors';
+import Constants from 'Constants/';
+import sprite from 'components/images/sprite.svg';
 
 import style from './ExpensesReport.module.css';
-import sprite from 'components/images/sprite.svg';
 
 const IncomeReport = ({
   dataArr,
@@ -38,39 +39,33 @@ const IncomeReport = ({
     incomeArr = data.incomeTransactions;
   }
 
-  let salarySum = null;
-  let otherSum = null;
+  let revenueArr = [];
 
   if (incomeArr !== []) {
-    const salary = incomeArr.filter(el => el.category === 'salary');
-    if (salary !== []) {
-      salarySum = salary.reduce((acc, trans) => {
-        return acc + trans.sum;
-      }, 0);
-    }
+    Constants.categoryName.forEach((el, idx) => {
+      const selectedCategory = incomeArr.filter(
+        cat => el.value === cat.category,
+      );
 
-    const other = incomeArr.filter(el => el.category === 'other income');
-    if (other !== []) {
-      otherSum = other.reduce((acc, trans) => {
-        return acc + trans.sum;
-      }, 0);
-    }
+      if (selectedCategory !== []) {
+        const categorySum = selectedCategory.reduce((acc, trans) => {
+          return acc + trans.sum;
+        }, 0);
+
+        if (categorySum !== 0)
+          revenueArr.push({
+            value: Constants.categoryName[idx].value,
+            label: Constants.categoryName[idx].label,
+            svg: Constants.categoryName[idx].svg,
+            sum: categorySum,
+          });
+      }
+    });
   }
 
-  const income = [
-    { value: 'salary', label: 'ЗП', svg: '#main-salary', sum: salarySum },
-    {
-      value: 'other income',
-      label: 'Доп. доход',
-      svg: '#add-salary',
-      sum: otherSum,
-    },
-  ];
-
   if (act) {
-    const firstSelectedObj = income.find(el => el.sum !== 0);
-    if (firstSelectedObj) {
-      dataArr(firstSelectedObj.value, 'income');
+    if (revenueArr.length > 0) {
+      dataArr(revenueArr[0].value, 'income');
     }
   }
 
@@ -85,9 +80,8 @@ const IncomeReport = ({
     <div className={style.section}>
       <div className={style.box}>
         <ul className={style.list}>
-          {income
-            .filter(el => el.sum !== 0)
-            .map((obj, index) => (
+          {revenueArr.length > 0 &&
+            revenueArr.map((obj, index) => (
               <li key={obj.value} className={style.listItem}>
                 <button
                   type="button"

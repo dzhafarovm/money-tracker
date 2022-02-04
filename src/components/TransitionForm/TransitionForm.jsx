@@ -2,17 +2,18 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import DatePicker, { registerLocale } from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import ru from 'date-fns/locale/ru';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import transOperations from 'redux/transaction/transactions-operation.jsx';
 import DropDownList from './DropDownList';
-import style from './TransitionForm.module.css';
-import sprite from 'components/images/sprite.svg';
 import Constants from 'Constants/';
+import sprite from 'components/images/sprite.svg';
+
+import style from './TransitionForm.module.css';
 
 registerLocale('ru', ru);
 

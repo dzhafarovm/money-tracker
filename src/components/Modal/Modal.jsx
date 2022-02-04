@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
 import transOperations from 'redux/transaction/transactions-operation';
 import balanceOperations from 'redux/balance/balance-operations';
+import sprite from '../images/sprite.svg';
 
 import style from './Modal.module.css';
-import sprite from '../images/sprite.svg';
 
 const modalRoot = document.querySelector('#modal-root');
 

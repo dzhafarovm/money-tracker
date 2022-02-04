@@ -1,21 +1,21 @@
 import { useLocation } from 'react-router-dom';
 
-import s from './GreetingNotification.module.css';
+import style from './GreetingNotification.module.css';
 
 const GreetingNotification = ({ onNotifyClick }) => {
   const { pathname } = useLocation();
 
   return (
-    <div className={s.container} onClick={() => onNotifyClick(false)}>
+    <div className={style.container} onClick={() => onNotifyClick(false)}>
       <div
         className={
-          pathname === '/report' ? s.notificationReport : s.notification
+          pathname === '/report' ? style.notificationReport : style.notification
         }
       >
-        <h2 className={s.title}>
+        <h2 className={style.title}>
           Привет! Для начала работы внеси текущий баланс своего счета!
         </h2>
-        <p className={s.text}>
+        <p className={style.text}>
           {'Ты не можешь тратить деньги, пока их у тебя нет :)'}
         </p>
       </div>

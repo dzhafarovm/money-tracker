@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import GreetingNotification from 'components/Balance/GreetingNotification';
 import balanceOperations from 'redux/balance/balance-operations';
 import balanceSelectors from 'redux/balance/balance-selectors';
+
 import style from './BalanceWithBtn.module.css';
 
 const BalanceWithBtn = () => {

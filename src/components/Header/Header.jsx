@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import authSelectors from 'redux/auth/auth-selectors';
+
 import UserMenu from './UserMenu';
+import authSelectors from 'redux/auth/auth-selectors';
+import sprite from 'components/images/sprite.svg';
 
 import style from './Header.module.css';
-import sprite from 'components/images/sprite.svg';
 
 const Header = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);

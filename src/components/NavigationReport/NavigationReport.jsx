@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 
 import currentDateOperations from 'redux/currentDate/currentDate-operations';
 import Constants from 'Constants/';
+import sprite from 'components/images/sprite.svg';
 
 import style from './NavigationReport.module.css';
-import sprite from 'components/images/sprite.svg';
 
 const NavigationReport = ({ setAct, setActiveIndex }) => {
   const dispatch = useDispatch();

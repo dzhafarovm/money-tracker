@@ -1,5 +1,6 @@
 import AuthPageTitle from 'components/AuthPageTitle';
 import AuthForm from 'components/AuthForm';
+
 import style from './AuthPages.module.css';
 
 const AuthPages = () => {
