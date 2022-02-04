@@ -39,14 +39,10 @@ const NavigationReport = ({ setAct, setActiveIndex }) => {
     }
   };
 
-  const getMonth = Constants.arrMonthName.filter(el => el.id === String(month));
-
-  let newMonth = [];
-
-  newMonth = Constants.monthArr.filter(el => el.id === getMonth[0].id);
+  const getMonth = Constants.monthsArray.filter(el => el.id === String(month));
 
   const time = {
-    month: newMonth[0].month,
+    month: getMonth[0].month,
     year: `${year}`,
   };
 
@@ -84,7 +80,7 @@ const NavigationReport = ({ setAct, setActiveIndex }) => {
           </button>
 
           <p className={style.date}>
-            {getMonth[0].name.toLocaleUpperCase()}
+            {getMonth[0].rusName.toLocaleUpperCase()}
             <span className={style.year}>{year}</span>
           </p>
 
