@@ -20,7 +20,6 @@
     background-color: var(--white-color);
     box-shadow: var(--box-shadow);
   }
-
   .section {
     margin: auto;
   }
@@ -29,5 +28,8 @@
 @media screen and (min-width: 1280px) {
   .wrapper {
     padding: 65px 150px 19px 150px;
+  }
+  .section {
+    height: 500px;
   }
 }
