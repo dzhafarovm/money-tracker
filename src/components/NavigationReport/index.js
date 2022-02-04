@@ -1,1 +1,1 @@
-export { default } from './NavigationReport';
+export { default } from './NavigationReport.jsx';
