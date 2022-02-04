@@ -90,7 +90,11 @@ const StatisticsReport = ({ categoryName, page }) => {
     desc3.push({ name: `${key}`, uv: Number(`${value}`) });
   }
 
-  const data = desc3.sort((a, b) => b.uv - a.uv);
+  const sortArr = desc3.sort((a, b) => b.uv - a.uv);
+
+  const data = sortArr.length ? sortArr : [1];
+
+  const mobile = useBreakpoint(767);
 
   const CustomizedAxisTick = ({ x, y, payload }) => {
     return (
@@ -114,10 +118,7 @@ const StatisticsReport = ({ categoryName, page }) => {
     return <text x={x} y={y} dy={-5} fill='#52555F' fontSize={12} textAnchor="left" >{value}</text>
   };
 
-
   const barColors = ['#ff7f0e', '#FFDAC0', '#FFDAC0'];
-
-  const mobile = useBreakpoint(767);
 
   return (
     <div className={style.wrapper}>
