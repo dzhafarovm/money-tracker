@@ -69,7 +69,6 @@ const Summary = () => {
   );
 
   const searchSixMonth = uniqLastMonthAndYear.slice(0, 6);
-  console.log('Summary > searchSixMonth', searchSixMonth);
 
   return (
     <div>
