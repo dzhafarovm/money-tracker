@@ -50,7 +50,7 @@
   min-height: 194px;
   max-width: 282px;
   width: 100%;
-  border-radius: 30px;
+  /* border-radius: 30px; */
   z-index: 1000;
   background-color: var(--white-color);
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
@@ -200,37 +200,20 @@
 }
 
 .btnContainer {
+  display: flex;
   margin-top: 83px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 265px;
 }
 
 .formBtn {
-  margin-right: auto;
-  margin-left: auto;
-  padding: 12px 0;
-  width: 125px;
-  height: 44px;
-  border-radius: 16px;
-  border: 2px solid var(--secondary-bcg-color);
-  background-color: var(--white-color);
-  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
-  cursor: pointer;
-  color: var(--primary-text-color);
-  font-family: Roboto;
-  font-size: 12px;
-  line-height: 1.17;
-  text-align: center;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  transition-property: color, background-color;
-  transition-duration: 250ms;
-  transition-timing-function: ease-in-out;
-}
-
-.formBtn:first-child {
-  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50px;
+  text-decoration: none;
+  background-color: #f2f5fc;
+  color: var(--black-color);
+  border: none;
 }
 
 .formBtn:hover,
