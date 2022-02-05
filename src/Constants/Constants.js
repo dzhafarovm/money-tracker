@@ -16,45 +16,24 @@ const googleAuthURL =
   { id: '12', month: '12', rusName: 'декабрь', engName: 'December' },
 ];
   
-const expenses = [
-  { value: 'transport', label: 'Транспорт' },
-  { value: 'products', label: 'Продукты' },
-  { value: 'alcohol', label: 'Алкоголь' },
-  { value: 'health', label: 'Здоровье' },
-  { value: 'fun', label: 'Развлечения' },
-  { value: 'home', label: 'Всё для дома' },
-  { value: 'technic', label: 'Техника' },
-  { value: 'utility and phone', label: 'Коммуналка, связь' },
-  { value: 'sport and hobby', label: 'Спорт, хобби' },
-  { value: 'education', label: 'Образование' },
-  { value: 'other', label: 'Прочее' },
-];
-
-const income = [
-  { value: 'salary', label: 'ЗП' },
-  { value: 'other income', label: 'Доп. доход' },
-];
-
 const categoryName = [
-  { value: 'products', label: 'Продукты', svg: '#products' },
-  { value: 'alcohol', label: 'Алкоголь', svg: '#cocktail' },
-  { value: 'fun', label: 'Развлечения', svg: '#kite' },
-  { value: 'health', label: 'Здоровье', svg: '#health' },
-  { value: 'transport', label: 'Транспорт', svg: '#car' },
-  { value: 'home', label: 'Всё для дома', svg: '#couch' },
-  { value: 'technic', label: 'Техника', svg: '#tools' },
-  { value: 'utility and phone', label: 'Коммуналка, связь', svg: '#invoice' },
-  { value: 'sport and hobby', label: 'Спорт, хобби', svg: '#clay' },
-  { value: 'education', label: 'Образование', svg: '#book' },
-  { value: 'other', label: 'Прочее', svg: '#ufo' },
-  { value: 'salary', label: 'ЗП', svg: '#main-salary' },
-  { value: 'other income', label: 'Доп. доход', svg: '#add-salary' },
+  { type:'costs', value: 'products', label: 'Продукты', svg: '#products' },
+  { type:'costs', value: 'alcohol', label: 'Алкоголь', svg: '#cocktail' },
+  { type:'costs', value: 'fun', label: 'Развлечения', svg: '#kite' },
+  { type:'costs', value: 'health', label: 'Здоровье', svg: '#health' },
+  { type:'costs', value: 'transport', label: 'Транспорт', svg: '#car' },
+  { type:'costs', value: 'home', label: 'Всё для дома', svg: '#couch' },
+  { type:'costs', value: 'technic', label: 'Техника', svg: '#tools' },
+  { type:'costs', value: 'utility and phone', label: 'Коммуналка, связь', svg: '#invoice' },
+  { type:'costs', value: 'sport and hobby', label: 'Спорт, хобби', svg: '#clay' },
+  { type:'costs', value: 'education', label: 'Образование', svg: '#book' },
+  { type:'costs', value: 'other', label: 'Прочее', svg: '#ufo' },
+  { type:'income', value: 'salary', label: 'ЗП', svg: '#main-salary' },
+  { type:'income', value: 'other income', label: 'Доп. доход', svg: '#add-salary' },
 ];
 
 const Constants = {
   googleAuthURL,
-  expenses,
-  income,
   categoryName,
   monthsArray
 };
