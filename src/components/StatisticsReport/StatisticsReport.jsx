@@ -99,23 +99,55 @@ const StatisticsReport = ({ categoryName, page }) => {
   const CustomizedAxisTick = ({ x, y, payload }) => {
     return (
       <g transform={`translate(${x},${y})`}>
-        <text x={0} y={0} textAnchor="end" fill="#52555F" transform="rotate(-45)">
+        <text
+          x={0}
+          y={0}
+          textAnchor="end"
+          fill="#52555F"
+          transform="rotate(-45)"
+        >
           {payload.value}
         </text>
       </g>
     );
   };
 
-  const CustomizedLabel = ({x, y, width, value}) => {  		
-    return <text x={x + width / 2} y={y} dy={-12} fill='#52555F' fontSize={12} textAnchor="middle">{value}</text>
+  const CustomizedLabel = ({ x, y, width, value }) => {
+    return (
+      <text
+        x={x + width / 2}
+        y={y}
+        dy={-12}
+        fill="#52555F"
+        fontSize={12}
+        textAnchor="middle"
+      >
+        {value}
+      </text>
+    );
   };
-    
+
   const CustomizedMobileLabel = ({ x, y, width, height, value }) => {
-    return <text x={x+width} y={y+height/1.6} dx={5} fill='#52555F' fontSize={12} textAnchor="right" >{value}</text>
+    return (
+      <text
+        x={x + width}
+        y={y + height / 1.6}
+        dx={5}
+        fill="#52555F"
+        fontSize={12}
+        textAnchor="right"
+      >
+        {value}
+      </text>
+    );
   };
 
   const CustomizedLabelList = ({ x, y, value }) => {
-    return <text x={x} y={y} dy={-5} fill='#52555F' fontSize={12} textAnchor="left" >{value}</text>
+    return (
+      <text x={x} y={y} dy={-5} fill="#52555F" fontSize={12} textAnchor="left">
+        {value}
+      </text>
+    );
   };
 
   const barColors = ['#ff7f0e', '#FFDAC0', '#FFDAC0'];
@@ -131,7 +163,11 @@ const StatisticsReport = ({ categoryName, page }) => {
             fill="#52555F"
             fontSize={12}
             maxBarSize={45}
-            margin={mobile ? {top: 25, right: 45, left: 5, bottom: 5} : {top: 25, right: 10, left: 25, bottom: 110}}
+            margin={
+              mobile
+                ? { top: 25, right: 45, left: 5, bottom: 5 }
+                : { top: 25, right: 10, left: 25, bottom: 110 }
+            }
             layout={mobile ? 'vertical' : 'horizontal'}
           >
             <CartesianGrid
@@ -160,22 +196,18 @@ const StatisticsReport = ({ categoryName, page }) => {
               hide
             />
             <Bar
-              dataKey="uv" 
+              dataKey="uv"
               minBarSize={mobile ? 20 : 5}
               minPointSize={5}
               radius={mobile ? [0, 10, 10, 0] : [10, 10, 0, 0]}
-              label={
-                mobile ? CustomizedMobileLabel : CustomizedLabel
-              }
+              label={mobile ? CustomizedMobileLabel : CustomizedLabel}
             >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={barColors[index % 3]} />
-              ))}               
+              {data !== [1] &&
+                data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={barColors[index % 3]} />
+                ))}
               {mobile && (
-                <LabelList
-                  dataKey="name"
-                  content={CustomizedLabelList}
-                />
+                <LabelList dataKey="name" content={CustomizedLabelList} />
               )}
             </Bar>
           </ComposedChart>
