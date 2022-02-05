@@ -4,8 +4,16 @@
     margin-right: 20px;
     margin-left: 20px;
   }
+
   .section {
     height: 422px;
+  }
+
+  .paragraph {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: var(--primary-text-color);
   }
 }
 
@@ -20,8 +28,16 @@
     background-color: var(--white-color);
     box-shadow: var(--box-shadow);
   }
+
   .section {
     margin: auto;
+  }
+
+  .paragraph {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 24px;
+    color: var(--primary-text-color);
   }
 }
 
@@ -29,7 +45,15 @@
   .wrapper {
     padding: 65px 150px 19px 150px;
   }
+
   .section {
     height: 500px;
+  }
+
+  .paragraph {
+    margin-top: 70px;
+    text-align: center;
+    font-size: 24px;
+    color: var(--primary-text-color);
   }
 }
