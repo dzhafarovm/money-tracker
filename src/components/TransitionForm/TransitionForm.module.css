@@ -119,7 +119,7 @@
   top: 50%;
   width: 400px;
   height: 100px;
-  background-color: tomato;
+  background-color: var(--table-red-color);
 }
 
 .calculator {
@@ -192,7 +192,7 @@
   line-height: 0.85;
   letter-spacing: 0.04em;
   margin-top: 5px;
-  color: tomato;
+  color: var(--table-red-color);
 
   position: absolute;
 }
