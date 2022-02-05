@@ -213,7 +213,7 @@
   text-decoration: none;
   background-color: #f2f5fc;
   color: var(--black-color);
-  border: none;
+  border: 1px solid var(--white-color);
 }
 
 .formBtn:hover,
