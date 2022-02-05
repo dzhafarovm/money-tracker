@@ -32,8 +32,7 @@ const TransitionForm = () => {
   const nameUrl = location.pathname;
   const typeForm = nameUrl.includes('expenses');
   const type = typeForm ? 'costs' : 'income';
-  const options = typeForm ? Constants.expenses : Constants.income;
-
+ 
   const {
     register,
     handleSubmit,
@@ -68,10 +67,8 @@ const TransitionForm = () => {
 
   const onSubmit = async data => {
     const { date, name, value, categories } = data;
-    const categoryEng = options.filter(data => data.label === categories);
-
+    const categoryEng = Constants.categoryName.filter(data => data.label === categories);
     const arr = date.toLocaleDateString().split('.');
-
     const searchMonthArr = Constants.monthsArray.filter(
       el => el.month === arr[1],
     );
@@ -167,9 +164,9 @@ const TransitionForm = () => {
             )}
             {open && (
               <DropDownList
-                typeForm={typeForm}
+                type={type}
                 changerDescription={changerPlaceholder}
-                options={options}
+                options={Constants.categoryName}
               />
             )}
           </div>
