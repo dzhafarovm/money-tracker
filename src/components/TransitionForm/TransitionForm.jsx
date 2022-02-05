@@ -9,7 +9,7 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import transOperations from 'redux/transaction/transactions-operation.jsx';
-import DropDownList from './DropDownList';
+import DropDownList from 'components/DropDownList';
 import Constants from 'Constants/';
 import sprite from 'components/images/sprite.svg';
 
@@ -32,7 +32,7 @@ const TransitionForm = () => {
   const nameUrl = location.pathname;
   const typeForm = nameUrl.includes('expenses');
   const type = typeForm ? 'costs' : 'income';
- 
+
   const {
     register,
     handleSubmit,
@@ -67,7 +67,9 @@ const TransitionForm = () => {
 
   const onSubmit = async data => {
     const { date, name, value, categories } = data;
-    const categoryEng = Constants.categoryName.filter(data => data.label === categories);
+    const categoryEng = Constants.categoryName.filter(
+      data => data.label === categories,
+    );
     const arr = date.toLocaleDateString().split('.');
     const searchMonthArr = Constants.monthsArray.filter(
       el => el.month === arr[1],

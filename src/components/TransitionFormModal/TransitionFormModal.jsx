@@ -10,7 +10,7 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import transOperations from 'redux/transaction/transactions-operation.jsx';
-import DropDownListModal from 'components/TransitionFormModal/DropDownListModal';
+import DropDownList from 'components/DropDownList';
 import Constants from 'Constants/';
 import sprite from 'components/images/sprite.svg';
 
@@ -35,7 +35,7 @@ const TransitionFormModal = ({ onClose }) => {
   const nameUrl = location.pathname;
   const typeForm = nameUrl.includes('expenses');
   const type = typeForm ? 'costs' : 'income';
- 
+
   const {
     register,
     handleSubmit,
@@ -71,7 +71,9 @@ const TransitionFormModal = ({ onClose }) => {
   const onSubmit = async data => {
     onClose();
     const { date, name, value, categories } = data;
-    const categoryEng = Constants.categoryName.filter(data => data.label === categories);
+    const categoryEng = Constants.categoryName.filter(
+      data => data.label === categories,
+    );
 
     const arr = date.toLocaleDateString().split('.');
 
@@ -196,7 +198,7 @@ const TransitionFormModal = ({ onClose }) => {
                   </div>
                 )}
                 {open && (
-                  <DropDownListModal
+                  <DropDownList
                     type={type}
                     changerDescription={changerPlaceholder}
                     options={Constants.categoryName}
