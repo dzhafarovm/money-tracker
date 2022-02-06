@@ -20,6 +20,9 @@ import style from './StatisticsReport.module.css';
 
 const StatisticsReport = ({ categoryName, page }) => {
   const dispatch = useDispatch();
+
+  const mobile = useBreakpoint(767);
+
   const currentDate = useSelector(currentDateSelectors.getcurrentDate);
   const month = currentDate.month;
   const year = currentDate.year;
@@ -33,68 +36,56 @@ const StatisticsReport = ({ categoryName, page }) => {
     dispatch(transOperations.getByMonth(date));
   }, [dispatch, month, year]);
 
-  const trArr = useSelector(transactionsSelectors.getByMonth);
+  const financeArr = useSelector(transactionsSelectors.getByMonth);
 
-  let costsArr = [];
-  let incomeArr = [];
+  let transactionsArr = [];
 
-  if (trArr.data) {
-    const { data } = trArr;
-    costsArr = data.costsTransactions;
+  if (financeArr.data) {
+    const { data } = financeArr;
+
+    page === 'expenses'
+      ? (transactionsArr = data.costsTransactions)
+      : (transactionsArr = data.incomeTransactions);
   }
 
-  if (trArr.data) {
-    const { data } = trArr;
-    incomeArr = data.incomeTransactions;
-  }
-
-  let costsCategoryFilter = [];
-  let incomeCategoryFilter = [];
+  let categoryFiltered = [];
 
   if (categoryName) {
-    costsCategoryFilter = costsArr.filter(el => el.category === categoryName);
+    categoryFiltered = transactionsArr.filter(
+      el => el.category === categoryName,
+    );
   }
 
-  if (categoryName) {
-    incomeCategoryFilter = incomeArr.filter(el => el.category === categoryName);
-  }
+  let creatObjForDrawingCharts = [];
 
-  let desc = [];
-
-  if ((costsCategoryFilter !== []) & (page === 'expenses')) {
-    desc = costsCategoryFilter.map(el => ({
+  if (categoryFiltered !== []) {
+    creatObjForDrawingCharts = categoryFiltered.map(el => ({
       name: el.description,
       uv: el.sum,
     }));
   }
 
-  if ((incomeCategoryFilter !== []) & (page === 'income')) {
-    desc = incomeCategoryFilter.map(el => ({
-      name: el.description,
-      uv: el.sum,
-    }));
-  }
-
-  const desc2 = desc.reduce((a, b) => {
+  const calcSum = creatObjForDrawingCharts.reduce((a, b) => {
     a[b.name] = (a[b.name] || 0) + b.uv;
     return a;
   }, {});
 
-  const entries = Object.entries(desc2);
+  const entries = Object.entries(calcSum);
 
-  let desc3 = [];
+  let turnIntoObjForDrawingChartsArr = [];
 
   for (const entry of entries) {
     const key = entry[0];
     const value = entry[1];
-    desc3.push({ name: `${key}`, uv: Number(`${value}`) });
+    turnIntoObjForDrawingChartsArr.push({
+      name: `${key}`,
+      uv: Number(`${value}`),
+    });
   }
 
-  const sortArr = desc3.sort((a, b) => b.uv - a.uv);
+  const sortArr = turnIntoObjForDrawingChartsArr.sort((a, b) => b.uv - a.uv);
 
   const data = sortArr.length > 0 ? sortArr : [1];
-
-  const mobile = useBreakpoint(767);
 
   const CustomizedAxisTick = ({ x, y, payload }) => {
     return (
@@ -155,7 +146,9 @@ const StatisticsReport = ({ categoryName, page }) => {
   return (
     <>
       {data[0] === 1 ? (
-        <p className={style.paragraph}>В этом месяце нет транзакций</p>
+        <p className={style.paragraph}>
+          В этом месяце нет {page === 'expenses' ? 'расходов' : 'доходов'}
+        </p>
       ) : (
         <div className={style.wrapper}>
           <div className={style.section}>

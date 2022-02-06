@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import transOperations from 'redux/transaction/transactions-operation';
@@ -34,13 +34,15 @@ const FinanceReport = ({
 
   const { data } = useSelector(transactionsSelectors.getByMonth);
 
-  let financeArr = [];
+  const [financeArr, setFinanceArr] = useState([]);
 
-  if (data) {
-    page === 'РАСХОДЫ'
-      ? (financeArr = data.costsTransactions)
-      : (financeArr = data.incomeTransactions);
-  }
+  useEffect(() => {
+    if (data) {
+      page === 'РАСХОДЫ'
+        ? setFinanceArr(data.costsTransactions)
+        : setFinanceArr(data.incomeTransactions);
+    }
+  }, [data, page]);
 
   let transactionsArr = [];
 
