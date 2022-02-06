@@ -7,14 +7,15 @@ import currentDateSelectors from 'redux/currentDate/currentDate-selectors';
 import Constants from 'Constants/';
 import sprite from 'components/images/sprite.svg';
 
-import style from './ExpensesReport.module.css';
+import style from './Report.module.css';
 
-const ExpensesReport = ({
+const FinanceReport = ({
   dataArr,
   act,
   setAct,
   activeIndex,
   setActiveIndex,
+  page,
 }) => {
   const dispatch = useDispatch();
 
@@ -33,18 +34,20 @@ const ExpensesReport = ({
 
   const { data } = useSelector(transactionsSelectors.getByMonth);
 
-  let costsArr = [];
+  let financeArr = [];
 
   if (data) {
-    costsArr = data.costsTransactions;
+    page === 'РАСХОДЫ'
+      ? (financeArr = data.costsTransactions)
+      : (financeArr = data.incomeTransactions);
   }
 
-  let expensesArr = [];
+  let transactionsArr = [];
 
-  if (costsArr !== []) {
+  if (financeArr !== []) {
     Constants.categoryName.forEach((el, idx) => {
-      const selectedCategory = costsArr.filter(
-        cat => el.value === cat.category,
+      const selectedCategory = financeArr.filter(
+        element => el.value === element.category,
       );
 
       if (selectedCategory !== []) {
@@ -53,7 +56,7 @@ const ExpensesReport = ({
         }, 0);
 
         if (categorySum !== 0)
-          expensesArr.push({
+          transactionsArr.push({
             value: Constants.categoryName[idx].value,
             label: Constants.categoryName[idx].label,
             svg: Constants.categoryName[idx].svg,
@@ -64,8 +67,11 @@ const ExpensesReport = ({
   }
 
   if (act) {
-    if (expensesArr.length > 0) {
-      dataArr(expensesArr[0].value, 'expenses');
+    if (transactionsArr.length > 0) {
+      dataArr(
+        transactionsArr[0].value,
+        page === 'РАСХОДЫ' ? 'expenses' : 'income',
+      );
     }
   }
 
@@ -73,15 +79,15 @@ const ExpensesReport = ({
     setActiveIndex(index);
     setAct(false);
     const category = e.currentTarget.id;
-    dataArr(category, 'expenses');
+    dataArr(category, page === 'РАСХОДЫ' ? 'expenses' : 'income');
   };
 
   return (
     <div className={style.section}>
       <div className={style.box}>
         <ul className={style.list}>
-          {expensesArr.length > 0 &&
-            expensesArr.map((obj, index) => (
+          {transactionsArr.length > 0 &&
+            transactionsArr.map((obj, index) => (
               <li key={obj.value} className={style.listItem}>
                 <button
                   type="button"
@@ -107,4 +113,4 @@ const ExpensesReport = ({
   );
 };
 
-export default ExpensesReport;
+export default FinanceReport;

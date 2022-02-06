@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-import ExpensesReport from './ExpensesReport';
-import IncomeReport from './IncomeReport';
+import FinanceReport from './FinanceReport';
 import sprite from 'components/images/sprite.svg';
 
-import style from './ExpensesReport.module.css';
+import style from './Report.module.css';
 
 const ShowPage = ({ dataArr, act, setAct, activeIndex, setActiveIndex }) => {
   const [page, setPage] = useState(true);
@@ -44,23 +43,15 @@ const ShowPage = ({ dataArr, act, setAct, activeIndex, setActiveIndex }) => {
           </svg>
         </button>
       </div>
-      {page ? (
-        <ExpensesReport
-          dataArr={dataArr}
-          act={act}
-          setAct={setAct}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-        />
-      ) : (
-        <IncomeReport
-          dataArr={dataArr}
-          act={act}
-          setAct={setAct}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-        />
-      )}
+
+      <FinanceReport
+        dataArr={dataArr}
+        act={act}
+        setAct={setAct}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+        page={namePage}
+      />
     </>
   );
 };

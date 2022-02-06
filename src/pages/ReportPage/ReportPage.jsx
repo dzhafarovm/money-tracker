@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import DebedCreditReport from 'components/DebetCreditReport';
-import ShowPage from 'components/ShowPage';
+import Report from 'components/Report';
 import NavigationReport from 'components/NavigationReport';
 import StatisticsReport from 'components/StatisticsReport';
 import Balance from 'components/Balance';
@@ -26,14 +26,17 @@ const ReportPage = () => {
         setActiveIndex={setActiveIndex}
       />
       <Balance />
+
       <DebedCreditReport />
-      <ShowPage
+
+      <Report
         dataArr={dataArr}
         act={act}
         setAct={setAct}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
       />
+
       <StatisticsReport categoryName={categoryName} page={pageName} />
     </>
   );
