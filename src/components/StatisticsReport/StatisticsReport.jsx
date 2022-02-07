@@ -12,6 +12,7 @@ import {
   LabelList,
 } from 'recharts';
 
+import Spinner from 'components/Spinner';
 import transOperations from 'redux/transaction/transactions-operation.jsx';
 import transactionsSelectors from 'redux/transaction/transactions-selectors';
 import currentDateSelectors from 'redux/currentDate/currentDate-selectors';
@@ -22,8 +23,9 @@ const StatisticsReport = ({ categoryName, page }) => {
   const dispatch = useDispatch();
 
   const mobile = useBreakpoint(767);
-
+  const loading = useSelector(transactionsSelectors.getIsFetchingTransactions);
   const currentDate = useSelector(currentDateSelectors.getcurrentDate);
+
   const month = currentDate.month;
   const year = currentDate.year;
 
@@ -145,71 +147,85 @@ const StatisticsReport = ({ categoryName, page }) => {
 
   return (
     <>
-      {data[0] === 1 ? (
-        <p className={style.paragraph}>
-          В этом месяце нет {page === 'expenses' ? 'расходов' : 'доходов'}
-        </p>
-      ) : (
-        <div className={style.wrapper}>
-          <div className={style.section}>
-            <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart
-                data={data}
-                align="right"
-                barCategoryGap={mobile ? 10 : 5}
-                fill="#52555F"
-                fontSize={12}
-                maxBarSize={45}
-                margin={
-                  mobile
-                    ? { top: 25, right: 45, left: 5, bottom: 5 }
-                    : { top: 25, right: 10, left: 25, bottom: 110 }
-                }
-                layout={mobile ? 'vertical' : 'horizontal'}
-              >
-                <CartesianGrid
-                  horizontal={mobile ? false : true}
-                  vertical={false}
-                />
-                <XAxis
-                  dataKey={mobile ? '' : 'name'}
-                  type={mobile ? 'number' : 'category'}
-                  angle={-45}
-                  tick={<CustomizedAxisTick />}
-                  tickMargin={5}
-                  tickLine={false}
-                  axisLine={false}
-                  padding={mobile ? { left: 10 } : { top: 10 }}
-                  interval={0}
-                  hide={mobile ? true : false}
-                />
-                <YAxis
-                  dataKey={''}
-                  type={mobile ? 'category' : 'number'}
-                  padding={{ left: 0 }}
-                  tickCount={mobile ? 0 : 9}
-                  tickLine={false}
-                  axisLine={false}
-                  hide
-                />
-                <Bar
-                  dataKey="uv"
-                  minBarSize={mobile ? 20 : 5}
-                  minPointSize={5}
-                  radius={mobile ? [0, 10, 10, 0] : [10, 10, 0, 0]}
-                  label={mobile ? CustomizedMobileLabel : CustomizedLabel}
-                >
-                  {data !== [1] &&
-                    data.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={barColors[index % 3]} />
-                    ))}
-                  {mobile && (
-                    <LabelList dataKey="name" content={CustomizedLabelList} />
-                  )}
-                </Bar>
-              </ComposedChart>
-            </ResponsiveContainer>
+      {loading ? (
+        <div className={style.spinnerBox}>
+          <div className={style.spinner}>
+            <Spinner />
           </div>
+        </div>
+      ) : (
+        <div>
+          {data[0] === 1 ? (
+            <p className={style.paragraph}>В этом месяце нет транзакций</p>
+          ) : (
+            <div className={style.wrapper}>
+              <div className={style.section}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <ComposedChart
+                    data={data}
+                    align="right"
+                    barCategoryGap={mobile ? 10 : 5}
+                    fill="#52555F"
+                    fontSize={12}
+                    maxBarSize={45}
+                    margin={
+                      mobile
+                        ? { top: 25, right: 45, left: 5, bottom: 5 }
+                        : { top: 25, right: 10, left: 25, bottom: 110 }
+                    }
+                    layout={mobile ? 'vertical' : 'horizontal'}
+                  >
+                    <CartesianGrid
+                      horizontal={mobile ? false : true}
+                      vertical={false}
+                    />
+                    <XAxis
+                      dataKey={mobile ? '' : 'name'}
+                      type={mobile ? 'number' : 'category'}
+                      angle={-45}
+                      tick={<CustomizedAxisTick />}
+                      tickMargin={5}
+                      tickLine={false}
+                      axisLine={false}
+                      padding={mobile ? { left: 10 } : { top: 10 }}
+                      interval={0}
+                      hide={mobile ? true : false}
+                    />
+                    <YAxis
+                      dataKey={''}
+                      type={mobile ? 'category' : 'number'}
+                      padding={{ left: 0 }}
+                      tickCount={mobile ? 0 : 9}
+                      tickLine={false}
+                      axisLine={false}
+                      hide
+                    />
+                    <Bar
+                      dataKey="uv"
+                      minBarSize={mobile ? 20 : 5}
+                      minPointSize={5}
+                      radius={mobile ? [0, 10, 10, 0] : [10, 10, 0, 0]}
+                      label={mobile ? CustomizedMobileLabel : CustomizedLabel}
+                    >
+                      {data !== [1] &&
+                        data.map((entry, index) => (
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={barColors[index % 3]}
+                          />
+                        ))}
+                      {mobile && (
+                        <LabelList
+                          dataKey="name"
+                          content={CustomizedLabelList}
+                        />
+                      )}
+                    </Bar>
+                  </ComposedChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </>

@@ -15,6 +15,17 @@
     font-size: 18px;
     color: var(--primary-text-color);
   }
+
+  .spinnerBox {
+    position: relative;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -39,6 +50,17 @@
     font-size: 24px;
     color: var(--primary-text-color);
   }
+
+  .spinnerBox {
+    position: relative;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -55,5 +77,16 @@
     text-align: center;
     font-size: 24px;
     color: var(--primary-text-color);
+  }
+
+  .spinnerBox {
+    position: relative;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
